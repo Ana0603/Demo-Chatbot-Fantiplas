@@ -293,96 +293,96 @@ switch(step) {
 
 case 0:
   step = 1;
-  bot("¿Compras para empresa o uso personal?",["Empresa","Uso personal"]);
+  bot("Para hacer tu cotización necesito hacerte algunas preguntas: ¿Tu compra es para empresa o es algo personal?",["Empresa","Uso personal"]);
   break;
 
 case 1:
   data.tipoCliente = msg;
   step = 2;
-  bot("¿Qué tipo de producto necesitas?",["Envases alimentos","Cuidado personal","Hogar"]);
+  bot("Perfecto 👍 ¿Qué estás buscando hoy?",["Envases para alimentos","Cuidado personal","Hogar"]);
   break;
 
 case 2:
   data.tipoProducto = msg;
   step = 3;
-  bot("¿Volumen estimado?",["<1.000","1.000 - 10.000",">10.000"]);
+  bot("Para tener una idea 😊 ¿Qué cantidad estás pensando manejar?",["Menos de 1.000 unidades","1.000 a 10.000","Más de 10.000"]);
   break;
 
 case 3:
   data.volumen = msg;
   step = 4;
-  bot("¿Qué producto vas a envasar?");
+  bot("Cuéntame un poco más 👇 ¿Qué producto quieres envasar?");
   break;
 
 case 4:
   data.producto = msg;
   step = 5;
-  bot("Capacidad aproximada?");
+  bot("¿Qué capacidad estás buscando? (aproximada)");
   break;
 
 case 5:
   data.capacidad = msg;
   step = 6;
-  bot("¿Material?");
+  bot("¿Hay algún material que prefieras o necesitas recomendación?");
   break;
 
 case 6:
   data.material = msg;
   step = 7;
-  bot("¿Tienes un molde o necesitas crear uno?",["Nuevo","Ya tengo"]);
+  bot("¿Ya cuentas con un molde o necesitas desarrollarlo?",["Ya tengo","Necesito crear uno"]);
   break;
 
 case 7:
   data.molde = msg;
   step = 8;
-  bot("Perfecto, me podrias decir si quieres que sea en color o transparente",["Color","Transparente"]);
+  bot("Entendido 👍 ¿Lo necesitas transparente o en algún color específico?",["Transparente","Color"]);
   break;
 
 case 8:
   data.color = msg;
   step = 9;
-  bot("Perfecto, ¿En cuanto tiempo necesitas que sea la entrega?",["Urgente","1-3 meses","Cotizando"]);
+  bot("¿En qué plazo te gustaría recibirlo?",["Urgente","1 a 3 meses","Solo estoy cotizando"]);
   break;
 
 case 9:
   data.tiempo = msg;
   step = 10;
-  bot("Ultima pregunta ¿Haz cotizado con otros proveedores?",["Sí","No"]);
+  bot("Última pregunta 👀 ¿Has cotizado con otros proveedores?",["Sí","No"]);
   break;
 
 case 10:
   data.comparando = msg;
   step = 11;
-  bot("Para guardar tus datos necesitamos tu nombre por, favor");
+  bot("Perfecto 🙌 Para finalizar, ¿me compartes tu nombre?");
   break;
 
 case 11:
   data.nombre = msg;
   step = 12;
-  bot("Para que empresa trabajas");
+  bot("¿Para qué empresa trabajas?");
   break;
 
 case 12:
   data.empresa = msg;
   step = 13;
-  bot("Para conectarte con el asesor que atenderá tu pedido necesitamos tu correo");
+  bot("Para que un asesor te contacte directamente, ¿me compartes tu correo?");
   break;
 
 case 13:
   if (!msg.includes("@")) {
-    bot("⚠️ Ingresa un correo válido");
+    bot("⚠️ Solo para confirmar, ¿me puedes enviar un correo válido?");
     return;
   }
   data.email = msg;
   step = 14;
-  bot("Si prefieres que te contactemos por Whatsapp escribe tu némero");
+  bot("Si prefieres contacto por WhatsApp, también puedes dejarme tu número 📱");
   break;
 
 case 14:
   data.telefono = msg;
   step = 15;
 
-  bot("Gracias 🚀 Hemos guardado tu solicitud correctamente, el día de hoy tu asesor se contactará con tigo para aclarar mas detalles");
+  bot("¡Listo! 🚀 Ya recibimos tu solicitud. Un asesor se va a poner en contacto contigo muy pronto para ayudarte con los detalles.");
 
   fetch("https://hook.us2.make.com/hvl1sunf2xk4tq4mbkiwwvnndgk0s77q", {
     method:"POST",

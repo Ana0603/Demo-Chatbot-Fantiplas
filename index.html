@@ -319,8 +319,14 @@ bot("¿Qué necesitas hoy?",
     ["Cotizar envases", "Productos hogar", "Hablar con asesor"]
 );
 
-</script>
- toggleBtn.onclick = () => {
+<script>
+
+// ... TODO tu código del chatbot ...
+
+const toggleBtn = document.getElementById("chat-toggle");
+const chatWrapper = document.getElementById("chat-wrapper");
+
+toggleBtn.onclick = () => {
   chatWrapper.classList.toggle("hidden");
 
   if (chatWrapper.classList.contains("hidden")) {
@@ -329,6 +335,7 @@ bot("¿Qué necesitas hoy?",
     toggleBtn.innerText = "✖";
   }
 };
+
 </script>
 
 <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="69d7c1b3c62e0c578426e041"></script>

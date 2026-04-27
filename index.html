@@ -319,6 +319,16 @@ bot("¿Qué necesitas hoy?",
 );
   
 </script>
+
+  <script>
+toggleBtn.onclick = () => {
+  console.log("CLICK"); // 👈 prueba
+
+  chatWrapper.classList.toggle("hidden");
+
+  toggleBtn.innerText = chatWrapper.classList.contains("hidden") ? "💬" : "✖";
+};
+</script>
   
 <script>
 const toggleBtn = document.getElementById("chat-toggle");

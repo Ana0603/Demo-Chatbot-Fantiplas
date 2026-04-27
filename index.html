@@ -69,12 +69,55 @@ button.send {
   padding:10px 15px;
   border-radius:20px;
 }
+
+  #chat-toggle {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #89AF29;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  z-index: 999;
+}
+
+/* CHAT FLOTANTE */
+#chat-wrapper {
+  position: fixed;
+  bottom: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 380px;
+  height: 600px;
+  background: #fff;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  z-index: 998;
+}
+
+/* OCULTO */
+.hidden {
+  display: none;
+}
 </style>
 </head>
 
 <body>
+<!-- BOTÓN -->
+<div id="chat-toggle">💬</div>
 
-<div id="chat-wrapper">
+<!-- CHAT -->
+<div id="chat-wrapper" class="hidden">
   <div id="chat-header">FantiBot</div>
   <div id="chat"></div>
 
@@ -276,6 +319,16 @@ bot("¿Qué necesitas hoy?",
     ["Cotizar envases", "Productos hogar", "Hablar con asesor"]
 );
 
+</script>
+ toggleBtn.onclick = () => {
+  chatWrapper.classList.toggle("hidden");
+
+  if (chatWrapper.classList.contains("hidden")) {
+    toggleBtn.innerText = "💬";
+  } else {
+    toggleBtn.innerText = "✖";
+  }
+};
 </script>
 
 <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="69d7c1b3c62e0c578426e041"></script>

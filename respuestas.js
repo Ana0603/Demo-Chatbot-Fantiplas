@@ -389,7 +389,7 @@ const respuestasRapidas = {
 
 "alta rotacion": "Los productos de consumo masivo están diseñados para ventas frecuentes, distribución continua y alta rotación comercial.",
 
-"distribucion": "Trabajamos productos ideales para distribuidores, mayoristas y empresas que necesitan fabricación por volumen y alta disponibilidad."
+"distribucion": "Trabajamos productos ideales para distribuidores, mayoristas y empresas que necesitan fabricación por volumen y alta disponibilidad.",
 
   // HOGAR
   "hogar": "También contamos con productos para el hogar como recipientes, jarras, bowls, caramañolas, escurridores y soluciones de organización.",

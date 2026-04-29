@@ -467,6 +467,8 @@ case 100: {
 
 case 2:
 
+    data.volverStep = 2;
+
   const opcionesValidas = [
     "envases alimentos",
     "cuidado personal",
@@ -531,6 +533,38 @@ case 750:
       [
         "Seguir cotización",
         "Consultar productos"
+      ]
+    );
+  }
+
+  break;
+
+    case 760:
+
+  if (msg === "Aceptar") {
+    step = 300;
+
+    bot(
+      "Perfecto 😊 ahora cuéntame qué producto buscas o qué duda tienes."
+    );
+  }
+
+  else if (msg === "Volver a la cotización") {
+
+    bot("De acuerdo 😊");
+
+    setTimeout(() => {
+      bot("Volvamos a la cotización 🙌");
+      step = data.volverStep;
+    }, 1000);
+  }
+
+  else {
+    bot(
+      "Por favor selecciona una opción 😊",
+      [
+        "Aceptar",
+        "Volver a la cotización"
       ]
     );
   }

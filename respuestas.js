@@ -5,6 +5,8 @@ const respuestasRapidas = {
 
   "envase": "Trabajamos envases para alimentos, cosméticos, farmacéuticos, productos de aseo e industriales. Podemos ayudarte según capacidad, material y tipo de tapa.",
 
+  "frascos": "Trabajamos envases para alimentos, cosméticos, farmacéuticos, productos de aseo e industriales. Podemos ayudarte según capacidad, material y tipo de tapa.",
+
   "pet": "El PET ofrece alta transparencia, excelente presentación y buena resistencia. Es ideal para alimentos, cosméticos y productos líquidos.",
 
   "pead": "El PEAD (Polietileno de Alta Densidad) es resistente, durable e ideal para productos cosméticos, farmacéuticos y de aseo.",
@@ -16,12 +18,20 @@ const respuestasRapidas = {
   "farmaceutica": "Contamos con envases farmacéuticos como pastilleros, envases push down, flip top y soluciones para cápsulas, grageas y suplementos.",
 
   "farmacia": "Contamos con envases farmacéuticos como pastilleros, envases push down, flip top y soluciones para cápsulas, grageas y suplementos.",
+  
+  "farma": "Contamos con envases farmacéuticos como pastilleros, envases push down, flip top y soluciones para cápsulas, grageas y suplementos.",
 
   "cosmetico": "Fabricamos envases para cremas, shampoos, lociones, splash corporales, tratamientos capilares y productos dermocosméticos.",
+
+  "envase cosmetico": "Fabricamos envases para cremas, shampoos, lociones, splash corporales, tratamientos capilares y productos dermocosméticos.",
 
   "alimentos": "Tenemos envases para especias, condimentos, snacks, dulces, bomboneras y soluciones PET para productos alimenticios.",
 
   "aseo": "Fabricamos garrafas, envases de detergente, suavizantes, productos de limpieza y envases industriales para aseo.",
+
+  "envase aseo": "Fabricamos garrafas, envases de detergente, suavizantes, productos de limpieza y envases industriales para aseo.",
+
+  "envase para limpieza": "Fabricamos garrafas, envases de detergente, suavizantes, productos de limpieza y envases industriales para aseo.",
 
   "limpieza": "Fabricamos garrafas, envases de detergente, suavizantes, productos de limpieza y envases industriales para aseo.",
 
@@ -33,9 +43,15 @@ const respuestasRapidas = {
 
 "pastilleros": "Fabricamos envases farmacéuticos ideales para cápsulas, grageas, tabletas y suplementos, con excelente cierre y presentación profesional.",
 
+"envase pastillero": "Fabricamos envases farmacéuticos ideales para cápsulas, grageas, tabletas y suplementos, con excelente cierre y presentación profesional.",
+
 "pastillas": "Fabricamos envases farmacéuticos ideales para cápsulas, grageas, tabletas y suplementos, con excelente cierre y presentación profesional.",
 
+"envases para pastillas": "Fabricamos envases farmacéuticos ideales para cápsulas, grageas, tabletas y suplementos, con excelente cierre y presentación profesional.",
+
 "capsulas": "Nuestros envases para cápsulas están fabricados principalmente en PEAD por su resistencia, durabilidad y protección del producto.",
+
+"envases para capsulas": "Nuestros envases para cápsulas están fabricados principalmente en PEAD por su resistencia, durabilidad y protección del producto.",
 
 "grageas": "Tenemos envases diseñados para grageas, tabletas y nutracéuticos, ideales para almacenamiento seguro y presentación comercial.",
 
@@ -317,6 +333,64 @@ const respuestasRapidas = {
 
 "merchandising empresa": "Nuestros productos de merchandising son ideales para empresas que buscan artículos promocionales funcionales, durables y personalizables.",
 
+  /* LINEA CONSUMO MASIVO */
+
+"consumo masivo": "Contamos con una línea de consumo masivo enfocada en productos de alta rotación para hogar, infantil, escolar, mujer y juguetes, ideales para distribución y ventas por volumen.",
+
+"masivo hogar": "Nuestra línea Masivo Hogar incluye recipientes, platos, pocillos, botellas, botilitos, vasos, jarras, ganchos y productos funcionales para el uso diario del hogar.",
+
+"infantil": "En la línea infantil contamos con productos prácticos para niños y bebés, diseñados para uso diario con materiales resistentes y funcionales.",
+
+"bebes": "Tenemos productos infantiles y para bebés dentro de la línea de consumo masivo, pensados para practicidad, seguridad y alta rotación comercial.",
+
+"jabonera": "Fabricamos jaboneras y porta cepillos ideales para hogar, hoteles, promociones y distribución masiva.",
+
+"porta cepillo": "Nuestros porta cepillos plásticos son funcionales, resistentes y hacen parte de la línea de consumo masivo para hogar.",
+
+"recipientes masivos": "Contamos con recipientes plásticos multiusos para almacenamiento, cocina, hogar y distribución comercial en grandes volúmenes.",
+
+"platos": "Tenemos platos plásticos funcionales y resistentes para hogar, promociones, consumo masivo y uso diario.",
+
+"pocillos": "Fabricamos pocillos plásticos prácticos para hogar, promociones empresariales y consumo frecuente.",
+
+"botellas": "Nuestra línea incluye botellas plásticas para uso diario, promociones, hidratación y distribución comercial.",
+
+"botilitos": "Contamos con botilitos y caramañolas ideales para promociones, colegios, eventos y consumo masivo.",
+
+"ganchos": "Fabricamos ganchos plásticos funcionales para organización del hogar y uso comercial de alta rotación.",
+
+"vasos": "Disponemos de vasos plásticos resistentes para hogar, eventos, promociones y distribución masiva.",
+
+"jarras": "Tenemos jarras plásticas funcionales para bebidas, hogar, promociones y líneas de alto consumo.",
+
+"bolas navidad": "También fabricamos bolas navideñas plásticas decorativas para temporadas especiales y ventas de alto volumen.",
+
+"juguetes masivos": "Nuestra línea de juguetes incluye musicales, baldes, juegos didácticos y juguetes infantiles de alta rotación comercial.",
+
+"juguetes musicales": "Fabricamos juguetes musicales plásticos infantiles diseñados para entretenimiento y distribución masiva.",
+
+"baldes juguetes": "Contamos con baldes plásticos infantiles y juguetes tipo balde ideales para playa, juego y promociones.",
+
+"escolar": "La línea escolar incluye sanducheras, loncheras, botilitos, reglas, transportadores, estuches y útiles plásticos funcionales.",
+
+"sanducheras": "Fabricamos sanducheras plásticas resistentes para uso escolar, infantil y promociones empresariales.",
+
+"loncheras": "Tenemos loncheras plásticas funcionales y durables ideales para colegios, promociones y distribución masiva.",
+
+"botilito escolar": "Nuestros botilitos escolares son ideales para hidratación infantil, promociones y combos escolares.",
+
+"mujer": "La línea mujer incluye peines, diademas, pepas, chaquiras y accesorios plásticos de alta rotación comercial.",
+
+"diademas": "Fabricamos diademas plásticas funcionales y accesorios para mujer ideales para distribución comercial.",
+
+"peines": "Contamos con peines plásticos resistentes y funcionales para línea mujer y consumo masivo.",
+
+"chaquiras": "Tenemos chaquiras y accesorios decorativos dentro de nuestra línea femenina para ventas de alto movimiento.",
+
+"alta rotacion": "Los productos de consumo masivo están diseñados para ventas frecuentes, distribución continua y alta rotación comercial.",
+
+"distribucion": "Trabajamos productos ideales para distribuidores, mayoristas y empresas que necesitan fabricación por volumen y alta disponibilidad."
+
   // HOGAR
   "hogar": "También contamos con productos para el hogar como recipientes, jarras, bowls, caramañolas, escurridores y soluciones de organización.",
 
@@ -338,6 +412,8 @@ const respuestasRapidas = {
 
   // EMPRESA
   "certificaciones": "Contamos con certificaciones como ISO 9001, INVIMA, SMETA 4 pilares y certificaciones para línea de juguetes.",
+
+  "certificados": "Contamos con certificaciones como ISO 9001, INVIMA, SMETA 4 pilares y certificaciones para línea de juguetes.",
 
   "invima": "Nuestra planta está autorizada por INVIMA para contacto con productos farmacéuticos y alimenticios.",
 

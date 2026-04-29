@@ -91,91 +91,91 @@ const respuestasRapidas = {
 
   /* FAQS ENVASES PARA ALIMENTOS */
 
-"envases alimentos": "Contamos con envases para alimentos como condimenteros, botellas salseras, envases PET, bomboneras, envases para especias, snacks, dulces y soluciones para productos líquidos y sólidos. :contentReference[oaicite:0]{index=0}",
+"envases alimentos": "Contamos con envases para alimentos como condimenteros, botellas salseras, envases PET, bomboneras, envases para especias, snacks, dulces y soluciones para productos líquidos y sólidos.",
 
-"condimenteros": "Fabricamos envases condimenteros ideales para especias, sazonadores y productos secos, con opciones de tapa molino, flip top y diferentes capacidades. :contentReference[oaicite:1]{index=1}",
+"condimenteros": "Fabricamos envases condimenteros ideales para especias, sazonadores y productos secos, con opciones de tapa molino, flip top y diferentes capacidades.",
 
-"condimentos": "Fabricamos envases condimenteros ideales para especias, sazonadores y productos secos, con opciones de tapa molino, flip top y diferentes capacidades. :contentReference[oaicite:1]{index=1}",
+"condimentos": "Fabricamos envases condimenteros ideales para especias, sazonadores y productos secos, con opciones de tapa molino, flip top y diferentes capacidades.",
 
-"condimento": "Fabricamos envases condimenteros ideales para especias, sazonadores y productos secos, con opciones de tapa molino, flip top y diferentes capacidades. :contentReference[oaicite:1]{index=1}",  
+"condimento": "Fabricamos envases condimenteros ideales para especias, sazonadores y productos secos, con opciones de tapa molino, flip top y diferentes capacidades.",  
   
-"especias": "Tenemos envases para especias con tapas molino, flip top y soluciones prácticas para sazonadores, hierbas y condimentos de uso alimenticio. :contentReference[oaicite:2]{index=2}",
+"especias": "Tenemos envases para especias con tapas molino, flip top y soluciones prácticas para sazonadores, hierbas y condimentos de uso alimenticio.",
 
-"salseras": "Manejamos botellas salseras como la presentación de 240 ml con tapa flip top, ideales para salsas, aderezos y productos líquidos alimenticios. :contentReference[oaicite:3]{index=3}",
+"salseras": "Manejamos botellas salseras como la presentación de 240 ml con tapa flip top, ideales para salsas, aderezos y productos líquidos alimenticios.",
 
-"salsas": "Nuestros envases para salsas están diseñados para aderezos, vinagres, extractos y productos líquidos alimenticios, con excelente presentación y resistencia. :contentReference[oaicite:4]{index=4}",
+"salsas": "Nuestros envases para salsas están diseñados para aderezos, vinagres, extractos y productos líquidos alimenticios, con excelente presentación y resistencia.",
 
-"aderezos": "Fabricamos envases ideales para aderezos, salsas, vinagretas y productos líquidos alimenticios en PET y PEAD según la necesidad del cliente. :contentReference[oaicite:5]{index=5}",
+"aderezos": "Fabricamos envases ideales para aderezos, salsas, vinagretas y productos líquidos alimenticios en PET y PEAD según la necesidad del cliente.",
 
-"snacks": "Tenemos envases para snacks, dulces, bomboneras y productos secos que requieren buena presentación y protección del contenido. :contentReference[oaicite:6]{index=6}",
+"snacks": "Tenemos envases para snacks, dulces, bomboneras y productos secos que requieren buena presentación y protección del contenido.",
 
-"dulces": "Contamos con bomboneras y envases PET ideales para dulces, confitería y snacks, con excelente visibilidad del producto. :contentReference[oaicite:7]{index=7}",
+"dulces": "Contamos con bomboneras y envases PET ideales para dulces, confitería y snacks, con excelente visibilidad del producto.",
 
-"pet alimentos": "El PET es ideal para alimentos por su alta transparencia, resistencia y seguridad para contacto alimenticio. También ayuda a mejorar la presentación del producto. :contentReference[oaicite:8]{index=8}",
+"pet alimentos": "El PET es ideal para alimentos por su alta transparencia, resistencia y seguridad para contacto alimenticio. También ayuda a mejorar la presentación del producto.",
 
-"grado alimenticio": "Trabajamos envases en PET virgen grado alimenticio, diseñados para cumplir estándares sanitarios y ofrecer seguridad en contacto con alimentos. :contentReference[oaicite:9]{index=9}",
+"grado alimenticio": "Trabajamos envases en PET virgen grado alimenticio, diseñados para cumplir estándares sanitarios y ofrecer seguridad en contacto con alimentos.",
 
-"reciclable alimentos": "Nuestros envases están fabricados con materiales 100% nuevos y 100% reciclables, alineados con procesos responsables y sostenibles. :contentReference[oaicite:10]{index=10}",
+"reciclable alimentos": "Nuestros envases están fabricados con materiales 100% nuevos y 100% reciclables, alineados con procesos responsables y sostenibles.",
 
-"transparente alimentos": "Muchos envases para alimentos se fabrican en PET transparente para mejorar la visualización del contenido y la presentación comercial. :contentReference[oaicite:11]{index=11}",
+"transparente alimentos": "Muchos envases para alimentos se fabrican en PET transparente para mejorar la visualización del contenido y la presentación comercial.",
 
-"color personalizado alimentos": "Podemos fabricar envases en colores personalizados según volumen mínimo de producción. En algunas referencias aplica desde 10.000 unidades. :contentReference[oaicite:12]{index=12}",
+"color personalizado alimentos": "Podemos fabricar envases en colores personalizados según volumen mínimo de producción. En algunas referencias aplica desde 10.000 unidades.",
 
-"envase 2.5 litros": "El envase PET de 2.5 litros con tapa de seguridad es ideal para productos alimenticios líquidos o de mayor volumen. :contentReference[oaicite:13]{index=13}",
+"envase 2.5 litros": "El envase PET de 2.5 litros con tapa de seguridad es ideal para productos alimenticios líquidos o de mayor volumen.",
 
-"envase 110 ml": "Contamos con envases PET de 110 ml cilíndricos y cónicos con tapa molino, ideales para especias, condimentos y productos secos. :contentReference[oaicite:14]{index=14}",
+"envase 110 ml": "Contamos con envases PET de 110 ml cilíndricos y cónicos con tapa molino, ideales para especias, condimentos y productos secos.",
 
-"helado": "También manejamos envases como el envase helado de 1 litro, útil para alimentos líquidos y semilíquidos como helados, salsas, extractos y más. :contentReference[oaicite:15]{index=15}",
+"helado": "También manejamos envases como el envase helado de 1 litro, útil para alimentos líquidos y semilíquidos como helados, salsas, extractos y más.",
 
 "cantidad minima alimentos": "Las cantidades mínimas dependen de la referencia, pero muchos envases para alimentos manejan pedidos desde 1.000 unidades en adelante.",
 
-"tapa seguridad alimentos": "Disponemos de envases con tapa de seguridad para mayor protección del contenido y mejor control del producto, especialmente en productos líquidos. :contentReference[oaicite:16]{index=16}",
+"tapa seguridad alimentos": "Disponemos de envases con tapa de seguridad para mayor protección del contenido y mejor control del producto, especialmente en productos líquidos.",
 
-"tapa molino": "Las tapas molino son ideales para especias, condimentos y productos secos, permitiendo una dosificación práctica y cómoda. :contentReference[oaicite:17]{index=17}",
+"tapa molino": "Las tapas molino son ideales para especias, condimentos y productos secos, permitiendo una dosificación práctica y cómoda.",
 
-"flip top alimentos": "Las tapas flip top se usan mucho en botellas salseras y envases alimenticios para facilitar la dosificación de salsas y aderezos. :contentReference[oaicite:18]{index=18}",
+"flip top alimentos": "Las tapas flip top se usan mucho en botellas salseras y envases alimenticios para facilitar la dosificación de salsas y aderezos.",
 
 /* FAQS ENVASES COSMÉTICOS */
 
-"envases cosmeticos": "Fabricamos envases para cosméticos como shampoos, acondicionadores, cremas, lociones, splash corporales, tratamientos capilares, geles y productos de cuidado personal. :contentReference[oaicite:0]{index=0}",
+"envases cosmeticos": "Fabricamos envases para cosméticos como shampoos, acondicionadores, cremas, lociones, splash corporales, tratamientos capilares, geles y productos de cuidado personal.",
 
-"cosmetico": "Contamos con envases cosméticos en diferentes capacidades y materiales como PET, PEAD y PVC, ideales para líneas de cuidado personal y presentación profesional. :contentReference[oaicite:1]{index=1}",
+"cosmetico": "Contamos con envases cosméticos en diferentes capacidades y materiales como PET, PEAD y PVC, ideales para líneas de cuidado personal y presentación profesional.",
 
-"shampoo": "Nuestros envases cosméticos son ideales para shampoos, acondicionadores y tratamientos capilares, con opciones tipo bala, flip top y diferentes capacidades. :contentReference[oaicite:2]{index=2}",
+"shampoo": "Nuestros envases cosméticos son ideales para shampoos, acondicionadores y tratamientos capilares, con opciones tipo bala, flip top y diferentes capacidades.",
 
-"acondicionador": "Fabricamos envases para acondicionadores y tratamientos capilares con excelente presentación, resistencia y posibilidad de personalización por color. :contentReference[oaicite:3]{index=3}",
+"acondicionador": "Fabricamos envases para acondicionadores y tratamientos capilares con excelente presentación, resistencia y posibilidad de personalización por color.",
 
-"cremas": "Contamos con envases para cremas corporales, tratamientos cosméticos y productos dermocosméticos en diferentes presentaciones según la necesidad del cliente. :contentReference[oaicite:4]{index=4}",
+"cremas": "Contamos con envases para cremas corporales, tratamientos cosméticos y productos dermocosméticos en diferentes presentaciones según la necesidad del cliente.",
 
-"lociones": "Nuestros envases son ideales para lociones corporales, splash, geles y productos líquidos de cuidado personal, con excelente acabado visual. :contentReference[oaicite:5]{index=5}",
+"lociones": "Nuestros envases son ideales para lociones corporales, splash, geles y productos líquidos de cuidado personal, con excelente acabado visual.",
 
-"splash": "Fabricamos envases para splash corporales y productos líquidos cosméticos con diseños modernos y profesionales para punto de venta. :contentReference[oaicite:6]{index=6}",
+"splash": "Fabricamos envases para splash corporales y productos líquidos cosméticos con diseños modernos y profesionales para punto de venta.",
 
-"gel": "Tenemos envases para geles capilares, tratamientos y productos cosméticos líquidos en diferentes formatos y capacidades. :contentReference[oaicite:7]{index=7}",
+"gel": "Tenemos envases para geles capilares, tratamientos y productos cosméticos líquidos en diferentes formatos y capacidades.",
 
-"antibacterial": "También manejamos envases antibacterial de 60 ml con tapa flip top, ideales para gel antibacterial, alcohol glicerinado y productos de higiene personal. :contentReference[oaicite:8]{index=8}",
+"antibacterial": "También manejamos envases antibacterial de 60 ml con tapa flip top, ideales para gel antibacterial, alcohol glicerinado y productos de higiene personal.",
 
-"envase 250 ml cosmetico": "El envase bala de 250 ml en PVC con tapa PP es ideal para shampoos, acondicionadores, geles, cremas, lociones corporales y tratamientos capilares. :contentReference[oaicite:9]{index=9}",
+"envase 250 ml cosmetico": "El envase bala de 250 ml en PVC con tapa PP es ideal para shampoos, acondicionadores, geles, cremas, lociones corporales y tratamientos capilares.",
 
-"envase 120 ml cosmetico": "Contamos con envases cosméticos de 120 ml tipo bala con tapa flip top, ideales para productos capilares, cremas y cuidado personal. :contentReference[oaicite:10]{index=10}",
+"envase 120 ml cosmetico": "Contamos con envases cosméticos de 120 ml tipo bala con tapa flip top, ideales para productos capilares, cremas y cuidado personal.",
 
-"envase 300 ml cosmetico": "Manejamos envases cosméticos de 300 ml en PEAD con tapa, ideales para líneas de cuidado personal y presentación profesional. :contentReference[oaicite:11]{index=11}",
+"envase 300 ml cosmetico": "Manejamos envases cosméticos de 300 ml en PEAD con tapa, ideales para líneas de cuidado personal y presentación profesional.",
 
-"bala": "Los envases tipo bala ofrecen una presentación moderna, limpia y profesional, muy usados en líneas de shampoo, cremas, geles y lociones. :contentReference[oaicite:12]{index=12}",
+"bala": "Los envases tipo bala ofrecen una presentación moderna, limpia y profesional, muy usados en líneas de shampoo, cremas, geles y lociones.",
 
-"flip top cosmetico": "Las tapas flip top son ideales para envases cosméticos porque facilitan la dosificación de shampoos, cremas, lociones y geles. :contentReference[oaicite:13]{index=13}",
+"flip top cosmetico": "Las tapas flip top son ideales para envases cosméticos porque facilitan la dosificación de shampoos, cremas, lociones y geles.",
 
-"pet cosmetico": "El PET ofrece alta transparencia y excelente presentación visual, ideal para productos cosméticos líquidos y de exhibición comercial. :contentReference[oaicite:14]{index=14}",
+"pet cosmetico": "El PET ofrece alta transparencia y excelente presentación visual, ideal para productos cosméticos líquidos y de exhibición comercial.",
 
-"pead cosmetico": "El PEAD es muy usado en cosmética por su resistencia, durabilidad y excelente comportamiento en productos de cuidado personal y aseo. :contentReference[oaicite:15]{index=15}",
+"pead cosmetico": "El PEAD es muy usado en cosmética por su resistencia, durabilidad y excelente comportamiento en productos de cuidado personal y aseo.",
 
-"pvc cosmetico": "El PVC se utiliza en envases cosméticos por su buena presentación, resistencia y compatibilidad con productos líquidos de cuidado personal. :contentReference[oaicite:16]{index=16}",
+"pvc cosmetico": "El PVC se utiliza en envases cosméticos por su buena presentación, resistencia y compatibilidad con productos líquidos de cuidado personal.",
 
-"color cosmetico": "Muchos envases cosméticos pueden fabricarse en colores personalizados desde 5.000 unidades, permitiendo desarrollar líneas exclusivas alineadas con la marca. :contentReference[oaicite:17]{index=17}",
+"color cosmetico": "Muchos envases cosméticos pueden fabricarse en colores personalizados desde 5.000 unidades, permitiendo desarrollar líneas exclusivas alineadas con la marca.",
 
-"personalizacion cosmetico": "Podemos fabricar envases cosméticos personalizados en color según el volumen mínimo de producción y la referencia seleccionada. :contentReference[oaicite:18]{index=18}",
+"personalizacion cosmetico": "Podemos fabricar envases cosméticos personalizados en color según el volumen mínimo de producción y la referencia seleccionada.",
 
-"cantidad minima cosmetico": "Las cantidades mínimas dependen de la referencia, pero muchos envases cosméticos manejan pedidos desde 1.000 unidades en adelante, y colores personalizados desde 5.000 unidades. :contentReference[oaicite:19]{index=19}",
+"cantidad minima cosmetico": "Las cantidades mínimas dependen de la referencia, pero muchos envases cosméticos manejan pedidos desde 1.000 unidades en adelante, y colores personalizados desde 5.000 unidades.",
 
 /* ENVASES LÍNEA ASEO */
 
@@ -215,51 +215,51 @@ const respuestasRapidas = {
 
 /* TAPAS INDUSTRIALES */
 
-"tapas industriales": "Fabricamos tapas plásticas para envases alimenticios, farmacéuticos, cosméticos y de aseo, con diferentes sistemas de cierre como flip top, push down, tapa molino, liners y tapas de seguridad. :contentReference[oaicite:0]{index=0}",
+"tapas industriales": "Fabricamos tapas plásticas para envases alimenticios, farmacéuticos, cosméticos y de aseo, con diferentes sistemas de cierre como flip top, push down, tapa molino, liners y tapas de seguridad.",
 
-"tapas": "Contamos con tapas flip top, push down, tapas molino, liners, tapas lisas y soluciones industriales para diferentes tipos de envases y necesidades de dosificación. :contentReference[oaicite:1]{index=1}",
+"tapas": "Contamos con tapas flip top, push down, tapas molino, liners, tapas lisas y soluciones industriales para diferentes tipos de envases y necesidades de dosificación.",
 
-"flip top": "Las tapas flip top permiten una apertura práctica y segura, ideales para cosméticos, farmacéuticos, especias, condimentos y productos de uso frecuente. :contentReference[oaicite:2]{index=2}",
+"flip top": "Las tapas flip top permiten una apertura práctica y segura, ideales para cosméticos, farmacéuticos, especias, condimentos y productos de uso frecuente.",
 
-"tapa flip top": "Manejamos tapas flip top en diferentes medidas como 38 mm y 60 mm, ideales para envases de especias, suplementos y productos líquidos. :contentReference[oaicite:3]{index=3}",
+"tapa flip top": "Manejamos tapas flip top en diferentes medidas como 38 mm y 60 mm, ideales para envases de especias, suplementos y productos líquidos.",
 
-"tapa 38 mm": "La tapa flip top de 38 mm está disponible en versiones de 4 huecos y 12 huecos, diseñada para una dosificación uniforme de especias, condimentos y productos granulados. :contentReference[oaicite:4]{index=4}",
+"tapa 38 mm": "La tapa flip top de 38 mm está disponible en versiones de 4 huecos y 12 huecos, diseñada para una dosificación uniforme de especias, condimentos y productos granulados.",
 
-"12 huecos": "La tapa 38 mm de 12 huecos flip top facilita la dosificación uniforme de productos granulados o en polvo como especias y sazonadores. Está fabricada en PP y es apta para uso alimenticio. :contentReference[oaicite:5]{index=5}",
+"12 huecos": "La tapa 38 mm de 12 huecos flip top facilita la dosificación uniforme de productos granulados o en polvo como especias y sazonadores. Está fabricada en PP y es apta para uso alimenticio.",
 
-"4 huecos": "La tapa 38 mm de 4 huecos flip top es ideal para controlar la salida de especias, condimentos y productos secos de uso alimenticio. :contentReference[oaicite:6]{index=6}",
+"4 huecos": "La tapa 38 mm de 4 huecos flip top es ideal para controlar la salida de especias, condimentos y productos secos de uso alimenticio.",
 
-"tapa molino": "La tapa molino se usa principalmente en envases de especias y condimentos, permitiendo una dosificación práctica y cómoda del producto. :contentReference[oaicite:7]{index=7}",
+"tapa molino": "La tapa molino se usa principalmente en envases de especias y condimentos, permitiendo una dosificación práctica y cómoda del producto.",
 
-"push down": "Las tapas push down son ideales para productos farmacéuticos y cosméticos que requieren una dispensación controlada y práctica. :contentReference[oaicite:8]{index=8}",
+"push down": "Las tapas push down son ideales para productos farmacéuticos y cosméticos que requieren una dispensación controlada y práctica.",
 
-"tapa push down": "Manejamos tapa Push Down de 45 mm sin liner, ideal para soluciones farmacéuticas y productos de uso controlado. :contentReference[oaicite:9]{index=9}",
+"tapa push down": "Manejamos tapa Push Down de 45 mm sin liner, ideal para soluciones farmacéuticas y productos de uso controlado.",
 
-"liner": "Disponemos de liners de presión en diferentes medidas como 38 mm, 45 mm, 58 mm, 63 mm y 80 mm para mejorar el sellado y protección del producto. :contentReference[oaicite:10]{index=10}",
+"liner": "Disponemos de liners de presión en diferentes medidas como 38 mm, 45 mm, 58 mm, 63 mm y 80 mm para mejorar el sellado y protección del producto.",
 
-"liner 38 mm": "El liner de 38 mm a presión ayuda a mejorar el cierre hermético y la protección del contenido en diferentes tipos de envases. :contentReference[oaicite:11]{index=11}",
+"liner 38 mm": "El liner de 38 mm a presión ayuda a mejorar el cierre hermético y la protección del contenido en diferentes tipos de envases.",
 
-"liner 45 mm": "El liner 45 mm de presión ofrece mayor seguridad de cierre y mejor conservación del producto almacenado. :contentReference[oaicite:12]{index=12}",
+"liner 45 mm": "El liner 45 mm de presión ofrece mayor seguridad de cierre y mejor conservación del producto almacenado.",
 
-"liner 58 mm": "Contamos con liner 58 mm para mejorar el sellado y seguridad de envases industriales y farmacéuticos. :contentReference[oaicite:13]{index=13}",
+"liner 58 mm": "Contamos con liner 58 mm para mejorar el sellado y seguridad de envases industriales y farmacéuticos.",
 
-"liner 63 mm": "El liner 63 mm de presión está diseñado para brindar mejor protección y control del producto dentro del envase. :contentReference[oaicite:14]{index=14}",
+"liner 63 mm": "El liner 63 mm de presión está diseñado para brindar mejor protección y control del producto dentro del envase.",
 
-"liner 80 mm": "También manejamos liner 80 mm de presión para envases de mayor diámetro y soluciones industriales. :contentReference[oaicite:15]{index=15}",
+"liner 80 mm": "También manejamos liner 80 mm de presión para envases de mayor diámetro y soluciones industriales.",
 
-"pastillero": "La tapa flip top 38-410 tipo pastillero está diseñada para envases farmacéuticos, nutracéuticos y suplementos, facilitando la dispensación de tabletas y cápsulas. :contentReference[oaicite:16]{index=16}",
+"pastillero": "La tapa flip top 38-410 tipo pastillero está diseñada para envases farmacéuticos, nutracéuticos y suplementos, facilitando la dispensación de tabletas y cápsulas.",
 
-"38-410": "La tapa 38-410 tipo pastillero es compatible con envases farmacéuticos de cuello estándar y está disponible en blanco, negro y traslúcido. :contentReference[oaicite:17]{index=17}",
+"38-410": "La tapa 38-410 tipo pastillero es compatible con envases farmacéuticos de cuello estándar y está disponible en blanco, negro y traslúcido.",
 
-"polipropileno": "Muchas de nuestras tapas están fabricadas en Polipropileno (PP), un material resistente, ligero y durable ideal para aplicaciones industriales. :contentReference[oaicite:18]{index=18}",
+"polipropileno": "Muchas de nuestras tapas están fabricadas en Polipropileno (PP), un material resistente, ligero y durable ideal para aplicaciones industriales.",
 
-"pp tapas": "El PP (Polipropileno) ofrece excelente resistencia, durabilidad y practicidad, por eso se usa ampliamente en tapas industriales y sistemas de cierre. :contentReference[oaicite:19]{index=19}",
+"pp tapas": "El PP (Polipropileno) ofrece excelente resistencia, durabilidad y practicidad, por eso se usa ampliamente en tapas industriales y sistemas de cierre.",
 
-"color tapas": "Las tapas pueden fabricarse en colores como blanco, negro, traslúcido y también personalizarse según el volumen de producción. :contentReference[oaicite:20]{index=20}",
+"color tapas": "Las tapas pueden fabricarse en colores como blanco, negro, traslúcido y también personalizarse según el volumen de producción.",
 
-"cantidad minima tapas": "Las cantidades mínimas dependen de la referencia, pero muchas tapas industriales manejan producción desde volúmenes altos como 40.000 unidades por día según el modelo. :contentReference[oaicite:21]{index=21}",
+"cantidad minima tapas": "Las cantidades mínimas dependen de la referencia, pero muchas tapas industriales manejan producción desde volúmenes altos como 40.000 unidades por día según el modelo.",
 
-"tapa detergente": "También manejamos la tapa para envase detergente líquido de 4000 ml, ideal para productos de aseo y envases de gran volumen. :contentReference[oaicite:22]{index=22}",
+"tapa detergente": "También manejamos la tapa para envase detergente líquido de 4000 ml, ideal para productos de aseo y envases de gran volumen.",
 
 /* LINEA MERCHANDISING */
 
@@ -337,9 +337,9 @@ const respuestasRapidas = {
   "color": "Sí, manejamos fabricación en diferentes colores según volumen mínimo y tipo de producto.",
 
   // EMPRESA
-  "certificaciones": "Contamos con certificaciones como ISO 9001, INVIMA, SMETA 4 pilares y certificaciones para línea de juguetes. :contentReference[oaicite:2]{index=2}",
+  "certificaciones": "Contamos con certificaciones como ISO 9001, INVIMA, SMETA 4 pilares y certificaciones para línea de juguetes.",
 
-  "invima": "Nuestra planta está autorizada por INVIMA para contacto con productos farmacéuticos y alimenticios. :contentReference[oaicite:3]{index=3}",
+  "invima": "Nuestra planta está autorizada por INVIMA para contacto con productos farmacéuticos y alimenticios.",
 
   "minimo": "Las cantidades mínimas dependen del producto. Algunos inician desde 1.000 unidades y otros desde 3.000 o más según personalización.",
 

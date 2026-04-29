@@ -779,38 +779,6 @@ case 600:
 
   break;
   }
-
-  case 750:
-
-  if (msg === "Seguir cotización") {
-
-    bot("De acuerdo 😊");
-
-    setTimeout(() => {
-      bot("Volvamos a la cotización 🙌");
-      step = data.volverStep;
-    }, 1000);
-  }
-
-  else if (msg === "Consultar productos") {
-    step = 300;
-
-    bot(
-      "Entendido 😊 Ten en cuenta que al salir de la cotización será necesario comenzarla nuevamente después.\n\nAhora cuéntame qué producto buscas o qué duda tienes."
-    );
-  }
-
-  else {
-    bot(
-      "Por favor selecciona una opción 😊",
-      [
-        "Seguir cotización",
-        "Consultar productos"
-      ]
-    );
-  }
-
-  break;
   
 }
 

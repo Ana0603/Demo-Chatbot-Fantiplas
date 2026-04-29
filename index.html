@@ -301,8 +301,7 @@ case 0:
     "contactar con un asesor"
   ];
 
-  // Si escribe algo diferente a las opciones iniciales
-  if (!opcionesInicio.includes(msg)) {
+  if (!opcionesInicio.includes(msg.toLowerCase())) {
     bot(
       "Para poder ayudarte mejor 😊 por favor selecciona una opción:",
       [
@@ -314,7 +313,6 @@ case 0:
     break;
   }
 
-  // Ruta cotización
   if (msg === "Cotizar envases") {
     step = 1;
 
@@ -327,7 +325,6 @@ case 0:
     );
   }
 
-  // Ruta consultas
   else if (msg === "Consultas de productos") {
     step = 300;
 
@@ -336,7 +333,6 @@ case 0:
     );
   }
 
-  // Ruta asesor
   else if (msg === "Contactar con un asesor") {
     step = 200;
 
@@ -346,6 +342,7 @@ case 0:
   }
 
   break;
+
 
 case 1: {
 
@@ -395,7 +392,6 @@ case 1: {
     break;
   }
 
-  // Si selecciona empresa
   step = 2;
 
   bot(
@@ -408,6 +404,7 @@ case 1: {
   );
 
   break;
+}
 
 
 case 100: {
@@ -452,6 +449,7 @@ case 100: {
   break;
 }
 
+
 case 2:
 
   const opcionesValidas = [
@@ -460,8 +458,7 @@ case 2:
     "hogar"
   ];
 
-  // Si escribe algo diferente a las opciones esperadas
-  if (!opcionesValidas.includes(msg)) {
+  if (!opcionesValidas.includes(msg.toLowerCase())) {
     step = 750;
 
     bot(
@@ -475,7 +472,6 @@ case 2:
     break;
   }
 
-  // Si sí seleccionó una opción válida, continúa normal
   data.tipoProducto = msg;
   step = 3;
 
@@ -490,42 +486,7 @@ case 2:
 
   break;
 
-    case 750:
 
-  if (msg === "Seguir cotización") {
-    step = 2;
-
-    bot(
-      "Perfecto 🙌 continuemos.\n\n¿Qué tipo de producto necesitas?",
-      [
-        "Envases alimentos",
-        "Cuidado personal",
-        "Hogar"
-      ]
-    );
-  }
-
-  else if (msg === "Consultar productos") {
-    step = 300;
-
-    bot(
-      "Claro 😊 cuéntame qué producto buscas o qué duda tienes."
-    );
-  }
-
-  else {
-    bot(
-      "Por favor selecciona una opción 😊",
-      [
-        "Seguir cotización",
-        "Consultar productos"
-      ]
-    );
-  }
-
-  break;
-
-case 3:
 case 750:
 
   if (msg === "Seguir cotización") {
@@ -561,11 +522,20 @@ case 750:
 
   break;
 
+
+case 3:
+  data.cantidad = msg;
+  step = 4;
+  bot("¿Qué producto específico necesitas?");
+  break;
+
+
 case 4:
   data.producto = msg;
   step = 5;
   bot("¿Qué capacidad estás buscando? (aproximada)");
   break;
+
 
 case 5:
   data.capacidad = msg;
@@ -573,29 +543,46 @@ case 5:
   bot("¿Hay algún material que prefieras o necesitas recomendación?");
   break;
 
+
 case 6:
   data.material = msg;
   step = 7;
-  bot("¿Ya cuentas con un molde o necesitas desarrollarlo?",["Ya tengo","Necesito crear uno"]);
+  bot(
+    "¿Ya cuentas con un molde o necesitas desarrollarlo?",
+    ["Ya tengo", "Necesito crear uno"]
+  );
   break;
+
 
 case 7:
   data.molde = msg;
   step = 8;
-  bot("Entendido 👍 ¿Lo necesitas transparente o en algún color específico?",["Transparente","Color"]);
+  bot(
+    "Entendido 👍 ¿Lo necesitas transparente o en algún color específico?",
+    ["Transparente", "Color"]
+  );
   break;
+
 
 case 8:
   data.color = msg;
   step = 9;
-  bot("¿En qué plazo te gustaría recibirlo?",["Urgente","1 a 3 meses","Solo estoy cotizando"]);
+  bot(
+    "¿En qué plazo te gustaría recibirlo?",
+    ["Urgente", "1 a 3 meses", "Solo estoy cotizando"]
+  );
   break;
+
 
 case 9:
   data.tiempo = msg;
   step = 10;
-  bot("Última pregunta 👀 ¿Has cotizado con otros proveedores?",["Sí","No"]);
+  bot(
+    "Última pregunta 👀 ¿Has cotizado con otros proveedores?",
+    ["Sí", "No"]
+  );
   break;
+
 
 case 10:
   data.comparando = msg;
@@ -603,51 +590,112 @@ case 10:
   bot("Perfecto 🙌 Para finalizar, ¿me compartes tu nombre?");
   break;
 
+
 case 11:
   data.nombre = msg;
   step = 12;
   bot("¿Para qué empresa trabajas?");
   break;
 
-  case "Preguntas sobre productos":
-  step = 100;
-  bot("Cuéntame qué producto estás buscando o qué duda tienes 😊");
+
+case 12:
+  data.empresa = msg;
+  step = 13;
+  bot("Para que un asesor te contacte directamente, ¿me compartes tu correo?");
   break;
 
-case 300:
-  const texto = msg.toLowerCase();
 
+case 13:
+  if (!msg.includes("@")) {
+    bot("⚠️ Solo para confirmar, ¿me puedes enviar un correo válido?");
+    return;
+  }
+
+  data.email = msg;
+  step = 14;
+  bot("Si prefieres contacto por WhatsApp, también puedes dejarme tu número 📱");
+  break;
+
+
+case 14:
+  data.telefono = msg;
+  step = 500;
+
+  bot("¡Listo! 🚀 Ya recibimos tu solicitud. Un asesor se pondrá en contacto contigo muy pronto.");
+
+  break;
+
+
+case 300: {
+
+  const texto = msg.toLowerCase();
   let respondido = false;
 
   const quiereCotizar = palabrasCotizacion.some(p =>
-  texto.includes(p)
-);
-
-if (quiereCotizar) {
-  step = 650;
-
-  bot(
-    "Parece que buscas una cotización 😊 ¿qué prefieres hacer?",
-    [
-      "Cotizar envases",
-      "Seguir consultando"
-    ]
+    texto.includes(p)
   );
+
+  if (quiereCotizar) {
+    step = 650;
+
+    bot(
+      "Parece que buscas una cotización 😊 ¿qué prefieres hacer?",
+      [
+        "Cotizar envases",
+        "Seguir consultando"
+      ]
+    );
+
+    break;
+  }
+
+  const preguntasPrecio = [
+    "precio",
+    "valor",
+    "costo",
+    "cuanto vale",
+    "cuánto vale",
+    "cuanto cuesta",
+    "cuánto cuesta"
+  ];
+
+  const preguntaPrecio = preguntasPrecio.some(p =>
+    texto.includes(p)
+  );
+
+  if (preguntaPrecio) {
+    step = 600;
+
+    bot(
+      "Para calcular el precio de un producto necesitamos analizar factores como molde, material, color, decorado y volumen de producción.\n\nPor eso te recomendamos realizar una cotización para que un asesor revise tu necesidad y pueda darte un precio más preciso 😊",
+      [
+        "Cotizar productos",
+        "Hablar con asesor"
+      ]
+    );
+
+    break;
+  }
+
+  for (let clave in respuestasRapidas) {
+    if (texto.includes(clave)) {
+      bot(respuestasRapidas[clave]);
+      respondido = true;
+      break;
+    }
+  }
+
+  if (!respondido) {
+    bot(
+      "No encontré esa información exacta todavía, pero un asesor puede ayudarte mejor 😊"
+    );
+  }
 
   break;
 }
 
-const preguntasPrecio = [
-  "precio",
-  "valor",
-  "costo",
-  "cuanto vale",
-  "cuánto vale",
-  "cuanto cuesta",
-  "cuánto cuesta"
-];
 
-    case 650:
+case 650:
 
   if (msg === "Cotizar envases") {
     step = 1;
@@ -678,91 +726,8 @@ const preguntasPrecio = [
 
   break;
 
-const preguntaPrecio = preguntasPrecio.some(p =>
-  texto.includes(p)
-);
 
-if (preguntaPrecio) {
-  step = 600;
-
-  bot(
-    "Para calcular el precio de un producto necesitamos analizar factores como molde, material, color, decorado y volumen de producción.\n\nPor eso te recomendamos realizar una cotización para que un asesor revise tu necesidad y pueda darte un precio más preciso 😊",
-    [
-      "Cotizar productos",
-      "Hablar con asesor"
-    ]
-  );
-
-  break;
-}
-
-  for (let clave in respuestasRapidas) {
-    if (texto.includes(clave)) {
-      bot(respuestasRapidas[clave]);
-      respondido = true;
-      break;
-    }
-  }
-
-  if (!respondido) {
-    bot("No encontré esa información exacta todavía, pero un asesor puede ayudarte mejor 😊");
-  }
-
-  break;
-
-case 12:
-  data.empresa = msg;
-  step = 13;
-  bot("Para que un asesor te contacte directamente, ¿me compartes tu correo?");
-  break;
-
-case 13:
-  if (!msg.includes("@")) {
-    bot("⚠️ Solo para confirmar, ¿me puedes enviar un correo válido?");
-    return;
-  }
-  data.email = msg;
-  step = 14;
-  bot("Si prefieres contacto por WhatsApp, también puedes dejarme tu número 📱");
-  break;
-
-case 14:
-  data.telefono = msg;
-  step = 500;
-
-  bot("¡Listo! 🚀 Ya recibimos tu solicitud. Un asesor se pondrá en contacto contigo muy pronto.");
-
-  fetch("https://hook.us2.make.com/hvl1sunf2xk4tq4mbkiwwvnndgk0s77q", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json"
-  },
-  body: JSON.stringify(data)
-})
-.then(response => {
-  console.log("Status:", response.status);
-  return response.text();
-})
-.then(result => {
-  console.log("Respuesta Make:", result);
-})
-.catch(error => {
-  console.error("Error real:", error);
-});
-
-  setTimeout(() => {
-    bot(
-      "Mientras tanto 😊 ¿quieres resolver alguna duda adicional?",
-      [
-        "Consultar productos",
-        "Hablar con asesor"
-      ]
-    );
-  }, 1500);
-
-  break;
-
-  case 500:
+case 500:
 
   if (msg === "Consultar productos") {
     step = 300;
@@ -786,10 +751,12 @@ case 14:
 
   break;
 
-  case 600:
+
+case 600:
 
   if (msg === "Cotizar productos") {
     step = 1;
+
     bot(
       "Perfecto 🙌 vamos a ayudarte con tu cotización.\n\n¿Compras para empresa o uso personal?",
       ["Empresa", "Uso personal"]
@@ -813,23 +780,7 @@ case 14:
 
   break;
 
-  
 }
-}
-  
-const palabrasCotizacion = [
-  "cotizar",
-  "comprar",
-  "pedido",
-  "proveedor",
-  "fabricar",
-  "produccion",
-  "necesito",
-  "quiero",
-  "volumen",
-  "cantidad",
-  "unidades"
-];
 
 /* TOGGLE */
 const toggleBtn = document.getElementById("chat-toggle");

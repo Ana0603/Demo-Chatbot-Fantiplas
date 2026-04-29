@@ -347,14 +347,13 @@ case 0:
 
   break;
 
-case 1:
+case 1: {
 
   const opcionesTipoCliente = [
-    "empresa", "soy empresa", "tengo empresa", "para empresa", "para negocio", "para tienda",
-    "uso personal" "para mi" "yo"
+    "Empresa",
+    "Uso personal"
   ];
 
-  // Si escribe algo diferente a las opciones esperadas
   if (!opcionesTipoCliente.includes(msg.trim())) {
     step = 750;
     data.volverStep = 1;
@@ -372,7 +371,6 @@ case 1:
 
   data.tipoCliente = msg.trim();
 
-  // Si selecciona uso personal
   if (data.tipoCliente === "Uso personal") {
 
     bot("Gracias por escribirnos 😊");
@@ -412,7 +410,7 @@ case 1:
   break;
 
 
-case 100:
+case 100: {
 
   const opcionesUsoPersonal = [
     "Soy empresa",
@@ -452,6 +450,7 @@ case 100:
   }
 
   break;
+}
 
 case 2:
 

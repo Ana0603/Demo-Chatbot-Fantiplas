@@ -161,7 +161,7 @@ const respuestasRapidas = {
 
 "personalizacion cosmetico": "Podemos fabricar envases cosméticos personalizados en color según el volumen mínimo de producción y la referencia seleccionada. :contentReference[oaicite:18]{index=18}",
 
-"cantidad minima cosmetico": "Las cantidades mínimas dependen de la referencia, pero muchos envases cosméticos manejan pedidos desde 1.000 unidades en adelante, y colores personalizados desde 5.000 unidades. :contentReference[oaicite:19]{index=19}"
+"cantidad minima cosmetico": "Las cantidades mínimas dependen de la referencia, pero muchos envases cosméticos manejan pedidos desde 1.000 unidades en adelante, y colores personalizados desde 5.000 unidades. :contentReference[oaicite:19]{index=19}",
 
 /* ENVASES LÍNEA ASEO */
 
@@ -195,7 +195,7 @@ const respuestasRapidas = {
 
 "cantidad minima aseo": "Las cantidades mínimas para envases de aseo dependen de la referencia, pero normalmente manejamos pedidos desde 1.000 unidades en adelante.",
 
-"envases industriales": "Fabricamos envases industriales para detergentes, desinfectantes, limpiadores y productos químicos de uso comercial e institucional."
+"envases industriales": "Fabricamos envases industriales para detergentes, desinfectantes, limpiadores y productos químicos de uso comercial e institucional.",
 
 /* TAPAS INDUSTRIALES */
 
@@ -243,7 +243,7 @@ const respuestasRapidas = {
 
 "cantidad minima tapas": "Las cantidades mínimas dependen de la referencia, pero muchas tapas industriales manejan producción desde volúmenes altos como 40.000 unidades por día según el modelo. :contentReference[oaicite:21]{index=21}",
 
-"tapa detergente": "También manejamos la tapa para envase detergente líquido de 4000 ml, ideal para productos de aseo y envases de gran volumen. :contentReference[oaicite:22]{index=22}"
+"tapa detergente": "También manejamos la tapa para envase detergente líquido de 4000 ml, ideal para productos de aseo y envases de gran volumen. :contentReference[oaicite:22]{index=22}",
 
 /* LINEA MERCHANDISING */
 
@@ -299,7 +299,7 @@ const respuestasRapidas = {
 
 "portavasos": "Manejamos individuales y porta vasos plásticos funcionales para promociones y línea hogar.",
 
-"merchandising empresa": "Nuestros productos de merchandising son ideales para empresas que buscan artículos promocionales funcionales, durables y personalizables."
+"merchandising empresa": "Nuestros productos de merchandising son ideales para empresas que buscan artículos promocionales funcionales, durables y personalizables.",
 
   // HOGAR
   "hogar": "También contamos con productos para el hogar como recipientes, jarras, bowls, caramañolas, escurridores y soluciones de organización.",

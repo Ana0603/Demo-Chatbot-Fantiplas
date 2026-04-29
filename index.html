@@ -295,32 +295,55 @@ switch(step) {
 
 case 0:
 
+  const opcionesInicio = [
+    "Cotizar envases",
+    "Consultas de productos",
+    "Contactar con un asesor"
+  ];
+
+  // Si escribe algo diferente a las opciones iniciales
+  if (!opcionesInicio.includes(msg)) {
+    bot(
+      "Para poder ayudarte mejor 😊 por favor selecciona una opción:",
+      [
+        "Cotizar envases",
+        "Consultas de productos",
+        "Contactar con un asesor"
+      ]
+    );
+    break;
+  }
+
+  // Ruta cotización
   if (msg === "Cotizar envases") {
     step = 1;
-    bot("¿Compras para empresa o uso personal?",
-      ["Empresa", "Uso personal"]);
+
+    bot(
+      "¿Compras para empresa o uso personal?",
+      [
+        "Empresa",
+        "Uso personal"
+      ]
+    );
   }
 
+  // Ruta consultas
   else if (msg === "Consultas de productos") {
     step = 300;
-    bot("Cuéntame qué producto buscas o qué duda tienes 😊");
-}
 
-  else if (msg === "Contactar con un asesor") {
-    step = 200;
-    bot("Muy pronto podrás contactar directamente con un asesor 😊");
+    bot(
+      "Cuéntame qué producto buscas o qué duda tienes 😊"
+    );
   }
 
-  else {
-  bot(
-    "Para poder ayudarte mejor 😊 por favor selecciona una opción:",
-    [
-      "Cotizar envases",
-      "Consultas de productos",
-      "Contactar con un asesor"
-    ]
-  );
-}
+  // Ruta asesor
+  else if (msg === "Contactar con un asesor") {
+    step = 200;
+
+    bot(
+      "Muy pronto podrás contactar directamente con un asesor 😊"
+    );
+  }
 
   break;
 

@@ -440,9 +440,39 @@ case 2:
   break;
 
 case 3:
-  data.volumen = msg;
-  step = 4;
-  bot("Cuéntame un poco más 👇 ¿Qué producto quieres envasar?");
+case 750:
+
+  if (msg === "Seguir cotización") {
+    step = 2;
+
+    bot(
+      "Perfecto 🙌 continuemos.\n\n¿Qué tipo de producto necesitas?",
+      [
+        "Envases alimentos",
+        "Cuidado personal",
+        "Hogar"
+      ]
+    );
+  }
+
+  else if (msg === "Consultar productos") {
+    step = 300;
+
+    bot(
+      "Claro 😊 cuéntame qué producto buscas o qué duda tienes."
+    );
+  }
+
+  else {
+    bot(
+      "Por favor selecciona una opción 😊",
+      [
+        "Seguir cotización",
+        "Consultar productos"
+      ]
+    );
+  }
+
   break;
 
 case 4:

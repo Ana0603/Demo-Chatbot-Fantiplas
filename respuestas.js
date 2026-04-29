@@ -3,6 +3,8 @@ const respuestasRapidas = {
   // ENVASES
   "envases": "Trabajamos envases para alimentos, cosméticos, farmacéuticos, productos de aseo e industriales. Podemos ayudarte según capacidad, material y tipo de tapa.",
 
+  "envase": "Trabajamos envases para alimentos, cosméticos, farmacéuticos, productos de aseo e industriales. Podemos ayudarte según capacidad, material y tipo de tapa.",
+
   "pet": "El PET ofrece alta transparencia, excelente presentación y buena resistencia. Es ideal para alimentos, cosméticos y productos líquidos.",
 
   "pead": "El PEAD (Polietileno de Alta Densidad) es resistente, durable e ideal para productos cosméticos, farmacéuticos y de aseo.",
@@ -11,19 +13,27 @@ const respuestasRapidas = {
 
   "farmaceutico": "Contamos con envases farmacéuticos como pastilleros, envases push down, flip top y soluciones para cápsulas, grageas y suplementos.",
 
+  "farmaceutica": "Contamos con envases farmacéuticos como pastilleros, envases push down, flip top y soluciones para cápsulas, grageas y suplementos.",
+
+  "farmacia": "Contamos con envases farmacéuticos como pastilleros, envases push down, flip top y soluciones para cápsulas, grageas y suplementos.",
+
   "cosmetico": "Fabricamos envases para cremas, shampoos, lociones, splash corporales, tratamientos capilares y productos dermocosméticos.",
 
   "alimentos": "Tenemos envases para especias, condimentos, snacks, dulces, bomboneras y soluciones PET para productos alimenticios.",
 
   "aseo": "Fabricamos garrafas, envases de detergente, suavizantes, productos de limpieza y envases industriales para aseo.",
 
+  "limpieza": "Fabricamos garrafas, envases de detergente, suavizantes, productos de limpieza y envases industriales para aseo.",
+
   "tapas": "Manejamos tapas flip top, push down, tapas lisas, tapas molino y soluciones dispensadoras para distintos tipos de envases.",
+
+  "tapa": "Manejamos tapas flip top, push down, tapas lisas, tapas molino y soluciones dispensadoras para distintos tipos de envases.",
 
 /* FARMACÉUTICO */
 
-"farmaceutico": "Contamos con envases farmacéuticos para cápsulas, grageas, suplementos, vitaminas, jarabes y productos de uso controlado, con diferentes capacidades y tipos de tapa.",
-
 "pastilleros": "Fabricamos envases farmacéuticos ideales para cápsulas, grageas, tabletas y suplementos, con excelente cierre y presentación profesional.",
+
+"pastillas": "Fabricamos envases farmacéuticos ideales para cápsulas, grageas, tabletas y suplementos, con excelente cierre y presentación profesional.",
 
 "capsulas": "Nuestros envases para cápsulas están fabricados principalmente en PEAD por su resistencia, durabilidad y protección del producto.",
 
@@ -85,6 +95,10 @@ const respuestasRapidas = {
 
 "condimenteros": "Fabricamos envases condimenteros ideales para especias, sazonadores y productos secos, con opciones de tapa molino, flip top y diferentes capacidades. :contentReference[oaicite:1]{index=1}",
 
+"condimentos": "Fabricamos envases condimenteros ideales para especias, sazonadores y productos secos, con opciones de tapa molino, flip top y diferentes capacidades. :contentReference[oaicite:1]{index=1}",
+
+"condimento": "Fabricamos envases condimenteros ideales para especias, sazonadores y productos secos, con opciones de tapa molino, flip top y diferentes capacidades. :contentReference[oaicite:1]{index=1}",  
+  
 "especias": "Tenemos envases para especias con tapas molino, flip top y soluciones prácticas para sazonadores, hierbas y condimentos de uso alimenticio. :contentReference[oaicite:2]{index=2}",
 
 "salseras": "Manejamos botellas salseras como la presentación de 240 ml con tapa flip top, ideales para salsas, aderezos y productos líquidos alimenticios. :contentReference[oaicite:3]{index=3}",
@@ -166,6 +180,8 @@ const respuestasRapidas = {
 /* ENVASES LÍNEA ASEO */
 
 "envases aseo": "Fabricamos envases para productos de aseo como detergentes, suavizantes, limpiadores multiusos, desengrasantes, lavalozas y soluciones industriales.",
+
+"envase aseo": "Fabricamos envases para productos de aseo como detergentes, suavizantes, limpiadores multiusos, desengrasantes, lavalozas y soluciones industriales.",
 
 "detergente": "Contamos con envases para detergente líquido en diferentes capacidades, ideales para productos de limpieza de uso doméstico e industrial.",
 

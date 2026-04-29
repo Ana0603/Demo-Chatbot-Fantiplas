@@ -501,22 +501,23 @@ case 2:
 
   break;
 
-
 case 750:
 
   if (msg === "Seguir cotización") {
-    step = data.volverStep;
 
-    bot(
-      "Perfecto 🙌 continuemos con tu cotización."
-    );
+    bot("De acuerdo 😊");
+
+    setTimeout(() => {
+      bot("Volvamos a la cotización 🙌");
+      step = data.volverStep;
+    }, 1000);
   }
 
   else if (msg === "Consultar productos") {
     step = 300;
 
     bot(
-      "Entendido 😊 Ten en cuenta que al salir de la cotización será necesario comenzarla nuevamente después.\n\nAhora cuéntame qué producto buscas o qué duda tienes."
+      "Entendido, pero ten en cuenta que al salir de la cotización será necesario comenzarla nuevamente después."
     );
   }
 
@@ -531,7 +532,6 @@ case 750:
   }
 
   break;
-
 
 case 3:
   data.cantidad = msg;

@@ -77,7 +77,7 @@ const respuestasRapidas = {
 
 "iso farmaceutico": "Contamos con procesos certificados bajo ISO 9001 y estándares de calidad para la fabricación de envases farmacéuticos.",
 
-"smeta": "También contamos con certificación SMETA 4 pilares, enfocada en ética empresarial, sostenibilidad y buenas prácticas laborales."
+"smeta": "También contamos con certificación SMETA 4 pilares, enfocada en ética empresarial, sostenibilidad y buenas prácticas laborales.",
 
   /* FAQS ENVASES PARA ALIMENTOS */
 

@@ -367,9 +367,76 @@ case 1:
   break;
 
 case 2:
+
+  const opcionesValidas = [
+    "Envases alimentos",
+    "Cuidado personal",
+    "Hogar"
+  ];
+
+  // Si escribe algo diferente a las opciones esperadas
+  if (!opcionesValidas.includes(msg)) {
+    step = 750;
+
+    bot(
+      "Parece que tienes una consulta 😊 ¿qué prefieres hacer?",
+      [
+        "Seguir cotización",
+        "Consultar productos"
+      ]
+    );
+
+    break;
+  }
+
+  // Si sí seleccionó una opción válida, continúa normal
   data.tipoProducto = msg;
   step = 3;
-  bot("Para tener una idea 😊 ¿Qué cantidad estás pensando manejar?",["Menos de 1.000 unidades","1.000 a 10.000","Más de 10.000"]);
+
+  bot(
+    "Para tener una idea 😊 ¿Qué cantidad estás pensando manejar?",
+    [
+      "Menos de 1.000 unidades",
+      "1.000 a 10.000",
+      "Más de 10.000"
+    ]
+  );
+
+  break;
+
+    case 750:
+
+  if (msg === "Seguir cotización") {
+    step = 2;
+
+    bot(
+      "Perfecto 🙌 continuemos.\n\n¿Qué tipo de producto necesitas?",
+      [
+        "Envases alimentos",
+        "Cuidado personal",
+        "Hogar"
+      ]
+    );
+  }
+
+  else if (msg === "Consultar productos") {
+    step = 300;
+
+    bot(
+      "Claro 😊 cuéntame qué producto buscas o qué duda tienes."
+    );
+  }
+
+  else {
+    bot(
+      "Por favor selecciona una opción 😊",
+      [
+        "Seguir cotización",
+        "Consultar productos"
+      ]
+    );
+  }
+
   break;
 
 case 3:

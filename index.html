@@ -513,20 +513,17 @@ case 750:
     }, 1000);
   }
 
- else if (msg === "Consultar productos") {
-
-  bot(
-    "Entendido 😊 Ten en cuenta que al salir de la cotización será necesario comenzarla nuevamente después."
-  );
-
-  setTimeout(() => {
-    step = 300;
+  else if (msg === "Consultar productos") {
+    step = 760;
 
     bot(
-      "Ahora cuéntame qué producto buscas o qué duda tienes 😊"
+      "Entendido 😊 Ten en cuenta que al salir de la cotización será necesario comenzarla nuevamente después.",
+      [
+        "Aceptar",
+        "Volver a la cotización"
+      ]
     );
-  }, 1200);
-}
+  }
 
   else {
     bot(

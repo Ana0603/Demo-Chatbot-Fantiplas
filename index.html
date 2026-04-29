@@ -348,20 +348,48 @@ case 0:
   break;
 
 case 1:
+
+  const opcionesTipoCliente = [
+    "Empresa",
+    "Uso personal"
+  ];
+
+  // Si escribe algo diferente a las opciones esperadas
+  if (!opcionesTipoCliente.includes(msg.trim())) {
+    step = 750;
+    data.volverStep = 1;
+
+    bot(
+      "Parece que tienes una consulta 😊 ¿qué prefieres hacer?",
+      [
+        "Seguir cotización",
+        "Consultar productos"
+      ]
+    );
+
+    break;
+  }
+
   data.tipoCliente = msg.trim();
 
+  // Si selecciona uso personal
   if (data.tipoCliente === "Uso personal") {
 
     bot("Gracias por escribirnos 😊");
 
     setTimeout(() => {
-      bot("Actualmente trabajamos únicamente con ventas empresariales y pedidos por volumen, por lo que no manejamos ventas por unidad.");
+      bot(
+        "Actualmente trabajamos únicamente con ventas empresariales y pedidos por volumen, por lo que no manejamos ventas por unidad."
+      );
     }, 1200);
 
     setTimeout(() => {
       bot(
         "Si representas una empresa o seleccionaste la opción incorrecta, puedes continuar aquí:",
-        ["Soy empresa", "Hablar con asesor"]
+        [
+          "Soy empresa",
+          "Hablar con asesor"
+        ]
       );
     }, 2400);
 
@@ -369,22 +397,58 @@ case 1:
     break;
   }
 
+  // Si selecciona empresa
   step = 2;
-  bot("¿Qué tipo de producto necesitas?",
-      ["Envases alimentos", "Cuidado personal", "Hogar"]);
+
+  bot(
+    "¿Qué tipo de producto necesitas?",
+    [
+      "Envases alimentos",
+      "Cuidado personal",
+      "Hogar"
+    ]
+  );
+
   break;
 
-  case 100:
+
+case 100:
+
+  const opcionesUsoPersonal = [
+    "Soy empresa",
+    "Hablar con asesor"
+  ];
+
+  if (!opcionesUsoPersonal.includes(msg)) {
+    bot(
+      "Por favor selecciona una opción 😊",
+      [
+        "Soy empresa",
+        "Hablar con asesor"
+      ]
+    );
+    break;
+  }
 
   if (msg === "Soy empresa") {
     step = 2;
-    bot("Perfecto 🙌 ¿Qué tipo de producto necesitas?",
-        ["Envases alimentos", "Cuidado personal", "Hogar"]);
+
+    bot(
+      "Perfecto 🙌 ¿Qué tipo de producto necesitas?",
+      [
+        "Envases alimentos",
+        "Cuidado personal",
+        "Hogar"
+      ]
+    );
   }
 
-  if (msg === "Hablar con asesor") {
-    bot("Claro 😊 Un asesor se pondrá en contacto contigo pronto.");
+  else if (msg === "Hablar con asesor") {
     step = 999;
+
+    bot(
+      "Claro 😊 Un asesor se pondrá en contacto contigo pronto."
+    );
   }
 
   break;

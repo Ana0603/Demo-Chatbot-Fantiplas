@@ -505,15 +505,10 @@ case 2:
 case 750:
 
   if (msg === "Seguir cotización") {
-    step = 2;
+    step = data.volverStep;
 
     bot(
-      "Perfecto 🙌 continuemos.\n\n¿Qué tipo de producto necesitas?",
-      [
-        "Envases alimentos",
-        "Cuidado personal",
-        "Hogar"
-      ]
+      "Perfecto 🙌 continuemos con tu cotización."
     );
   }
 
@@ -521,7 +516,7 @@ case 750:
     step = 300;
 
     bot(
-      "Claro 😊 cuéntame qué producto buscas o qué duda tienes."
+      "Entendido 😊 Ten en cuenta que al salir de la cotización será necesario comenzarla nuevamente después.\n\nAhora cuéntame qué producto buscas o qué duda tienes."
     );
   }
 

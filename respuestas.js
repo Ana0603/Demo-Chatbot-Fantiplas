@@ -19,13 +19,15 @@ const respuestasRapidas = {
 
   "tapas": "Manejamos tapas flip top, push down, tapas lisas, tapas molino y soluciones dispensadoras para distintos tipos de envases.",
 
-  /* FARMACÉUTICO */
+/* FARMACÉUTICO */
 
-"pastilleros": "Contamos con envases farmacéuticos ideales para cápsulas, grageas, pastillas y suplementos, en diferentes capacidades y formatos según la necesidad.",
+"farmaceutico": "Contamos con envases farmacéuticos para cápsulas, grageas, suplementos, vitaminas, jarabes y productos de uso controlado, con diferentes capacidades y tipos de tapa.",
 
-"capsulas": "Fabricamos envases para cápsulas y suplementos en PEAD, ideales por su resistencia, durabilidad y protección del producto.",
+"pastilleros": "Fabricamos envases farmacéuticos ideales para cápsulas, grageas, tabletas y suplementos, con excelente cierre y presentación profesional.",
 
-"grageas": "Tenemos envases diseñados para grageas, tabletas y productos nutracéuticos con excelente cierre y presentación profesional.",
+"capsulas": "Nuestros envases para cápsulas están fabricados principalmente en PEAD por su resistencia, durabilidad y protección del producto.",
+
+"grageas": "Tenemos envases diseñados para grageas, tabletas y nutracéuticos, ideales para almacenamiento seguro y presentación comercial.",
 
 "suplementos": "Trabajamos envases para suplementos alimenticios y nutracéuticos en diferentes tamaños, con opciones de personalización por color y tapa.",
 
@@ -33,23 +35,49 @@ const respuestasRapidas = {
 
 "jarabes": "También contamos con envases para productos líquidos como jarabes, soluciones orales y suplementos farmacéuticos.",
 
-"frascos": "Disponemos de frascos farmacéuticos en PEAD y PET, según el tipo de producto y requerimientos de presentación.",
+"frascos": "Disponemos de frascos farmacéuticos en PEAD y PET según el tipo de producto, capacidad requerida y necesidad de presentación.",
+
+"capsulero": "Manejamos envases capsuleros para suplementos, vitaminas y productos nutracéuticos con excelente resistencia y cierre seguro.",
+
+"envase capsulero 230 ml": "El envase capsulero de 230 ml / 7,7 onzas en PVC es ideal para suplementos, cápsulas y vitaminas. Ofrece excelente presentación y protección del producto.",
+
+"envase 250 ml seguridad": "El envase PET de 250 ml con tapa de seguridad es ideal para productos farmacéuticos y alimenticios que requieren mayor protección y control.",
 
 "push down": "Manejamos envases y tapas tipo push down para soluciones farmacéuticas y productos de uso controlado.",
 
-"flip top": "Las tapas flip top son ideales para productos de dosificación práctica como cosméticos, farmacéuticos y soluciones líquidas.",
+"flip top": "Las tapas flip top son ideales para productos farmacéuticos, cosméticos y líquidos que requieren dosificación práctica y segura.",
 
-"tapa lisa": "Las tapas lisas se usan mucho en envases farmacéuticos para cápsulas, tabletas y suplementos sólidos.",
+"tapa lisa": "Las tapas lisas se usan frecuentemente en envases farmacéuticos para cápsulas, tabletas y suplementos sólidos.",
 
-"seguridad": "También manejamos soluciones con tapas de seguridad para mayor protección del contenido y mejor control del producto.",
+"tapa seguridad": "También contamos con tapas de seguridad que brindan mayor protección del contenido y control del producto.",
+
+"seguridad": "Disponemos de soluciones con tapas de seguridad para envases farmacéuticos y alimenticios que requieren mayor protección.",
 
 "pead farmaceutico": "El PEAD es uno de los materiales más usados en línea farmacéutica por su resistencia, durabilidad y compatibilidad con productos sólidos y líquidos.",
 
-"envase 75 ml": "El envase de 75 ml en PEAD es ideal para cápsulas y pastillas pequeñas. Tiene alta resistencia y empaque de 1.500 unidades por paca.",
+"pet farmaceutico": "El PET se utiliza cuando se busca mayor transparencia, mejor presentación visual y excelente resistencia para productos farmacéuticos.",
+
+"pvc farmaceutico": "El PVC también se utiliza en algunos envases farmacéuticos como capsuleros por su practicidad y buena presentación.",
+
+"envase 75 ml": "El envase farmacéutico de 75 ml en PEAD es ideal para cápsulas y pastillas pequeñas, con alta resistencia y excelente presentación.",
+
+"envase 120 ml": "Contamos con envases farmacéuticos de 120 ml ideales para suplementos, vitaminas y productos sólidos de mayor capacidad.",
+
+"envase 500 ml": "También fabricamos envases farmacéuticos de mayor capacidad como 500 ml para suplementos y productos especializados.",
 
 "color pantone": "Muchos envases farmacéuticos pueden fabricarse en cualquier color Pantone desde cantidades superiores a 1.000 unidades.",
 
+"personalizacion farmaceutica": "Podemos fabricar envases farmacéuticos personalizados en color y algunos con marca, dependiendo del volumen de producción.",
+
 "cantidad minima farmaceutico": "Las cantidades mínimas dependen de la referencia, pero muchos envases farmacéuticos manejan pedidos desde 1.000 unidades en adelante.",
+
+"minimo farmaceutico": "La cantidad mínima para línea farmacéutica depende del envase, normalmente desde 1.000 unidades según referencia y personalización.",
+
+"invima farmaceutico": "Nuestra planta está autorizada por INVIMA para contacto con productos farmacéuticos y alimenticios, cumpliendo altos estándares de calidad.",
+
+"iso farmaceutico": "Contamos con procesos certificados bajo ISO 9001 y estándares de calidad para la fabricación de envases farmacéuticos.",
+
+"smeta": "También contamos con certificación SMETA 4 pilares, enfocada en ética empresarial, sostenibilidad y buenas prácticas laborales."
 
   /* FAQS ENVASES PARA ALIMENTOS */
 

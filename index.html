@@ -441,13 +441,15 @@ case 300:
 );
 
 if (quiereCotizar) {
-  bot("Parece que buscas una cotización 😊 vamos a ayudarte.");
+  step = 650;
 
-  setTimeout(() => {
-    step = 1;
-    bot("¿Compras para empresa o uso personal?",
-      ["Empresa", "Uso personal"]);
-  }, 1000);
+  bot(
+    "Parece que buscas una cotización 😊 ¿qué prefieres hacer?",
+    [
+      "Cotizar envases",
+      "Seguir consultando"
+    ]
+  );
 
   break;
 }
@@ -461,6 +463,37 @@ const preguntasPrecio = [
   "cuanto cuesta",
   "cuánto cuesta"
 ];
+
+    case 650:
+
+  if (msg === "Cotizar envases") {
+    step = 1;
+
+    bot(
+      "Perfecto 🙌 vamos a ayudarte con tu cotización.\n\n¿Compras para empresa o uso personal?",
+      ["Empresa", "Uso personal"]
+    );
+  }
+
+  else if (msg === "Seguir consultando") {
+    step = 300;
+
+    bot(
+      "Claro 😊 cuéntame qué producto buscas o qué duda tienes."
+    );
+  }
+
+  else {
+    bot(
+      "Por favor selecciona una opción 😊",
+      [
+        "Cotizar envases",
+        "Seguir consultando"
+      ]
+    );
+  }
+
+  break;
 
 const preguntaPrecio = preguntasPrecio.some(p =>
   texto.includes(p)

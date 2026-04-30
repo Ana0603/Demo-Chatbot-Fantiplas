@@ -29,6 +29,8 @@ const respuestasRapidas = {
 
   "aseo": "Fabricamos garrafas, envases de detergente, suavizantes, productos de limpieza y envases industriales para aseo.",
 
+  "tienen aseo": "Si, fabricamos garrafas, envases de detergente, suavizantes, productos de limpieza y envases industriales para aseo.",
+
   "envase aseo": "Fabricamos garrafas, envases de detergente, suavizantes, productos de limpieza y envases industriales para aseo.",
 
   "envase para limpieza": "Fabricamos garrafas, envases de detergente, suavizantes, productos de limpieza y envases industriales para aseo.",
@@ -414,6 +416,8 @@ const respuestasRapidas = {
   "certificaciones": "Contamos con certificaciones como ISO 9001, INVIMA, SMETA 4 pilares y certificaciones para línea de juguetes.",
 
   "certificados": "Contamos con certificaciones como ISO 9001, INVIMA, SMETA 4 pilares y certificaciones para línea de juguetes.",
+
+  "seguros": "Si, en Fantiplas nuestros tres valores principales son el respeto con las demas personas, el mendio ambiente y la honestidad con nuestros socios.",
 
   "invima": "Nuestra planta está autorizada por INVIMA para contacto con productos farmacéuticos y alimenticios.",
 

@@ -430,4 +430,30 @@ const respuestasRapidas = {
   "ubicados": "Fantiplas está ubicada en la Transversal 49 N. 5 G 50, Zona Industrial de Puente Aranda, Bogotá, Colombia.",
 
   "precios": "Para calcular el precio de un producto tenemos que análizar tanto molde, color, material, decorado entre otras cosas, por lo tanto te pedimos hacer una cotizacion para que un asesor análice la información y te de el precio."
+
+"iniciaron": "Fantiplas nació en Bogotá en 1970. En sus primeros años era conocida como Industrias Acervel Ltda. y comenzó fabricando accesorios para mujer. Con el tiempo evolucionó hasta convertirse en una empresa especializada en diseño y fabricación de productos plásticos. :contentReference[oaicite:0]{index=0}",
+
+"historia": "Nuestra historia comienza en 1970 en Bogotá. Empezamos como Industrias Acervel y años después nos transformamos en Fantiplas, ampliando nuestro enfoque hacia soluciones plásticas para diferentes industrias y mercados. :contentReference[oaicite:1]{index=1}",
+
+"cuanto llevan": "Contamos con más de 50 años de experiencia en diseño y fabricación de productos plásticos, acompañando a empresas en Colombia y el exterior con soluciones personalizadas. :contentReference[oaicite:2]{index=2}",
+
+"años en el mercado": "Llevamos más de 50 años en el mercado, desarrollando productos plásticos con enfoque en calidad, innovación y acompañamiento integral para nuestros clientes. :contentReference[oaicite:3]{index=3}",
+
+"fundacion": "Fantiplas fue fundada en 1970 en Bogotá, Colombia. Desde entonces hemos evolucionado constantemente para atender distintos sectores industriales y comerciales. :contentReference[oaicite:4]{index=4}",
+
+"quienes son": "Somos una empresa dedicada al diseño, fabricación, comercialización y distribución de productos plásticos y de aseo, para el mercado nacional e internacional, con procesos certificados y tecnología de punta. :contentReference[oaicite:5]{index=5}",
+
+"que hacen": "Diseñamos y fabricamos envases, productos promocionales, soluciones para el hogar, farmacéuticos, cosméticos, alimentos, aseo, juguetes y más, acompañando cada proyecto desde la idea hasta la entrega final. :contentReference[oaicite:6]{index=6}",
+
+"mision": "Nuestra misión es diseñar, fabricar, comercializar y distribuir productos plásticos y de aseo limpieza de calidad para el mercado nacional e internacional. :contentReference[oaicite:7]{index=7}",
+
+"vision": "Buscamos posicionarnos en Colombia como una empresa líder en fabricación de productos plásticos y de aseo, comprometidos con la variedad, seguridad y calidad. :contentReference[oaicite:8]{index=8}",
+
+"todo bajo un solo techo": "Trabajamos bajo la filosofía 'Todo bajo un solo techo', lo que significa que acompañamos todo el proceso: idea, diseño, moldes, producción y entrega final, sin depender de terceros. :contentReference[oaicite:9]{index=9}",
+
+"fabrican moldes": "Sí 😊 contamos con fabricación propia de moldes para procesos de soplado e inyección, lo que nos permite mayor control de calidad, tiempos y personalización. :contentReference[oaicite:10]{index=10}",
+
+"procesos": "Controlamos cada etapa productiva: diseño, desarrollo, fabricación de moldes, inyección, soplado en PET, soplado en polietileno y laboratorio de productos químicos. :contentReference[oaicite:11]{index=11}",
+
+"exportan": "Sí 😊 además del mercado colombiano, también atendemos clientes y marcas en mercados internacionales, ofreciendo soluciones para distintos sectores y necesidades. :contentReference[oaicite:13]{index=13}"
 };

@@ -429,7 +429,7 @@ const respuestasRapidas = {
 
   "ubicados": "Fantiplas está ubicada en la Transversal 49 N. 5 G 50, Zona Industrial de Puente Aranda, Bogotá, Colombia.",
 
-  "precios": "Para calcular el precio de un producto tenemos que análizar tanto molde, color, material, decorado entre otras cosas, por lo tanto te pedimos hacer una cotizacion para que un asesor análice la información y te de el precio."
+  "precios": "Para calcular el precio de un producto tenemos que análizar tanto molde, color, material, decorado entre otras cosas, por lo tanto te pedimos hacer una cotizacion para que un asesor análice la información y te de el precio.",
 
 "iniciaron": "Fantiplas nació en Bogotá en 1970. En sus primeros años era conocida como Industrias Acervel Ltda. y comenzó fabricando accesorios para mujer. Con el tiempo evolucionó hasta convertirse en una empresa especializada en diseño y fabricación de productos plásticos. :contentReference[oaicite:0]{index=0}",
 
@@ -455,5 +455,5 @@ const respuestasRapidas = {
 
 "procesos": "Controlamos cada etapa productiva: diseño, desarrollo, fabricación de moldes, inyección, soplado en PET, soplado en polietileno y laboratorio de productos químicos. :contentReference[oaicite:11]{index=11}",
 
-"exportan": "Sí 😊 además del mercado colombiano, también atendemos clientes y marcas en mercados internacionales, ofreciendo soluciones para distintos sectores y necesidades. :contentReference[oaicite:13]{index=13}"
+"exportan": "Sí 😊 además del mercado colombiano, también atendemos clientes y marcas en mercados internacionales, ofreciendo soluciones para distintos sectores y necesidades. :contentReference[oaicite:13]{index=13}",
 };

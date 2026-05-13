@@ -5,7 +5,10 @@
 <title>Chat Fantiplas</title>
 
 <style>
-body { background:#f0f2f5; font-family: 'Segoe UI'; }
+body { background:#f0f2f5; font-family: 'Segoe UI'
+    ;margin:0;
+  padding:0;
+     }
 
 /* BOTÓN */
 #chat-toggle {
@@ -202,35 +205,33 @@ button.send {
 }
 
 /* MOBILE GRANDE */
-@media (max-width: 768px){
+@media (max-width:768px){
 
-  /* BOTÓN FLOTANTE */
   #chat-toggle{
     width:85px;
     height:85px;
     font-size:34px;
-    bottom:30px;
-    box-shadow:0 8px 25px rgba(0,0,0,0.25);
+    bottom:25px;
   }
 
-  /* BURBUJA */
   #chat-bubble{
-    width:90%;
-    padding:18px 22px;
+    width:85%;
     font-size:18px;
-    border-radius:25px;
-    bottom:135px;
-    text-align:center;
+    padding:18px;
+    bottom:120px;
   }
 
-  /* CONTENEDOR CHAT */
   #chat-wrapper{
-    width:98%;
-    height:90vh;
-    bottom:10px;
-    border-radius:30px;
+    position:fixed;
+    inset:0;
+    width:100vw !important;
+    height:100dvh !important;
+    max-width:none;
+    border-radius:0;
+    margin:0;
   }
 
+}
   /* HEADER */
   #chat-header{
     padding:20px;

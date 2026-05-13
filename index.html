@@ -183,72 +183,92 @@ button.send {
   100% { opacity:0.3; }
 }
 
-  /* MOBILE */
+/* MOBILE GRANDE */
 @media (max-width: 768px){
 
-  /* BOTÓN */
+  /* BOTÓN FLOTANTE */
   #chat-toggle{
-    width:70px;
-    height:70px;
-    font-size:28px;
-    bottom:25px;
+    width:85px;
+    height:85px;
+    font-size:34px;
+    bottom:30px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.25);
   }
 
   /* BURBUJA */
   #chat-bubble{
-    width:85%;
-    font-size:16px;
-    padding:14px 18px;
-    bottom:110px;
+    width:90%;
+    padding:18px 22px;
+    font-size:18px;
+    border-radius:25px;
+    bottom:135px;
     text-align:center;
   }
 
-  /* CHAT */
+  /* CONTENEDOR CHAT */
   #chat-wrapper{
-    width:95%;
-    height:85vh;
-    bottom:100px;
-    border-radius:24px;
+    width:98%;
+    height:90vh;
+    bottom:10px;
+    border-radius:30px;
   }
 
   /* HEADER */
   #chat-header{
-    padding:16px;
-    font-size:18px;
+    padding:20px;
+    font-size:22px;
+  }
+
+  .header-chat{
+    gap:15px;
   }
 
   .logo{
-    width:45px;
-    height:45px;
+    width:55px;
+    height:55px;
+  }
+
+  /* BODY */
+  #chat{
+    padding:20px;
+    gap:8px;
   }
 
   /* MENSAJES */
   .message{
-    max-width:85%;
-    font-size:16px;
-    padding:14px 16px;
-    border-radius:20px;
+    max-width:90%;
+    padding:16px 20px;
+    font-size:18px;
+    line-height:1.5;
+    border-radius:24px;
   }
 
   /* OPCIONES */
+  .options{
+    gap:10px;
+  }
+
   .option-btn{
-    padding:10px 14px;
-    font-size:15px;
+    padding:14px 18px;
+    font-size:17px;
+    border-radius:20px;
   }
 
   /* INPUT */
   #input-area{
-    padding:14px;
+    padding:18px;
   }
 
   #userInput{
-    padding:14px;
-    font-size:16px;
+    padding:16px 18px;
+    font-size:18px;
+    border-radius:25px;
   }
 
   button.send{
-    padding:12px 18px;
-    font-size:15px;
+    padding:16px 22px;
+    font-size:17px;
+    border-radius:25px;
   }
 
 }

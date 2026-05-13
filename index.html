@@ -6,71 +6,76 @@
 <title>Chat Fantiplas</title>
 
 <style>
-body { background:#f0f2f5; font-family: 'Segoe UI'
-    ;margin:0;
+html,
+body{
+  margin:0;
   padding:0;
-     }
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  background:#f0f2f5;
+  font-family:'Segoe UI', sans-serif;
+}
+
+*{
+  box-sizing:border-box;
+}
 
 /* BOTÓN */
-#chat-toggle {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #89AF29;
-  color: white;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  cursor: pointer;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-  z-index: 999;
+#chat-toggle{
+  position:fixed;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  background:#89AF29;
+  color:#fff;
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:24px;
+  cursor:pointer;
+  box-shadow:0 5px 20px rgba(0,0,0,.2);
+  z-index:999;
 }
 
 /* BURBUJA */
-#chat-bubble {
-  position: fixed;
-  bottom: 90px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: white;
-  padding: 10px 15px;
-  border-radius: 20px;
-  font-size: 14px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-  z-index: 997;
-  opacity: 0;
-  transition: all 0.3s ease;
+#chat-bubble{
+  position:fixed;
+  bottom:90px;
+  left:50%;
+  transform:translateX(-50%);
+  background:#fff;
+  padding:10px 15px;
+  border-radius:20px;
+  font-size:14px;
+  box-shadow:0 5px 15px rgba(0,0,0,.15);
+  z-index:997;
+  opacity:0;
+  transition:all .3s ease;
 }
 
-#chat-bubble.show {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
+#chat-bubble.show{
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
 }
 
-#chat-bubble.hide {
-  opacity: 0;
-  transform: translateX(-50%) translateY(10px);
+#chat-bubble.hide{
+  opacity:0;
+  transform:translateX(-50%) translateY(10px);
 }
 
 /* CHAT */
 #chat-wrapper{
   position:fixed;
-  left:0;
-  right:0;
-  bottom:0;
-  width:100%;
-  max-width:100%;
-  height:100vh;
+  inset:0;
+  width:100vw;
+  height:100dvh;
   background:#fff;
-  border-radius:25px 25px 0 0;
   display:flex;
   flex-direction:column;
-  box-shadow:0 10px 30px rgba(0,0,0,0.2);
   z-index:998;
   opacity:0;
   transition:all .3s ease;
@@ -78,52 +83,34 @@ body { background:#f0f2f5; font-family: 'Segoe UI'
 
 #chat-wrapper.active{
   opacity:1;
-  transform:translateY(0);
 }
 
-#chat-wrapper.hidden {
-  display: none;
-}
-
-  @media (max-width:768px){
-
-  #chat-wrapper{
-    width:100vw !important;
-    height:100vh !important;
-    bottom:0;
-    left:0;
-    right:0;
-    border-radius:0;
-  }
-
-  #chat{
-    padding:20px;
-  }
-
+#chat-wrapper.hidden{
+  display:none;
 }
 
 /* HEADER */
-#chat-header {
+#chat-header{
   background:#89AF29;
-  color:white;
-  padding:10px 15px;
+  color:#fff;
+  padding:14px 18px;
   font-weight:bold;
 }
 
-.header-chat {
+.header-chat{
   display:flex;
   align-items:center;
   gap:10px;
 }
 
-.logo {
-  width:35px;
-  height:35px;
+.logo{
+  width:40px;
+  height:40px;
   border-radius:50%;
 }
 
-/* CHAT BODY */
-#chat {
+/* BODY CHAT */
+#chat{
   flex:1;
   padding:15px;
   overflow-y:auto;
@@ -131,81 +118,98 @@ body { background:#f0f2f5; font-family: 'Segoe UI'
   flex-direction:column;
 }
 
-.message {
+/* MENSAJES */
+.message{
   max-width:75%;
   padding:10px 14px;
   margin:6px 0;
   border-radius:18px;
+  font-size:15px;
+  line-height:1.4;
 }
 
-.bot { background:#e4e6eb; align-self:flex-start; }
-.user { background:#89AF29; color:white; align-self:flex-end; }
+.bot{
+  background:#e4e6eb;
+  align-self:flex-start;
+}
+
+.user{
+  background:#89AF29;
+  color:#fff;
+  align-self:flex-end;
+}
 
 /* OPCIONES */
-.options {
+.options{
   display:flex;
   flex-wrap:wrap;
-  gap:5px;
-  margin:5px 0;
+  gap:6px;
+  margin:6px 0;
 }
 
-.option-btn {
+.option-btn{
   background:#f1f1f1;
   border:none;
-  padding:6px 10px;
-  border-radius:15px;
+  padding:8px 12px;
+  border-radius:16px;
   cursor:pointer;
-  transition: all 0.2s ease;
+  transition:.2s ease;
+  font-size:14px;
 }
 
-.option-btn.selected {
+.option-btn.selected{
   background:#89AF29;
-  color:white;
+  color:#fff;
 }
 
-.option-btn.disabled {
-  opacity:0.5;
+.option-btn.disabled{
+  opacity:.5;
   pointer-events:none;
 }
 
 /* INPUT */
-#input-area {
+#input-area{
   display:flex;
+  align-items:center;
+  gap:10px;
   border-top:1px solid #ddd;
-  padding:10px;
+  padding:12px;
+  background:#fff;
 }
 
-#userInput {
+#userInput{
   flex:1;
   border:none;
-  padding:10px;
-  border-radius:20px;
+  padding:12px 14px;
+  border-radius:22px;
   background:#f1f1f1;
+  font-size:15px;
+  outline:none;
 }
 
-button.send {
-  margin-left:10px;
+button.send{
   background:#89AF29;
   border:none;
-  color:white;
-  padding:10px 15px;
-  border-radius:20px;
+  color:#fff;
+  padding:12px 18px;
+  border-radius:22px;
   cursor:pointer;
+  font-size:14px;
 }
 
 /* TYPING */
-.typing {
+.typing{
   letter-spacing:3px;
-  animation: blink 1s infinite;
+  animation:blink 1s infinite;
 }
 
-@keyframes blink {
-  0% { opacity:0.3; }
-  50% { opacity:1; }
-  100% { opacity:0.3; }
+@keyframes blink{
+  0%{opacity:.3;}
+  50%{opacity:1;}
+  100%{opacity:.3;}
 }
 
-/* MOBILE GRANDE */
+/* MOBILE */
 @media (max-width:768px){
 
   #chat-toggle{
@@ -217,23 +221,13 @@ button.send {
 
   #chat-bubble{
     width:85%;
-    font-size:18px;
     padding:18px;
-    bottom:120px;
+    font-size:18px;
+    border-radius:24px;
+    bottom:125px;
+    text-align:center;
   }
 
-  #chat-wrapper{
-    position:fixed;
-    inset:0;
-    width:100vw !important;
-    height:100dvh !important;
-    max-width:none;
-    border-radius:0;
-    margin:0;
-  }
-
-}
-  /* HEADER */
   #chat-header{
     padding:20px;
     font-size:22px;
@@ -248,13 +242,11 @@ button.send {
     height:55px;
   }
 
-  /* BODY */
   #chat{
     padding:20px;
     gap:8px;
   }
 
-  /* MENSAJES */
   .message{
     max-width:90%;
     padding:16px 20px;
@@ -263,7 +255,6 @@ button.send {
     border-radius:24px;
   }
 
-  /* OPCIONES */
   .options{
     gap:10px;
   }
@@ -274,7 +265,6 @@ button.send {
     border-radius:20px;
   }
 
-  /* INPUT */
   #input-area{
     padding:18px;
   }

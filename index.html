@@ -778,12 +778,40 @@ case 13:
 
 
 case 14:
-  data.telefono = msg;
-  step = 500;
+data.telefono = msg;
+step = 500;
 
-  bot("¡Listo! 🚀 Ya recibimos tu solicitud. Un asesor se pondrá en contacto contigo muy pronto.");
+fetch("https://hook.us2.make.com/TUWEBHOOK", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    nombre: data.nombre,
+    empresa: data.empresa,
+    email: data.email,
+    telefono: data.telefono,
+    tipoCliente: data.tipoCliente,
+    tipoProducto: data.tipoProducto,
+    cantidad: data.cantidad,
+    producto: data.producto,
+    capacidad: data.capacidad,
+    material: data.material,
+    molde: data.molde,
+    color: data.color,
+    tiempo: data.tiempo,
+    comparando: data.comparando
+  })
+})
+.then(response => response.text())
+.then(result => {
+  console.log("Enviado:", result);
+})
+.catch(error => {
+  console.error("Error:", error);
+});
 
-  break;
+bot("¡Listo! 🚀 Ya recibimos tu solicitud. Un asesor se pondrá en contacto contigo muy pronto.");
 
 
 case 300: {

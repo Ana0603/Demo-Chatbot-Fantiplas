@@ -1,4 +1,4 @@
-const respuestasRapidas = {
+const baseDatos = {
   
   // ENVASES
   "envases": "Trabajamos envases para alimentos, cosméticos, farmacéuticos, productos de aseo e industriales. Podemos ayudarte según capacidad, material y tipo de tapa.",

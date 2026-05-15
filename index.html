@@ -296,704 +296,404 @@ button.send{
 }
 </style>
 </head>
-
 <body>
 
-<!-- BOTÓN -->
-<div id="chat-toggle">🤖</div>
-<div id="chat-bubble">👋 Hola, soy el asistente de Fantiplas</div>
+    <!-- BOTÓN -->
+    <div id="chat-toggle">🤖</div>
+    <div id="chat-bubble">👋 Hola, soy el asistente de Fantiplas</div>
 
-<!-- CHAT -->
-<div id="chat-wrapper" class="hidden">
-  <div id="chat-header">
-    <div class="header-chat">
-      <img src="logo-fantiplas.jpg" class="logo">
-      <span>FantiBot</span>
+    <!-- CHAT -->
+    <div id="chat-wrapper" class="hidden">
+
+    <!-- HEADER -->
+    <div id="chat-header">
+        <div class="header-chat">
+        <img class="logo" src="logo-fantiplas.jpg" alt="Logo">
+        <span>FantiBot</span>
+        </div>
     </div>
-  </div>
 
-  <div id="chat"></div>
+    <!-- MENSAJES -->
+    <div id="chat"></div>
 
-  <div id="input-area">
-    <input id="userInput" placeholder="Escribe...">
-    <button class="send" onclick="sendMessage()">Enviar</button>
-  </div>
-</div>
+    <!-- INPUT -->
+    <div id="input-area">
+        <input type="text" id="userInput" placeholder="Escribe un mensaje...">
+        <button class="send" onclick="sendMessage()">Enviar</button>
+    </div>
 
-  <script src="respuestas.js"></script>
+    </div>
 
-<script>
-let step = 0;
-let data = {};
+    <script src="base-datos.js"></script>
+    <script src="lista-de-productos.js"></script>
 
-  const palabrasCotizacion = [
-  "cotizar",
-  "comprar",
-  "pedido",
-  "proveedor",
-  "fabricar",
-  "produccion",
-  "producción",
-  "necesito",
-  "quiero",
-  "volumen",
-  "cantidad",
-  "unidades"
-];
+    <script>
 
-const chat = document.getElementById("chat");
+    function buscarRespuesta(msg){
 
-/* MENSAJES */
-function addMessage(text, type) {
-  const msg = document.createElement("div");
-  msg.className = "message " + type;
-  msg.innerText = text;
-  chat.appendChild(msg);
-  chat.scrollTop = chat.scrollHeight;
+    msg = msg.toLowerCase();
+
+    for(let palabra in baseDatos){
+
+        if(msg.includes(palabra.toLowerCase())){
+
+            return baseDatos[palabra];
+
+        }
+
+    }
+
+    return null;
+
 }
 
-/* OPCIONES */
-function addOptions(options) {
-  const container = document.createElement("div");
-  container.className = "options";
 
-  options.forEach(opt => {
-    const btn = document.createElement("button");
-    btn.className = "option-btn";
-    btn.innerText = opt;
+        /*formulario selección envases industriales*/
 
-    btn.onclick = () => {
-      btn.classList.add("selected");
-      container.querySelectorAll(".option-btn").forEach(b => b.classList.add("disabled"));
-      handleResponse(opt);
-    };
+        let step = 0;
 
-    container.appendChild(btn);
-  });
+        let datosFormulario = {
+  nombre: "",
+  cantidad: "",
+  telefono: "",
+  ciudad: ""
+};
 
-  chat.appendChild(container);
-}
+        function handleResponse(msg) {
 
-/* TYPING */
-function typingIndicator() {
-  const typing = document.createElement("div");
-  typing.className = "message bot typing";
-  typing.innerHTML = "•••";
-  chat.appendChild(typing);
-  chat.scrollTop = chat.scrollHeight;
-  return typing;
-}
+  switch(step) {
 
-/* BOT */
-function bot(text, options = []) {
-  const typing = typingIndicator();
-  const delay = Math.random() * 1000 + 800;
+    case 0:
 
-  setTimeout(() => {
-    typing.remove();
-    addMessage(text, "bot");
-    if (options.length) addOptions(options);
-  }, delay);
-}
+      const opcionesInicio = [
+        "Envases industriales",
+        "Productos de Merchandisign | Promocional",
+        "Retal, supermercados y miselaneas"
+      ];
 
-/* ENVIAR */
-function sendMessage() {
-  const input = document.getElementById("userInput");
-  const text = input.value.trim();
-  if(!text) return;
+      /* FLUJO PRINCIPAL */
 
-  addMessage(text, "user");
-  input.value = "";
-  handleResponse(text);
-}
+      if (msg === "Envases industriales") {
 
-/* ENTER */
-document.getElementById("userInput").addEventListener("keypress", function(e) {
-  if (e.key === "Enter") {
-    e.preventDefault();
-    sendMessage();
-  }
-});
+        step = 1;
 
-/* FLUJO */
-function handleResponse(msg) {
+        bot(
+          "En nuestra línea de envases trabajamos con las siguientes categorías",
+          ["Alimentos", "Cosméticos", "Farmaceúticos", "Hogar - Aseo"]
+        );
 
-switch(step) {
+        return;
+      }
 
-case 0:
+      if (msg === "Productos de Merchandisign | Promocional") {
 
-  const opcionesInicio = [
-    "cotizar envases",
-    "consultas de productos",
-    "contactar con un asesor"
-  ];
+        bot("Tenemos productos promocionales personalizados.");
+        return;
+      }
 
-  if (!opcionesInicio.includes(msg.toLowerCase())) {
-    bot(
-      "Para poder ayudarte mejor 😊 por favor selecciona una opción:",
-      [
-        "Cotizar envases",
-        "Consultas de productos",
-        "Contactar con un asesor"
-      ]
-    );
-    break;
-  }
+      if (msg === "Retal, supermercados y miselaneas") {
 
-  if (msg === "Cotizar envases") {
-    step = 1;
+        bot("Tenemos soluciones para retail y supermercados.");
+        return;
+      }
 
-    bot(
-      "¿Compras para empresa o uso personal?",
-      [
-        "Empresa",
-        "Uso personal"
-      ]
-    );
-  }
+      /* BASE DE DATOS */
 
-  else if (msg === "Consultas de productos") {
-    step = 300;
+      const respuestaDB0 = buscarRespuesta(msg);
 
-    bot(
-      "Cuéntame qué producto buscas o qué duda tienes"
-    );
-  }
+      if(respuestaDB0){
 
-  else if (msg === "Contactar con un asesor") {
-    step = 200;
+        bot(respuestaDB0);
+        return;
+      }
 
-    bot(
-      "Muy pronto podrás contactar directamente con un asesor 😊"
-    );
-  }
+      /* MENSAJE DEFAULT */
 
-  break;
-
-
-case 1: {
-
-  const opcionesTipoCliente = [
-    "Empresa",
-    "Uso personal"
-  ];
-
-  if (!opcionesTipoCliente.includes(msg.trim())) {
-    step = 750;
-    data.volverStep = 1;
-
-    bot(
-      "Parece que tienes una consulta 😊 ¿qué prefieres hacer?",
-      [
-        "Seguir cotización",
-        "Consultar productos"
-      ]
-    );
-
-    break;
-  }
-
-  data.tipoCliente = msg.trim();
-
-  if (data.tipoCliente === "Uso personal") {
-
-    bot("Gracias por escribirnos 😊");
-
-    setTimeout(() => {
       bot(
-        "Actualmente trabajamos únicamente con ventas empresariales y pedidos por volumen, por lo que no manejamos ventas por unidad."
+        "Para poder ayudarte mejor, por favor selecciona una opción:",
+        opcionesInicio
       );
-    }, 1200);
 
-    setTimeout(() => {
-      bot(
-        "Si representas una empresa o seleccionaste la opción incorrecta, puedes continuar aquí:",
-        [
-          "Soy empresa",
-          "Hablar con asesor"
-        ]
-      );
-    }, 2400);
+      break;
+      case 1:
 
-    step = 100;
-    break;
-  }
+    if (msg === "Alimentos") {
 
-  step = 2;
+        step = 2;
 
-  bot(
-    "¿Qué tipo de producto necesitas?",
-    [
-      "Envases alimentos",
-      "Cuidado personal",
-      "Hogar"
-    ]
-  );
+        bot(
+          "Tenemos envases para especias, condimentos, snacks, dulces y bomboneras. ¿Sabes en que modelo envasar?",
+          ["Sí", "No"]
+        );
 
-  break;
-}
+        return;
+    }
+
+break;
 
 
-case 100: {
-
-  const opcionesUsoPersonal = [
-    "Soy empresa",
-    "Hablar con asesor"
-  ];
-
-  if (!opcionesUsoPersonal.includes(msg)) {
-    bot(
-      "Por favor selecciona una opción 😊",
-      [
-        "Soy empresa",
-        "Hablar con asesor"
-      ]
-    );
-    break;
-  }
-
-  if (msg === "Soy empresa") {
-    step = 2;
-
-    bot(
-      "Perfecto 🙌 ¿Qué tipo de producto necesitas?",
-      [
-        "Envases alimentos",
-        "Cuidado personal",
-        "Hogar"
-      ]
-    );
-  }
-
-  else if (msg === "Hablar con asesor") {
-    step = 999;
-
-    bot(
-      "Claro 😊 Un asesor se pondrá en contacto contigo pronto."
-    );
-  }
-
-  break;
-}
-
+/* ALIMENTOS */
 
 case 2:
 
-    data.volverStep = 2;
+    if(msg === "Sí"){
 
-  const opcionesValidas = [
-    "envases alimentos",
-    "cuidado personal",
-    "hogar"
-  ];
+        step = 3;
 
-  if (!opcionesValidas.includes(msg.toLowerCase())) {
-    step = 750;
+        bot("Perfecto. ¿Cuál es el modelo del envase que necesitas?");
+        return;
 
-    bot(
-      "Parece que tienes una consulta ¿qué prefieres hacer?",
-      [
-        "Seguir cotización",
-        "Consultar productos"
-      ]
-    );
+    }
 
-    break;
-  }
+    if(msg === "No"){
 
-  data.tipoProducto = msg;
-  step = 3;
+        bot("Contamos con envases para alimentos como condimenteros, botellas salseras, envases PET, bomboneras, envases para especias, snacks, dulces y soluciones para productos líquidos y sólidos.");
+        return;
 
-  bot(
-    "Para tener una idea 😊 ¿Qué cantidad estás pensando manejar?",
-    [
-      "Menos de 1.000 unidades",
-      "1.000 a 10.000",
-      "Más de 10.000"
-    ]
-  );
+    }
 
-  break;
+    bot("Por favor selecciona Sí o No.");
 
-case 750:
+break;
 
-  if (msg === "Seguir cotización") {
 
-    bot("De acuerdo 😊");
-
-    setTimeout(() => {
-      bot("Volvamos a la cotización 🙌");
-      step = data.volverStep;
-    }, 1000);
-  }
-
-  else if (msg === "Consultar productos") {
-    step = 760;
-
-    bot(
-      "Entendido ⚠️ Ten en cuenta que al salir de la cotización será necesario comenzarla nuevamente después.",
-      [
-        "Aceptar",
-        "Volver a la cotización"
-      ]
-    );
-  }
-
-  else {
-    bot(
-      "Por favor selecciona una opción",
-      [
-        "Seguir cotización",
-        "Consultar productos"
-      ]
-    );
-  }
-
-  break;
-
-    case 760:
-
-  if (msg === "Aceptar") {
-    step = 300;
-
-    bot(
-      "Perfecto 😊 ahora cuéntame qué producto buscas o qué duda tienes."
-    );
-  }
-
-  else if (msg === "Volver a la cotización") {
-
-    bot("De acuerdo 😊");
-
-    setTimeout(() => {
-      bot("Volvamos a la cotización 🙌");
-      step = data.volverStep;
-    }, 1000);
-  }
-
-  else {
-    bot(
-      "Por favor selecciona una opción",
-      [
-        "Aceptar",
-        "Volver a la cotización"
-      ]
-    );
-  }
-
-  break;
+/* VALIDAR MODELO */
 
 case 3:
-  data.cantidad = msg;
-  step = 4;
-  bot("¿Qué producto específico necesitas?");
-  break;
 
+    const modelo = msg.toLowerCase();
+
+    if(listaProductos[modelo]){
+
+        step = 4;
+
+        bot("Perfecto, ahora responde por favor unas preguntas para rediriguir tu solicitud con uno de nuestros comerciales.");
+
+        setTimeout(() => {
+        bot("¿Cuál es tu nombre?");
+        }, 1500);
+        return;
+
+    }
+
+    bot("Lo sentimos, ese modelo no hace parte de nuestro inventarío.");
+
+break;
+
+/* NOMBRE */
 
 case 4:
-  data.producto = msg;
-  step = 5;
-  bot("¿Qué capacidad estás buscando? (aproximada)");
-  break;
 
+    datosFormulario.nombre = msg;
+
+    step = 5;
+
+    bot(
+      "¿Qué cantidad necesitas?",
+      ["1.000 - 10.000", "10.000 en adelante"]
+    );
+
+break;
+
+
+/* CANTIDAD */
 
 case 5:
-  data.capacidad = msg;
-  step = 6;
-  bot("¿Hay algún material que prefieras o necesitas recomendación?");
-  break;
 
+    datosFormulario.cantidad = msg;
+
+    step = 6;
+
+    bot("Si quieres que te llamemos o contactemos por whatsapp, escribe tu número");
+
+break;
+
+
+/* TELÉFONO */
 
 case 6:
-  data.material = msg;
-  step = 7;
-  bot(
-    "¿Ya cuentas con un molde o necesitas desarrollarlo?",
-    ["Ya tengo", "Necesito crear uno"]
-  );
-  break;
+
+    datosFormulario.telefono = msg;
+
+    step = 7;
+
+    bot("¿Cuál es tu ciudad?");
+
+break;
+
+
+/* CIUDAD */
 
 
 case 7:
-  data.molde = msg;
-  step = 8;
-  bot(
-    "Entendido 👍 ¿Lo necesitas transparente o en algún color específico?",
-    ["Transparente", "Color"]
-  );
-  break;
 
+    datosFormulario.ciudad = msg;
+
+    step = 8;
+
+    bot("¿Cuál es tu correo electrónico?");
+
+break;
+
+    /* EMAIL */
 
 case 8:
-  data.color = msg;
-  step = 9;
-  bot(
-    "¿En qué plazo te gustaría recibirlo?",
-    ["Urgente", "1 a 3 meses", "Solo estoy cotizando"]
-  );
-  break;
 
-
-case 9:
-  data.tiempo = msg;
-  step = 10;
-  bot(
-    "Última pregunta 👀 ¿Has cotizado con otros proveedores?",
-    ["Sí", "No"]
-  );
-  break;
-
-
-case 10:
-  data.comparando = msg;
-  step = 11;
-  bot("Perfecto 🙌 Para finalizar, ¿me compartes tu nombre?");
-  break;
-
-
-case 11:
-  data.nombre = msg;
-  step = 12;
-  bot("¿Para qué empresa trabajas?");
-  break;
-
-
-case 12:
-  data.empresa = msg;
-  step = 13;
-  bot("Para que un asesor te contacte directamente, ¿me compartes tu correo?");
-  break;
-
-
-case 13:
-  if (!msg.includes("@")) {
-    bot("⚠️ Solo para confirmar, ¿me puedes enviar un correo válido?");
-    return;
-  }
-
-  data.email = msg;
-  step = 14;
-  bot("Si prefieres contacto por WhatsApp, también puedes dejarme tu número 📱");
-  break;
-
-
-case 14:
-data.telefono = msg;
-step = 500;
-
-fetch("", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json"
-  },
-  body: JSON.stringify({
-    nombre: data.nombre,
-    empresa: data.empresa,
-    email: data.email,
-    telefono: data.telefono,
-    tipoCliente: data.tipoCliente,
-    tipoProducto: data.tipoProducto,
-    cantidad: data.cantidad,
-    producto: data.producto,
-    capacidad: data.capacidad,
-    material: data.material,
-    molde: data.molde,
-    color: data.color,
-    tiempo: data.tiempo,
-    comparando: data.comparando
-  })
-})
-.then(response => response.text())
-.then(result => {
-  console.log("Enviado:", result);
-})
-.catch(error => {
-  console.error("Error:", error);
-});
-
-bot("¡Listo! 🚀 Ya recibimos tu solicitud. Un asesor se pondrá en contacto contigo muy pronto.");
-
-
-case 300: {
-
-  const texto = msg.toLowerCase();
-  let respondido = false;
-
-  const quiereCotizar = palabrasCotizacion.some(p =>
-    texto.includes(p)
-  );
-
-  if (quiereCotizar) {
-    step = 650;
+    datosFormulario.email = msg;
 
     bot(
-      "Parece que buscas una cotización 😊 ¿qué prefieres hacer?",
-      [
-        "Cotizar envases",
-        "Seguir consultando"
-      ]
+      `Perfecto ${datosFormulario.nombre}, uno de nuestros comerciales se pondrá en contacto contigo muy pronto.`
     );
 
-    break;
+    fetch("https://hook.us2.make.com/hvl1sunf2xk4tq4mbkiwwvnndgk0s77q", {
+
+        method: "POST",
+
+        headers: {
+            "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify({
+
+            nombre: datosFormulario.nombre,
+            cantidad: datosFormulario.cantidad,
+            telefono: datosFormulario.telefono,
+            ciudad: datosFormulario.ciudad,
+            email: datosFormulario.email
+
+        })
+
+    });
+
+break;
+
   }
 
-  const preguntasPrecio = [
-    "precio",
-    "valor",
-    "costo",
-    "cuanto vale",
-    "cuánto vale",
-    "cuanto cuesta",
-    "cuánto cuesta"
-  ];
-
-  const preguntaPrecio = preguntasPrecio.some(p =>
-    texto.includes(p)
-  );
-
-  if (preguntaPrecio) {
-    step = 600;
-
-    bot(
-      "Para calcular el precio de un producto necesitamos analizar factores como molde, material, color, decorado y volumen de producción.\n\nPor eso te recomendamos realizar una cotización para que un asesor revise tu necesidad y pueda darte un precio más preciso 😊",
-      [
-        "Cotizar productos",
-        "Hablar con asesor"
-      ]
-    );
-
-    break;
-  }
-
-  for (let clave in respuestasRapidas) {
-    if (texto.includes(clave)) {
-      bot(respuestasRapidas[clave]);
-      respondido = true;
-      break;
-    }
-  }
-
-  if (!respondido) {
-    bot(
-      "No encontré esa información exacta todavía, pero un asesor puede ayudarte mejor 😊"
-    );
-  }
-
-  break;
 }
 
 
-case 650:
-
-  if (msg === "Envases industriales") {
-    step = 1;
-
-    bot(
-      "Perfecto 🙌 vamos a ayudarte con tu cotización.\n\n¿Compras para empresa o uso personal?",
-      ["Empresa", "Uso personal"]
-    );
-  }
-
-  break;
 
 
-case 500:
+        const chat = document.getElementById("chat");
 
-  if (msg === "Consultar productos") {
-    step = 300;
-    bot("Perfecto 😊 cuéntame qué producto buscas o qué duda tienes.");
-  }
+        /* MENSAJES */
+        function addMessage(text, type) {
+        const msg = document.createElement("div");
+        msg.className = "message " + type;
+        msg.innerText = text;
+        chat.appendChild(msg);
+        chat.scrollTop = chat.scrollHeight;
+        }
 
-  else if (msg === "Hablar con asesor") {
-    step = 999;
-    bot("Claro 🙌 Un asesor comercial se pondrá en contacto contigo pronto.");
-  }
+        /* OPCIONES */
+        function addOptions(options) {
+        const container = document.createElement("div");
+        container.className = "options";
 
-  else {
-    bot(
-      "Por favor selecciona una opción 😊",
-      [
-        "Consultar productos",
-        "Hablar con asesor"
-      ]
-    );
-  }
+        options.forEach(opt => {
+            const btn = document.createElement("button");
+            btn.className = "option-btn";
+            btn.innerText = opt;
 
-  break;
+            btn.onclick = () => {
+            btn.classList.add("selected");
+            container.querySelectorAll(".option-btn").forEach(b => b.classList.add("disabled"));
+            handleResponse(opt);
+            };
 
+            container.appendChild(btn);
+        });
 
-case 600:
+        chat.appendChild(container);
+        }
 
-  if (msg === "Envases industriales") {
-    step = 1;
+        /* TYPING */
+        function typingIndicator() {
+        const typing = document.createElement("div");
+        typing.className = "message bot typing";
+        typing.innerHTML = "•••";
+        chat.appendChild(typing);
+        chat.scrollTop = chat.scrollHeight;
+        return typing;
+        }
 
-    bot(
-      "¿Que tipo de producto necesitas",
-      ["Alimentos", "Cosméticos", "Farmaceúticos", "Hogar - Aseo"]
-    );
-  }
+        /* BOT */
+        function bot(text, options = []) {
+        const typing = typingIndicator();
+        const delay = Math.random() * 1000 + 800;
 
-  else if (msg === "Hablar con asesor") {
-    step = 999;
-    bot("Claro Un asesor comercial se pondrá en contacto contigo pronto, mientrastanto y para agilizar el proceso contienuemos con las preguntas.");
-  }
+        setTimeout(() => {
+            typing.remove();
+            addMessage(text, "bot");
+            if (options.length) addOptions(options);
+        }, delay);
+        }
 
-  else {
-    bot(
-      "Para salir de la cotización, por favor selecciona una opción",
-      [
-        "Cotizar productos",
-        "Hablar con asesor"
-      ]
-    );
-  }
+        /* ENVIAR */
+        function sendMessage() {
+        const input = document.getElementById("userInput");
+        const text = input.value.trim();
+        if(!text) return;
 
-  break;
-  }
-  
-}
+        addMessage(text, "user");
+        input.value = "";
+        handleResponse(text);
+        }
 
-/* TOGGLE */
-const toggleBtn = document.getElementById("chat-toggle");
-const chatWrapper = document.getElementById("chat-wrapper");
-const bubble = document.getElementById("chat-bubble");
+        /* ENTER */
+        document.getElementById("userInput").addEventListener("keypress", function(e) {
+        if (e.key === "Enter") {
+            e.preventDefault();
+            sendMessage();
+        }
+        });
 
-toggleBtn.onclick = () => {
+        /* TOGGLE */
+        const toggleBtn = document.getElementById("chat-toggle");
+        const chatWrapper = document.getElementById("chat-wrapper");
+        const bubble = document.getElementById("chat-bubble");
 
-  if (chatWrapper.classList.contains("active")) {
-    chatWrapper.classList.remove("active");
-    chatWrapper.classList.add("hidden");
-    toggleBtn.innerText = "🤖";
+        toggleBtn.onclick = () => {
 
-    bubble.classList.remove("hide");
-    bubble.classList.add("show");
+        if (chatWrapper.classList.contains("active")) {
+            chatWrapper.classList.remove("active");
+            chatWrapper.classList.add("hidden");
+            toggleBtn.innerText = "🤖";
 
-  } else {
-    chatWrapper.classList.remove("hidden");
-    chatWrapper.classList.add("active");
-    toggleBtn.innerText = "✖";
+            bubble.classList.remove("hide");
+            bubble.classList.add("show");
 
-    bubble.classList.remove("show");
-    bubble.classList.add("hide");
-  }
-};
+        } else {
+            chatWrapper.classList.remove("hidden");
+            chatWrapper.classList.add("active");
+            toggleBtn.innerText = "✖";
 
-/* BURBUJA AUTO */
-setTimeout(() => bubble.classList.add("show"), 1000);
-setTimeout(() => bubble.classList.remove("show"), 6000);
+            bubble.classList.remove("show");
+            bubble.classList.add("hide");
+        }
+        };
 
-/* INICIO */
-setTimeout(() => {
-  bot("Hola, soy FantiBot, el asistente de Fantiplas.");
+        /* BURBUJA AUTO */
+        setTimeout(() => bubble.classList.add("show"), 1000);
+        setTimeout(() => bubble.classList.remove("show"), 6000);
 
-  bot("Le presento nuestras tres líneas de negocio, por favor seleccione la que mas se ajusta a su necesidad", [
-      "Envases industriales",
-      "Productos de Merchandisign | Promocional",
-      "Retal, supermerccados y miselaneas"
-]);
+       /* INICIO */
+        setTimeout(() => {
 
-}, 500);
+        bot("Hola, soy FantiBot, el asistente de Fantiplas.");
 
-</script>
+        setTimeout(() => {
+
+            bot("Le presento nuestras tres líneas de negocio, por favor seleccione la que mas se ajusta a su necesidad", [
+            "Envases industriales",
+            "Productos de Merchandisign | Promocional",
+            "Retal, supermercados y miselaneas"
+            ]);
+
+        }, 2500);
+
+        }, 500);
+    </script>
+
 </body>
 </html>

@@ -457,6 +457,35 @@ case 1:
         return;
     }
 
+    if (msg === "Farmaceúticos") {
+
+        datosFormulario.categoria = msg;
+
+        step = 2;
+
+        bot(
+            "Contamos con envases farmacéuticos como pastilleros, envases push down, flip top y soluciones para cápsulas, grageas y suplementos. ¿Sabes en que modelo envasar?",
+            ["Sí", "No"]
+        );
+
+        return;
+    }
+
+    if (msg === "Hogar - Aseo") {
+
+        datosFormulario.categoria = msg;
+
+        step = 2;
+
+        bot(
+            "Fabricamos garrafas, envases de detergente, suavizantes, productos de limpieza y envases industriales para aseo. ¿Sabes en que modelo envasar?",
+            ["Sí", "No"]
+        );
+
+        return;
+    }
+
+
 
 break;
 

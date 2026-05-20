@@ -374,7 +374,7 @@ case 0:
     const opcionesInicio = [
         "Envases industriales",
         "Productos de Merchandisign | Promocional",
-        "Retal, supermercados y miselaneas"
+        "Retail, supermercados y miselaneas"
     ];
 
     /* FLUJO PRINCIPAL */
@@ -442,6 +442,21 @@ case 1:
 
         return;
     }
+
+    if (msg === "Cosméticos") {
+
+        datosFormulario.categoria = msg;
+
+        step = 2;
+
+        bot(
+            "Fabricamos envases para cremas, shampoos, lociones, splash corporales, tratamientos capilares y productos dermocosméticos. ¿Sabes en que modelo envasar?",
+            ["Sí", "No"]
+        );
+
+        return;
+    }
+
 
 break;
 

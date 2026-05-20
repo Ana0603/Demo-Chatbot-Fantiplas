@@ -488,14 +488,14 @@ case 9:
 
         step = 3;
 
-        bot("Perfecto. ¿Cuál es el modelo del envase que necesitas?");
+        bot("Entendido, voy a enviarle tu solicitud a uno de nuestros asesores, para esto te hare unas preguntas");
         return;
 
     }
 
     if(msg === "Preguntar en este chat"){
 
-        bot("Voy a tratar de resolver tus dudas, si en cualquier momento prefieres hablar con un asesor, puedes hacerlo:");
+        bot("Voy a tratar de resolver tus dudas, si en cualquier momento prefieres hablar con un asesor, podemos hacer una solicitud.");
         return;
 
     }
@@ -504,32 +504,21 @@ case 9:
 
 break;
 
-
-/* VALIDAR MODELO */
+/* MODELO */
 
 case 3:
 
-    const modelo = msg.toLowerCase();
+    datosFormulario.modelo = msg;
 
-    if(listaProductos[modelo]){
+    step = 4;
 
-        datosFormulario.modelo = msg;
+    bot("Perfecto, ahora responde por favor unas preguntas para redirigir tu solicitud con uno de nuestros comerciales.");
 
-        step = 4;
+    setTimeout(() => {
 
-        bot("Perfecto, ahora responde por favor unas preguntas para rediriguir tu solicitud con uno de nuestros comerciales.");
+        bot("¿Cuál es tu nombre?");
 
-        setTimeout(() => {
-
-            bot("¿Cuál es tu nombre?");
-
-        }, 1500);
-
-        return;
-
-    }
-
-    bot("Lo sentimos, ese modelo no hace parte de nuestro inventarío.");
+    }, 1500);
 
 break;
 

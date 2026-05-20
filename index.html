@@ -733,28 +733,31 @@ case 208:
 
     body: JSON.stringify({
 
-        lineaNegocio: datosFormulario.lineaNegocio,
+    lineaNegocio: datosFormulario.lineaNegocio,
 
-        /* ENVASES */
-        categoria: datosFormulario.categoria,
-        sabeModelo: datosFormulario.sabeModelo,
-        modelo: datosFormulario.modelo,
-        cantidad: datosFormulario.cantidad,
+    /* ENVASES */
+    categoria: datosFormulario.categoria || "",
+    sabeModelo: datosFormulario.sabeModelo || "",
+    modelo: datosFormulario.modelo || "",
+    cantidad: datosFormulario.cantidad || "",
 
-        /* MERCHANDISING */
-        campanaPromocional: datosFormulario.campanaPromocional,
-        cantidadPromocional: datosFormulario.cantidadPromocional,
-        empresa: datosFormulario.empresa,
-        cargo: datosFormulario.cargo,
-        horarioContacto: datosFormulario.horarioContacto,
+    /* MERCHANDISING */
+    campanaPromocional: datosFormulario.campanaPromocional || "",
+    cantidadPromocional: datosFormulario.cantidadPromocional || "",
+    empresa: datosFormulario.empresa || "",
+    cargo: datosFormulario.cargo || "",
+    horarioContacto: datosFormulario.horarioContacto || "",
 
-        /* GENERALES */
-        nombre: datosFormulario.nombre,
-        telefono: datosFormulario.telefono,
-        ciudad: datosFormulario.ciudad,
-        email: datosFormulario.email
+    /* RETAIL */
+    productosInteres: datosFormulario.productosInteres || "",
 
-    })
+    /* GENERALES */
+    nombre: datosFormulario.nombre || "",
+    telefono: datosFormulario.telefono || "",
+    ciudad: datosFormulario.ciudad || "",
+    email: datosFormulario.email || ""
+
+})
 
 });
 

@@ -465,12 +465,42 @@ case 2:
 
         datosFormulario.sabeModelo = "No";
 
-        bot("Contamos con envases para alimentos como condimenteros, botellas salseras, envases PET, bomboneras, envases para especias, snacks, dulces y soluciones para productos líquidos y sólidos.");
+        step = 9;
+
+        bot(
+          "¿Cómo prefieres que te ayudemos?",
+          ["Hablar con un asesor", "Preguntar en este chat"]
+        );
         return;
 
     }
 
     bot("Por favor selecciona Sí o No.");
+
+break;
+
+
+/* OPCIONES DE AYUDA */
+
+case 9:
+
+    if(msg === "Hablar con un asesor"){
+
+        step = 3;
+
+        bot("Perfecto. ¿Cuál es el modelo del envase que necesitas?");
+        return;
+
+    }
+
+    if(msg === "Preguntar en este chat"){
+
+        bot("Voy a tratar de resolver tus dudas, si en cualquier momento prefieres hablar con un asesor, puedes hacerlo:");
+        return;
+
+    }
+
+    bot("Por favor selecciona una opción válida.");
 
 break;
 

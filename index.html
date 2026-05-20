@@ -484,14 +484,21 @@ break;
 
 case 9:
 
-    if(msg === "Hablar con un asesor"){
+   if(msg === "Hablar con un asesor"){
 
-        step = 3;
+    step = 4;
 
-        bot("Entendido, voy a enviarle tu solicitud a uno de nuestros asesores, para esto te hare unas preguntas");
-        return;
+    bot("Entendido, voy a enviarle tu solicitud a uno de nuestros asesores, para esto te haré unas preguntas para que se contacten con usted.");
 
-    }
+    setTimeout(() => {
+
+        bot("¿Cuál es tu nombre?");
+
+    }, 1500);
+
+    return;
+
+}
 
     if(msg === "Preguntar en este chat"){
 

@@ -728,12 +728,12 @@ case 208:
 
     if (ultimoComercialRetail === 1) {
 
-    datosFormulario.comercial = "1";
+    datosFormulario.lineaNegocio = "Retail, supermercados y miselaneas 1";
     ultimoComercialRetail = 2;
 
 } else {
 
-    datosFormulario.comercial = "2";
+    datosFormulario.lineaNegocio = "Retail, supermercados y miselaneas 2";
     ultimoComercialRetail = 1;
 
 }
@@ -770,8 +770,7 @@ case 208:
     nombre: datosFormulario.nombre || "",
     telefono: datosFormulario.telefono || "",
     ciudad: datosFormulario.ciudad || "",
-    email: datosFormulario.email || "",
-    comercial: datosFormulario.comercial
+    email: datosFormulario.email || ""
 
 })
 

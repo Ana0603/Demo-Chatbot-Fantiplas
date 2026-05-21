@@ -827,17 +827,31 @@ case 303:
 
         body: JSON.stringify({
 
-            lineaNegocio: datosFormulario.lineaNegocio,
+    lineaNegocio: datosFormulario.lineaNegocio || "",
 
-            /* RETAIL */
-            productosInteres: datosFormulario.productosInteres,
+    /* ENVASES */
+    categoria: datosFormulario.categoria || "",
+    sabeModelo: datosFormulario.sabeModelo || "",
+    modelo: datosFormulario.modelo || "",
+    cantidad: datosFormulario.cantidad || "",
 
-            /* GENERALES */
-            nombre: datosFormulario.nombre,
-            telefono: datosFormulario.telefono,
-            ciudad: datosFormulario.ciudad
+    /* MERCHANDISING */
+    campanaPromocional: datosFormulario.campanaPromocional || "",
+    cantidadPromocional: datosFormulario.cantidadPromocional || "",
+    empresa: datosFormulario.empresa || "",
+    cargo: datosFormulario.cargo || "",
+    horarioContacto: datosFormulario.horarioContacto || "",
 
-        })
+    /* RETAIL */
+    productosInteres: datosFormulario.productosInteres || "",
+
+    /* GENERALES */
+    nombre: datosFormulario.nombre || "",
+    telefono: datosFormulario.telefono || "",
+    ciudad: datosFormulario.ciudad || "",
+    email: datosFormulario.email || ""
+
+})
 
     });
 

@@ -381,456 +381,7 @@ let datosFormulario = {
 
 };
 
-function handleResponse(msg) {
-
-switch(step) {
-
-case 0:
-
-    const opcionesInicio = [
-        "Envases industriales",
-        "Productos de Merchandisign | Promocional",
-        "Retail, supermercados y miselaneas"
-    ];
-
-    /* FLUJO PRINCIPAL */
-
-    if (msg === "Envases industriales") {
-
-        datosFormulario.lineaNegocio = msg;
-
-        step = 1;
-
-        bot(
-            "En nuestra línea de envases trabajamos con las siguientes categorías",
-            ["Alimentos", "Cosméticos", "Farmaceúticos", "Hogar - Aseo"]
-        );
-
-        return;
-    }
-
-    if (msg === "Productos de Merchandisign | Promocional") {
-
-    datosFormulario.lineaNegocio = msg;
-
-    step = 200;
-
-    bot("¿Qué campaña promocional quiere realizar?");
-
-    return;
-    }
-    
-    if (msg === "Retail, supermercados y miselaneas") {
-
-    datosFormulario.lineaNegocio = msg;
-
-    step = 300;
-
-    bot("Contamos con una línea de consumo masivo enfocada en productos de alta rotación para hogar, infantil, escolar, mujer y juguetes, ideales para distribución y ventas por volumen.");
-
-    setTimeout(() => {
-
-        bot("Para ayudarte mejor, escribe tu nombre.");
-
-    }, 1500);
-
-    return;
-}
-    /* BASE DE DATOS */
-
-    const respuestaDB0 = buscarRespuesta(msg);
-
-    if(respuestaDB0){
-
-        bot(respuestaDB0);
-        return;
-    }
-
-    /* MENSAJE DEFAULT */
-
-    bot(
-        "Para poder ayudarte mejor, por favor selecciona una opción:",
-        opcionesInicio
-    );
-
-break;
-
-
-/* CATEGORÍAS */
-
-case 1:
-
-    if (msg === "Alimentos") {
-
-        datosFormulario.categoria = msg;
-
-        step = 2;
-
-        bot(
-            "Tenemos envases para especias, condimentos, snacks, dulces y bomboneras. ¿Sabes en que modelo envasar?",
-            ["Sí", "No"]
-        );
-
-        return;
-    }
-
-    if (msg === "Cosméticos") {
-
-        datosFormulario.categoria = msg;
-
-        step = 2;
-
-        bot(
-            "Fabricamos envases para cremas, shampoos, lociones, splash corporales, tratamientos capilares y productos dermocosméticos. ¿Sabes en que modelo envasar?",
-            ["Sí", "No"]
-        );
-
-        return;
-    }
-
-    if (msg === "Farmaceúticos") {
-
-        datosFormulario.categoria = msg;
-
-        step = 2;
-
-        bot(
-            "Contamos con envases farmacéuticos como pastilleros, envases push down, flip top y soluciones para cápsulas, grageas y suplementos. ¿Sabes en que modelo envasar?",
-            ["Sí", "No"]
-        );
-
-        return;
-    }
-
-    if (msg === "Hogar - Aseo") {
-
-        datosFormulario.categoria = msg;
-
-        step = 2;
-
-        bot(
-            "Fabricamos garrafas, envases de detergente, suavizantes, productos de limpieza y envases industriales para aseo. ¿Sabes en que modelo envasar?",
-            ["Sí", "No"]
-        );
-
-        return;
-    }
-
-
-
-break;
-
-
-/* ALIMENTOS */
-
-case 2:
-
-    if(msg === "Sí"){
-
-        datosFormulario.sabeModelo = "Sí";
-
-        step = 3;
-
-        bot("Perfecto. ¿Cuál es el modelo del envase que necesitas?");
-        return;
-
-    }
-
-    if(msg === "No"){
-
-        datosFormulario.sabeModelo = "No";
-
-        step = 9;
-
-        bot(
-          "¿Cómo prefieres que te ayudemos?",
-          ["Hablar con un asesor", "Preguntar en este chat"]
-        );
-        return;
-
-    }
-
-    bot("Por favor selecciona Sí o No.");
-
-break;
-
-
-/* OPCIONES DE AYUDA */
-
-case 9:
-
-   if(msg === "Hablar con un asesor"){
-
-    step = 4;
-
-    bot("Entendido, voy a enviarle tu solicitud a uno de nuestros asesores, para esto te haré unas preguntas para que se contacten con usted.");
-
-    setTimeout(() => {
-
-        bot("¿Cuál es tu nombre?");
-
-    }, 1500);
-
-    return;
-
-}
-
-    if(msg === "Preguntar en este chat"){
-
-        bot("Voy a tratar de resolver tus dudas, si en cualquier momento prefieres hablar con un asesor, podemos hacer una solicitud.");
-        return;
-
-    }
-
-    bot("Por favor selecciona una opción válida.");
-
-break;
-
-/* MODELO */
-
-case 3:
-
-    datosFormulario.modelo = msg;
-
-    step = 4;
-
-    bot("Perfecto, ahora responde por favor unas preguntas para redirigir tu solicitud con uno de nuestros comerciales.");
-
-    setTimeout(() => {
-
-        bot("¿Cuál es tu nombre?");
-
-    }, 1500);
-
-break;
-
-    /* ========================= */
-/* MERCHANDISING */
-/* ========================= */
-
-
-/* CAMPAÑA */
-
-case 200:
-
-    datosFormulario.campanaPromocional = msg;
-
-    step = 201;
-
-    bot(
-        "¿Qué cantidad requiere?",
-        ["1.000 - 10.000", "10.001 en adelante"]
-    );
-
-break;
-
-
-/* CANTIDAD */
-
-case 201:
-
-    datosFormulario.cantidadPromocional = msg;
-
-    step = 202;
-
-    bot("¿Cuál es tu nombre?");
-
-break;
-
-
-/* NOMBRE */
-
-case 202:
-
-    datosFormulario.nombre = msg;
-
-    step = 203;
-
-    bot("¿Cuál es tu teléfono de contacto?");
-
-break;
-
-
-/* TELÉFONO */
-
-case 203:
-
-    datosFormulario.telefono = msg;
-
-    step = 204;
-
-    bot("¿Cuál es tu correo electrónico?");
-
-break;
-
-
-/* EMAIL */
-
-case 204:
-
-    datosFormulario.email = msg;
-
-    step = 205;
-
-    bot("¿Cuál es tu ciudad?");
-
-break;
-
-
-/* CIUDAD */
-
-case 205:
-
-    datosFormulario.ciudad = msg;
-
-    step = 206;
-
-    bot("¿Cuál es el nombre de tu empresa?");
-
-break;
-
-
-/* EMPRESA */
-
-case 206:
-
-    datosFormulario.empresa = msg;
-
-    step = 207;
-
-    bot("¿Cuál es tu cargo?");
-
-break;
-
-
-/* CARGO */
-
-case 207:
-
-    datosFormulario.cargo = msg;
-
-    step = 208;
-
-    bot("¿En qué horario deseas ser contactado?");
-
-break;
-
-
-/* HORARIO */
-
-case 208:
-
-    datosFormulario.horarioContacto = msg;
-
-    bot(
-        `Perfecto ${datosFormulario.nombre}, uno de nuestros asesores se pondrá en contacto contigo muy pronto.`
-    );
-
-    if (ultimoComercialRetail === 1) {
-
-    datosFormulario.lineaNegocio = "Retail, supermercados y miselaneas 1";
-    ultimoComercialRetail = 2;
-
-} else {
-
-    datosFormulario.lineaNegocio = "Retail, supermercados y miselaneas 2";
-    ultimoComercialRetail = 1;
-
-}
-    
-    fetch("https://hook.us2.make.com/hvl1sunf2xk4tq4mbkiwwvnndgk0s77q", {
-
-    method: "POST",
-
-    headers: {
-        "Content-Type": "application/json"
-    },
-
-    body: JSON.stringify({
-
-    lineaNegocio: datosFormulario.lineaNegocio,
-
-    /* ENVASES */
-    categoria: datosFormulario.categoria || "",
-    sabeModelo: datosFormulario.sabeModelo || "",
-    modelo: datosFormulario.modelo || "",
-    cantidad: datosFormulario.cantidad || "",
-
-    /* MERCHANDISING */
-    campanaPromocional: datosFormulario.campanaPromocional || "",
-    cantidadPromocional: datosFormulario.cantidadPromocional || "",
-    empresa: datosFormulario.empresa || "",
-    cargo: datosFormulario.cargo || "",
-    horarioContacto: datosFormulario.horarioContacto || "",
-
-    /* RETAIL */
-    productosInteres: datosFormulario.productosInteres || "",
-
-    /* GENERALES */
-    nombre: datosFormulario.nombre || "",
-    telefono: datosFormulario.telefono || "",
-    ciudad: datosFormulario.ciudad || "",
-    email: datosFormulario.email || ""
-
-})
-
-});
-
-break;
-
-/* ========================= */
-/* RETAIL */
-/* ========================= */
-
-
-/* NOMBRE */
-
-case 300:
-
-    datosFormulario.nombre = msg;
-
-    step = 301;
-
-    bot("¿Cuál es tu teléfono o celular?");
-
-break;
-
-
-/* TELÉFONO */
-
-case 301:
-
-    datosFormulario.telefono = msg;
-
-    step = 302;
-
-    bot("¿Cuál es tu ciudad?");
-
-break;
-
-
-/* CIUDAD */
-
-case 302:
-
-    datosFormulario.ciudad = msg;
-
-    step = 303;
-
-    bot("¿Qué productos son de tu interés?");
-
-break;
-
-
-/* PRODUCTOS INTERÉS */
-
-case 303:
-
-    datosFormulario.productosInteres = msg;
-
-    bot(
-        `Perfecto ${datosFormulario.nombre}, uno de nuestros asesores se pondrá en contacto contigo muy pronto.`
-    );
+function enviarLead() {
 
     fetch("https://hook.us2.make.com/hvl1sunf2xk4tq4mbkiwwvnndgk0s77q", {
 
@@ -842,129 +393,461 @@ case 303:
 
         body: JSON.stringify({
 
-    lineaNegocio: datosFormulario.lineaNegocio || "",
+            lineaNegocio: datosFormulario.lineaNegocio || "",
 
-    /* ENVASES */
-    categoria: datosFormulario.categoria || "",
-    sabeModelo: datosFormulario.sabeModelo || "",
-    modelo: datosFormulario.modelo || "",
-    cantidad: datosFormulario.cantidad || "",
+            /* ENVASES */
+            categoria: datosFormulario.categoria || "",
+            sabeModelo: datosFormulario.sabeModelo || "",
+            modelo: datosFormulario.modelo || "",
+            cantidad: datosFormulario.cantidad || "",
 
-    /* MERCHANDISING */
-    campanaPromocional: datosFormulario.campanaPromocional || "",
-    cantidadPromocional: datosFormulario.cantidadPromocional || "",
-    empresa: datosFormulario.empresa || "",
-    cargo: datosFormulario.cargo || "",
-    horarioContacto: datosFormulario.horarioContacto || "",
+            /* MERCHANDISING */
+            campanaPromocional: datosFormulario.campanaPromocional || "",
+            cantidadPromocional: datosFormulario.cantidadPromocional || "",
+            empresa: datosFormulario.empresa || "",
+            cargo: datosFormulario.cargo || "",
+            horarioContacto: datosFormulario.horarioContacto || "",
 
-    /* RETAIL */
-    productosInteres: datosFormulario.productosInteres || "",
+            /* RETAIL */
+            productosInteres: datosFormulario.productosInteres || "",
 
-    /* GENERALES */
-    nombre: datosFormulario.nombre || "",
-    telefono: datosFormulario.telefono || "",
-    ciudad: datosFormulario.ciudad || "",
-    email: datosFormulario.email || ""
-
-})
-
-    });
-
-break;
-
-
-/* NOMBRE */
-
-case 4:
-
-    datosFormulario.nombre = msg;
-
-    step = 5;
-
-    bot(
-        "¿Qué cantidad necesitas?",
-        ["1.000 - 10.000", "10.000 en adelante"]
-    );
-
-break;
-
-
-/* CANTIDAD */
-
-case 5:
-
-    datosFormulario.cantidad = msg;
-
-    step = 6;
-
-    bot("Si quieres que te llamemos o contactemos por whatsapp, escribe tu número");
-
-break;
-
-
-/* TELÉFONO */
-
-case 6:
-
-    datosFormulario.telefono = msg;
-
-    step = 7;
-
-    bot("¿Cuál es tu ciudad?");
-
-break;
-
-
-/* CIUDAD */
-
-case 7:
-
-    datosFormulario.ciudad = msg;
-
-    step = 8;
-
-    bot("¿Cuál es tu correo electrónico?");
-
-break;
-
-
-/* EMAIL */
-
-case 8:
-
-    datosFormulario.email = msg;
-
-    bot(
-        `Perfecto ${datosFormulario.nombre}, uno de nuestros comerciales se pondrá en contacto contigo muy pronto.`
-    );
-
-    fetch("https://hook.us2.make.com/hvl1sunf2xk4tq4mbkiwwvnndgk0s77q", {
-
-        method: "POST",
-
-        headers: {
-            "Content-Type": "application/json"
-        },
-
-        body: JSON.stringify({
-
-            lineaNegocio: datosFormulario.lineaNegocio,
-            categoria: datosFormulario.categoria,
-            sabeModelo: datosFormulario.sabeModelo,
-            modelo: datosFormulario.modelo,
-            nombre: datosFormulario.nombre,
-            cantidad: datosFormulario.cantidad,
-            telefono: datosFormulario.telefono,
-            ciudad: datosFormulario.ciudad,
-            email: datosFormulario.email
+            /* GENERALES */
+            nombre: datosFormulario.nombre || "",
+            telefono: datosFormulario.telefono || "",
+            ciudad: datosFormulario.ciudad || "",
+            email: datosFormulario.email || ""
 
         })
 
+    })
+
+    .then(response => response.text())
+    .then(data => {
+        console.log("Lead enviado:", data);
+    })
+
+    .catch(error => {
+        console.error("Error:", error);
     });
 
-break;
-
 }
+
+/* ========================= */
+/* HANDLE RESPONSE */
+/* ========================= */
+
+function handleResponse(msg) {
+
+    switch(step) {
+
+        case 0:
+
+            const opcionesInicio = [
+                "Envases industriales",
+                "Productos de Merchandisign | Promocional",
+                "Retail, supermercados y miselaneas"
+            ];
+
+            if (msg === "Envases industriales") {
+
+                datosFormulario.lineaNegocio = msg;
+
+                step = 1;
+
+                bot(
+                    "En nuestra línea de envases trabajamos con las siguientes categorías",
+                    ["Alimentos", "Cosméticos", "Farmaceúticos", "Hogar - Aseo"]
+                );
+
+                return;
+            }
+
+            if (msg === "Productos de Merchandisign | Promocional") {
+
+                datosFormulario.lineaNegocio = msg;
+
+                step = 200;
+
+                bot("¿Qué campaña promocional quiere realizar?");
+
+                return;
+            }
+
+            if (msg === "Retail, supermercados y miselaneas") {
+
+                datosFormulario.lineaNegocio = msg;
+
+                step = 300;
+
+                bot("Contamos con una línea de consumo masivo enfocada en productos de alta rotación para hogar, infantil, escolar, mujer y juguetes, ideales para distribución y ventas por volumen.");
+
+                setTimeout(() => {
+                    bot("Para ayudarte mejor, escribe tu nombre.");
+                }, 1500);
+
+                return;
+            }
+
+            const respuestaDB0 = buscarRespuesta(msg);
+
+            if(respuestaDB0){
+                bot(respuestaDB0);
+                return;
+            }
+
+            bot(
+                "Para poder ayudarte mejor, por favor selecciona una opción:",
+                opcionesInicio
+            );
+
+        break;
+
+        /* ========================= */
+        /* CATEGORÍAS */
+        /* ========================= */
+
+        case 1:
+
+            if (msg === "Alimentos") {
+
+                datosFormulario.categoria = msg;
+
+                step = 2;
+
+                bot(
+                    "Tenemos envases para especias, condimentos, snacks, dulces y bomboneras. ¿Sabes en que modelo envasar?",
+                    ["Sí", "No"]
+                );
+
+                return;
+            }
+
+            if (msg === "Cosméticos") {
+
+                datosFormulario.categoria = msg;
+
+                step = 2;
+
+                bot(
+                    "Fabricamos envases para cremas, shampoos, lociones, splash corporales, tratamientos capilares y productos dermocosméticos. ¿Sabes en que modelo envasar?",
+                    ["Sí", "No"]
+                );
+
+                return;
+            }
+
+            if (msg === "Farmaceúticos") {
+
+                datosFormulario.categoria = msg;
+
+                step = 2;
+
+                bot(
+                    "Contamos con envases farmacéuticos como pastilleros, envases push down, flip top y soluciones para cápsulas, grageas y suplementos. ¿Sabes en que modelo envasar?",
+                    ["Sí", "No"]
+                );
+
+                return;
+            }
+
+            if (msg === "Hogar - Aseo") {
+
+                datosFormulario.categoria = msg;
+
+                step = 2;
+
+                bot(
+                    "Fabricamos garrafas, envases de detergente, suavizantes, productos de limpieza y envases industriales para aseo. ¿Sabes en que modelo envasar?",
+                    ["Sí", "No"]
+                );
+
+                return;
+            }
+
+        break;
+
+        /* ========================= */
+        /* MODELO */
+        /* ========================= */
+
+        case 2:
+
+            if(msg === "Sí"){
+
+                datosFormulario.sabeModelo = "Sí";
+
+                step = 3;
+
+                bot("Perfecto. ¿Cuál es el modelo del envase que necesitas?");
+
+                return;
+            }
+
+            if(msg === "No"){
+
+                datosFormulario.sabeModelo = "No";
+
+                step = 9;
+
+                bot(
+                    "¿Cómo prefieres que te ayudemos?",
+                    ["Hablar con un asesor", "Preguntar en este chat"]
+                );
+
+                return;
+            }
+
+            bot("Por favor selecciona Sí o No.");
+
+        break;
+
+        case 3:
+
+            datosFormulario.modelo = msg;
+
+            step = 4;
+
+            bot("Perfecto, ahora responde por favor unas preguntas para redirigir tu solicitud con uno de nuestros comerciales.");
+
+            setTimeout(() => {
+                bot("¿Cuál es tu nombre?");
+            }, 1500);
+
+        break;
+
+        /* ========================= */
+        /* AYUDA */
+        /* ========================= */
+
+        case 9:
+
+            if(msg === "Hablar con un asesor"){
+
+                step = 4;
+
+                bot("Entendido, voy a enviarle tu solicitud a uno de nuestros asesores.");
+
+                setTimeout(() => {
+                    bot("¿Cuál es tu nombre?");
+                }, 1500);
+
+                return;
+            }
+
+            if(msg === "Preguntar en este chat"){
+
+                bot("Voy a tratar de resolver tus dudas.");
+
+                return;
+            }
+
+        break;
+
+        /* ========================= */
+        /* FORMULARIO ENVASES */
+        /* ========================= */
+
+        case 4:
+
+            datosFormulario.nombre = msg;
+
+            step = 5;
+
+            bot(
+                "¿Qué cantidad necesitas?",
+                ["1.000 - 10.000", "10.000 en adelante"]
+            );
+
+        break;
+
+        case 5:
+
+            datosFormulario.cantidad = msg;
+
+            step = 6;
+
+            bot("Si quieres que te llamemos o contactemos por whatsapp, escribe tu número");
+
+        break;
+
+        case 6:
+
+            datosFormulario.telefono = msg;
+
+            step = 7;
+
+            bot("¿Cuál es tu ciudad?");
+
+        break;
+
+        case 7:
+
+            datosFormulario.ciudad = msg;
+
+            step = 8;
+
+            bot("¿Cuál es tu correo electrónico?");
+
+        break;
+
+        case 8:
+
+            datosFormulario.email = msg;
+
+            bot(
+                `Perfecto ${datosFormulario.nombre}, uno de nuestros comerciales se pondrá en contacto contigo muy pronto.`
+            );
+
+            enviarLead();
+
+        break;
+
+        /* ========================= */
+        /* MERCHANDISING */
+        /* ========================= */
+
+        case 200:
+
+            datosFormulario.campanaPromocional = msg;
+
+            step = 201;
+
+            bot(
+                "¿Qué cantidad requiere?",
+                ["1.000 - 10.000", "10.001 en adelante"]
+            );
+
+        break;
+
+        case 201:
+
+            datosFormulario.cantidadPromocional = msg;
+
+            step = 202;
+
+            bot("¿Cuál es tu nombre?");
+
+        break;
+
+        case 202:
+
+            datosFormulario.nombre = msg;
+
+            step = 203;
+
+            bot("¿Cuál es tu teléfono de contacto?");
+
+        break;
+
+        case 203:
+
+            datosFormulario.telefono = msg;
+
+            step = 204;
+
+            bot("¿Cuál es tu correo electrónico?");
+
+        break;
+
+        case 204:
+
+            datosFormulario.email = msg;
+
+            step = 205;
+
+            bot("¿Cuál es tu ciudad?");
+
+        break;
+
+        case 205:
+
+            datosFormulario.ciudad = msg;
+
+            step = 206;
+
+            bot("¿Cuál es el nombre de tu empresa?");
+
+        break;
+
+        case 206:
+
+            datosFormulario.empresa = msg;
+
+            step = 207;
+
+            bot("¿Cuál es tu cargo?");
+
+        break;
+
+        case 207:
+
+            datosFormulario.cargo = msg;
+
+            step = 208;
+
+            bot("¿En qué horario deseas ser contactado?");
+
+        break;
+
+        case 208:
+
+            datosFormulario.horarioContacto = msg;
+
+            bot(
+                `Perfecto ${datosFormulario.nombre}, uno de nuestros asesores se pondrá en contacto contigo muy pronto.`
+            );
+
+            enviarLead();
+
+        break;
+
+        /* ========================= */
+        /* RETAIL */
+        /* ========================= */
+
+        case 300:
+
+            datosFormulario.nombre = msg;
+
+            step = 301;
+
+            bot("¿Cuál es tu teléfono o celular?");
+
+        break;
+
+        case 301:
+
+            datosFormulario.telefono = msg;
+
+            step = 302;
+
+            bot("¿Cuál es tu ciudad?");
+
+        break;
+
+        case 302:
+
+            datosFormulario.ciudad = msg;
+
+            step = 303;
+
+            bot("¿Qué productos son de tu interés?");
+
+        break;
+
+        case 303:
+
+            datosFormulario.productosInteres = msg;
+
+            bot(
+                `Perfecto ${datosFormulario.nombre}, uno de nuestros asesores se pondrá en contacto contigo muy pronto.`
+            );
+
+            enviarLead();
+
+        break;
+
+    }
 
 }
 

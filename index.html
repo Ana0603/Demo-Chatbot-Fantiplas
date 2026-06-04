@@ -511,6 +511,15 @@ function handleResponse(msg) {
                 return;
             }
 
+            if (msg === "Preguntar al bot") {
+
+            step = 500;
+
+            bot("Perfecto, puede hacerme preguntas sobre productos, capacidades, materiales, personalización, cantidades mínimas y servicios de Fantiplas.");
+
+            return;
+            }
+
             const respuestaDB0 = buscarRespuesta(msg);
 
             if(respuestaDB0){

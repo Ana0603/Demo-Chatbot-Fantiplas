@@ -355,17 +355,16 @@ let ultimoComercialRetail = 1;
 let datosFormulario = {
 
     lineaNegocio: "",
+    Cantidad: "",
     OtraSolicitud: "",
     categoria: "",
 
     /* ENVASES */
     sabeModelo: "",
     modelo: "",
-    cantidad: "",
 
     /* MERCHANDISING */
     campanaPromocional: "",
-    cantidadPromocional: "",
     empresa: "",
     cargo: "",
     horarioContacto: "",
@@ -469,10 +468,12 @@ function handleResponse(msg) {
             if (msg === "Productos de Merchandisign | Promocional") {
 
                 datosFormulario.lineaNegocio = msg;
-
-                step = 200;
-
-                bot("¿Qué campaña promocional quiere realizar?");
+              
+                step = 101;
+                
+                bot("¿Cual es el volumen de unidades que requiere?",
+                  ["Más de 1.000", "Menos de 1.000"]
+                );
 
                 return;
             }
@@ -511,12 +512,24 @@ function handleResponse(msg) {
 
         case 100:
         
+            datosFormulario.cantidad = msg;
+        
             step = 1;
 
             bot("En nuestra línea de envases trabajamos con las siguientes categorías",
                     ["Alimentos", "Cosméticos", "Farmaceúticos", "Hogar - Aseo"]
                 );
 
+        break;
+
+        case 101:
+
+            datosFormulario.cantidad = msg;
+        
+            step = 200;
+
+            bot("¿Qué campaña promocional quiere realizar?");
+        
         break;
 
         /* ========================= */

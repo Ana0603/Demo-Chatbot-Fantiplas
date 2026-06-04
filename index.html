@@ -379,7 +379,8 @@ let datosFormulario = {
     telefono: "",
     ciudad: "",
     email: "",
-    comercial: ""
+    comercial: "",
+    web: ""
 
 };
 
@@ -420,7 +421,8 @@ function enviarLead() {
             nombre: datosFormulario.nombre || "",
             telefono: datosFormulario.telefono || "",
             ciudad: datosFormulario.ciudad || "",
-            email: datosFormulario.email || ""
+            email: datosFormulario.email || "",
+            web: datosFormulario.web || ""
 
         })
 
@@ -696,15 +698,25 @@ function handleResponse(msg) {
 
             datosFormulario.ciudad = msg;
 
-            step = 8;
+            step = 10;
 
             bot("¿Cuál es tu correo electrónico?");
 
         break;
 
-        case 8:
+        case 10:
 
             datosFormulario.email = msg;
+
+            step = 8;
+
+            bot("Queremos conocerlo mejor. Por favor, compartanos su página web o redes sociales comerciales");
+
+        break;
+
+        case 8:
+
+            datosFormulario.web = msg;
 
             bot(
                 `Perfecto ${datosFormulario.nombre}, uno de nuestros comerciales se pondrá en contacto contigo muy pronto.`

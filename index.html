@@ -362,17 +362,18 @@ let datosFormulario = {
     /* ENVASES */
     producto: "",
     contenido: "",
+    categoria: "",
 
     /* MERCHANDISING */
-    campanaPromocional: "",
-    empresa: "",
-    cargo: "",
-    horarioContacto: "",
-
+    categoriaP: "",
+    productoP: "",
+  
     /* RETAIL */
-    productosInteres: "",
+    categoriaR: "",
+    productoR: "",
 
     /* OTRA SOLICITUD */
+    solicitud: "",
 
     /* GENERALES */
     nombre: "",
@@ -399,30 +400,30 @@ function enviarLead() {
             lineaNegocio: datosFormulario.lineaNegocio || "",
             cantidad: datosFormulario.cantidad || "",
 
-            /* OTRA SOLICITUD */
-            OtraSolicitud: datosFormulario.OtraSolicitud || "",
-
             /* ENVASES */
             categoria: datosFormulario.categoria || "",
             producto: datosFormulario.producto || "", 
             contenido: datosFormulario.contenido || "", 
 
             /* MERCHANDISING */
-            campanaPromocional: datosFormulario.campanaPromocional || "",
-            cantidadPromocional: datosFormulario.cantidadPromocional || "",
-            empresa: datosFormulario.empresa || "",
-            cargo: datosFormulario.cargo || "",
-            horarioContacto: datosFormulario.horarioContacto || "",
+            categoriaP: datosFormulario.categoriaP || "",
+            productoP: datosFormulario.productoP || "",
 
             /* RETAIL */
-            productosInteres: datosFormulario.productosInteres || "",
+            categoriaR: datosFormulario.categoriaR || "",
+            productoR: datosFormulario.productoR || "",
 
+            /* OTRA SOLICITUD */
+            OtraSolicitud: datosFormulario.OtraSolicitud || "",
+            solicitud: datosFormulario.solicitud || "",
+            
             /* GENERALES */
             nombre: datosFormulario.nombre || "",
             telefono: datosFormulario.telefono || "",
             ciudad: datosFormulario.ciudad || "",
             email: datosFormulario.email || "",
-            web: datosFormulario.web || ""
+            web: datosFormulario.web || "",
+            empresa: datosFormulario.empresa || "",
 
         })
 
@@ -497,13 +498,14 @@ function handleResponse(msg) {
 
             if (msg === "Otra Solicitud") {
               
-            datosFormulario.OtraSolicitud = msg;
+                datosFormulario.OtraSolicitud = msg;
               
-            step = 500;
+                step = 500;
 
-            bot("Por favor, escriba su solicitud");
+                bot("¿Cual es el volumen de unidades que requiere?",
+                  ["Más de 1.000", "Menos de 1.000"]
 
-            return;
+                return;
             };
 
         break;
@@ -549,7 +551,7 @@ function handleResponse(msg) {
         break;
 
         /* ========================= */
-        /* CATEGORÍAS */
+        /* CATEGORÍAS ENVASES*/
         /* ========================= */
 
         case 1:
@@ -599,10 +601,6 @@ function handleResponse(msg) {
             }
 
         break;
-
-        /* ========================= */
-        /* MODELO */
-        /* ========================= */
 
         case 2:
 
@@ -726,16 +724,16 @@ function handleResponse(msg) {
         break;
 
         /* ========================= */
-        /* MERCHANDISING */
+        /* CATEGORÍAS MERCHANDISIGN*/
         /* ========================= */
 
         case 200:
 
-            datosFormulario.campanaPromocional = msg;
+            datosFormulario.categoriaP = msg;
 
             if (msg === "Escolar") {
 
-                datosFormulario.producto = msg;
+                datosFormulario.productoP = msg;
 
                 step = 3;
 
@@ -746,7 +744,7 @@ function handleResponse(msg) {
 
             if (msg === "Mascotas") {
 
-                datosFormulario.producto = msg;
+                datosFormulario.productoP = msg;
 
                 step = 3;
 
@@ -757,7 +755,7 @@ function handleResponse(msg) {
 
             if (msg === "Para mujeres") {
 
-                datosFormulario.producto = msg;
+                datosFormulario.productoP = msg;
 
                 step = 3;
 
@@ -768,7 +766,7 @@ function handleResponse(msg) {
 
             if (msg === "Hogar") {
 
-                datosFormulario.producto = msg;
+                datosFormulario.productoP = msg;
 
                 step = 3;
 
@@ -779,7 +777,7 @@ function handleResponse(msg) {
 
             if (msg === "Juguetes") {
 
-                datosFormulario.producto = msg;
+                datosFormulario.productoP = msg;
 
                 step = 3;
 
@@ -792,12 +790,12 @@ function handleResponse(msg) {
         break;
 
         /* ========================= */
-        /* RETAIL */
+        /* CATEGORÍAS RETAIL*/
         /* ========================= */
 
         case 300:
 
-            datosFormulario.campanaPromocional = msg;
+            datosFormulario.categoriaR = msg;
 
             if (msg === "Escolar") {
 
@@ -812,7 +810,7 @@ function handleResponse(msg) {
 
             if (msg === "Mascotas") {
 
-                datosFormulario.producto = msg;
+                datosFormulario.productoR = msg;
 
                 step = 3;
 
@@ -823,7 +821,7 @@ function handleResponse(msg) {
 
             if (msg === "Para mujeres") {
 
-                datosFormulario.producto = msg;
+                datosFormulario.productoR = msg;
 
                 step = 3;
 
@@ -834,7 +832,7 @@ function handleResponse(msg) {
 
             if (msg === "Hogar") {
 
-                datosFormulario.producto = msg;
+                datosFormulario.productoR = msg;
 
                 step = 3;
 
@@ -845,7 +843,7 @@ function handleResponse(msg) {
 
             if (msg === "Juguetes") {
 
-                datosFormulario.producto = msg;
+                datosFormulario.productoR = msg;
 
                 step = 3;
 
@@ -853,6 +851,16 @@ function handleResponse(msg) {
 
                 return;
             }
+        break;
+
+         case 500:
+        
+              datosFormulario.solicitud = msg;
+        
+              step = 3;
+        
+              bot("Por favor, escribe tu solicitud");
+        
         break;
 
     }
@@ -973,7 +981,7 @@ function handleResponse(msg) {
             "Envases industriales",
             "Productos de Merchandisign | Promocional",
             "Retail, supermercados y miselaneas",
-            "Requiero otro producto"  
+            "Otra solicitud"  
             ]);
 
         }, 2500);

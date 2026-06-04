@@ -355,13 +355,13 @@ let ultimoComercialRetail = 1;
 let datosFormulario = {
 
     lineaNegocio: "",
-    Cantidad: "",
+    cantidad: "",
     OtraSolicitud: "",
-    categoria: "",
+
 
     /* ENVASES */
-    sabeModelo: "",
-    modelo: "",
+    producto: "",
+    contenido: "",
 
     /* MERCHANDISING */
     campanaPromocional: "",
@@ -396,13 +396,15 @@ function enviarLead() {
         body: JSON.stringify({
 
             lineaNegocio: datosFormulario.lineaNegocio || "",
+            cantidad: datosFormulario.cantidad || "",
+
+            /* OTRA SOLICITUD */
             OtraSolicitud: datosFormulario.OtraSolicitud || "",
 
             /* ENVASES */
             categoria: datosFormulario.categoria || "",
-            sabeModelo: datosFormulario.sabeModelo || "",
-            modelo: datosFormulario.modelo || "",
-            cantidad: datosFormulario.cantidad || "",
+            producto: datosFormulario.producto || "", 
+            contenido: datosFormulario.contenido || "", 
 
             /* MERCHANDISING */
             campanaPromocional: datosFormulario.campanaPromocional || "",
@@ -553,56 +555,44 @@ function handleResponse(msg) {
 
             if (msg === "Alimentos") {
 
-                datosFormulario.categoria = msg;
+                datosFormulario.producto = msg;
 
                 step = 2;
 
-                bot(
-                    "Tenemos envases para especias, condimentos, snacks, dulces y bomboneras. ¿Sabes en que modelo envasar?",
-                    ["Sí", "No"]
-                );
+                bot("¿Qué producto vas a envasar?",);
 
                 return;
             }
 
             if (msg === "Cosméticos") {
 
-                datosFormulario.categoria = msg;
+                datosFormulario.producto = msg;
 
                 step = 2;
 
-                bot(
-                    "Fabricamos envases para cremas, shampoos, lociones, splash corporales, tratamientos capilares y productos dermocosméticos. ¿Sabes en que modelo envasar?",
-                    ["Sí", "No"]
-                );
+                bot("¿Qué producto vas a envasar?",);
 
                 return;
             }
 
             if (msg === "Farmaceúticos") {
 
-                datosFormulario.categoria = msg;
+                datosFormulario.producto = msg;
 
                 step = 2;
 
-                bot(
-                    "Contamos con envases farmacéuticos como pastilleros, envases push down, flip top y soluciones para cápsulas, grageas y suplementos. ¿Sabes en que modelo envasar?",
-                    ["Sí", "No"]
-                );
+                bot("¿Qué producto vas a envasar?");
 
                 return;
             }
 
             if (msg === "Hogar - Aseo") {
 
-                datosFormulario.categoria = msg;
+                datosFormulario.producto = msg;
 
                 step = 2;
 
-                bot(
-                    "Fabricamos garrafas, envases de detergente, suavizantes, productos de limpieza y envases industriales para aseo. ¿Sabes en que modelo envasar?",
-                    ["Sí", "No"]
-                );
+                bot("¿Qué producto vas a envasar?");
 
                 return;
             }
@@ -615,32 +605,16 @@ function handleResponse(msg) {
 
         case 2:
 
-            if(msg === "Sí"){
-
-                datosFormulario.sabeModelo = "Sí";
+                datosFormulario.contenido = msg;
 
                 step = 3;
 
-                bot("Perfecto. ¿Cuál es el modelo del envase que necesitas?");
-
+                bot("¿Cuál es el contenido del envase?,
+                    ["50 ml", "100 ml", "250 ml, 500 ml", "1 litro", "Otro"]
+                    );
+              
                 return;
             }
-
-            if(msg === "No"){
-
-                datosFormulario.sabeModelo = "No";
-
-                step = 9;
-
-                bot(
-                    "¿Cómo prefieres que te ayudemos?",
-                    ["Hablar con un asesor", "Preguntar en este chat"]
-                );
-
-                return;
-            }
-
-            bot("Por favor selecciona Sí o No.");
 
         break;
 
@@ -650,7 +624,7 @@ function handleResponse(msg) {
 
             step = 4;
 
-            bot("Perfecto, ahora responde por favor unas preguntas para redirigir tu solicitud con uno de nuestros comerciales.");
+            bot("Perfecto, a continuacion le solicitamos su informacion para que sea contactado por un representante comercial.");
 
             setTimeout(() => {
                 bot("¿Cuál es tu nombre?");
@@ -696,16 +670,13 @@ function handleResponse(msg) {
 
             step = 5;
 
-            bot(
-                "¿Qué cantidad necesitas?",
-                ["1.000 - 10.000", "10.000 en adelante"]
-            );
+            bot("¿En que empresa trabajas?");
 
         break;
 
         case 5:
 
-            datosFormulario.cantidad = msg;
+            datosFormulario.empresa = msg;
 
             step = 6;
 

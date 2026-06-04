@@ -892,6 +892,8 @@ function handleResponse(msg) {
 
         step = 500;
 
+        const respuestaDB = buscarRespuesta(msg);
+
         bot("Entiendo. ¿Qué otra consulta tienes?");
 
         return;

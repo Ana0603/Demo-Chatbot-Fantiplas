@@ -449,10 +449,11 @@ function handleResponse(msg) {
                 .replace(/,/g, "")
         );
 
-        if (cantidad > 0 && cantidad < 500) {
+        if (cantidad > 0 && cantidad < 550) {
 
             bot(
-                "Lo sentimos, en Fantiplas no fabricamos productos por unidad. Nuestra fabricación inicia a partir de 500 unidades."
+                "Lo sentimos, en Fantiplas no fabricamos productos por unidad. Nuestra fabricación inicia a partir de 500 unidades.",
+              ["Seguir preguntando", "Finalizar conversación"]
             );
 
             return;
@@ -876,6 +877,52 @@ function handleResponse(msg) {
             );
 
             enviarLead();
+
+        break;
+
+        /* ========================= */
+        /* PREGUNTAR AL BOT */
+        /* ========================= */
+
+        case 550:
+
+        if(msg === "Seguir preguntando"){
+
+        step = 500;
+
+        bot("Entiendo. ¿Qué otra consulta tienes?");
+
+        return;
+        }
+
+        if(msg === "Finalizar conversación"){
+
+        step = 0;
+
+        bot("Gracias por comunicarte con Fantiplas.");
+
+        return;
+        }
+
+        break;
+
+        case 900:
+
+        if(msg === "Seguir preguntando"){
+
+        bot("Puedes continuar con tu consulta.");
+
+        return;
+        }
+  
+        if(msg === "Finalizar conversación"){
+
+        bot("Gracias por comunicarte con Fantiplas.");
+
+        step = 0;
+
+        return;
+        }
 
         break;
 

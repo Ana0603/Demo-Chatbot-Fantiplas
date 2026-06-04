@@ -438,6 +438,28 @@ function enviarLead() {
 
 function handleResponse(msg) {
 
+   // Detectar cantidades menores a 500
+    const numeros = msg.match(/\d+/g);
+
+    if (numeros) {
+
+        const cantidad = parseInt(
+            numeros.join("")
+                .replace(/\./g, "")
+                .replace(/,/g, "")
+        );
+
+        if (cantidad > 0 && cantidad < 500) {
+
+            bot(
+                "Lo sentimos, en Fantiplas no fabricamos productos por unidad. Nuestra fabricación inicia a partir de 500 unidades."
+            );
+
+            return;
+        }
+
+    }
+
     switch(step) {
 
         case 0:

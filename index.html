@@ -374,6 +374,7 @@ let datosFormulario = {
 
     /* OTRA SOLICITUD */
     solicitud: "",
+    otraSolicitud: "",
 
     /* GENERALES */
     nombre: "",
@@ -414,7 +415,7 @@ function enviarLead() {
             productoR: datosFormulario.productoR || "",
 
             /* OTRA SOLICITUD */
-            OtraSolicitud: datosFormulario.OtraSolicitud || "",
+            otraSolicitud: datosFormulario.otraSolicitud || "",
             solicitud: datosFormulario.solicitud || "",
             
             /* GENERALES */
@@ -454,7 +455,7 @@ function handleResponse(msg) {
                 "Envases industriales",
                 "Productos de Merchandisign | Promocional",
                 "Retail, supermercados y miselaneas",
-                "Otra Solicitud"  
+                "Otra solicitud"  
             ];
 
             if (msg === "Envases industriales") {
@@ -496,7 +497,7 @@ function handleResponse(msg) {
                 return;
             }
 
-            if (msg === "Otra Solicitud") {
+            if (msg === "Otra solicitud") {
               
                 datosFormulario.OtraSolicitud = msg;
               

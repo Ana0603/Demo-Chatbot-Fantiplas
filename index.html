@@ -541,13 +541,10 @@ function handleResponse(msg) {
             datosFormulario.cantidad = msg;
         
             step = 300;
-
-            bot("Contamos con una línea de consumo masivo enfocada en productos de alta rotación para hogar, infantil, escolar, mujer y juguetes, ideales para distribución y ventas por volumen.");
-
-            setTimeout(() => {
-            bot("Para ayudarte mejor, escribe tu nombre.");
-                
-            }, 1500);
+        
+             bot("¿Qué tipo de producto quiere comercializar?",
+                ["Escolar", "Mascotas", "Para mujeres", "Hogar - Aseo", "Juguetes"]
+               );
         
         break;
 
@@ -800,90 +797,62 @@ function handleResponse(msg) {
 
         case 300:
 
-            datosFormulario.nombre = msg;
+            datosFormulario.campanaPromocional = msg;
 
-            step = 301;
+            if (msg === "Escolar") {
 
-            bot("¿Cuál es tu teléfono o celular?");
+                datosFormulario.producto = msg;
 
-        break;
+                step = 3;
 
-        case 301:
+                bot("Tenemos la capacidad para fabricar desde reglas, estuches, loncheras y más ¿Qué producto quiere comercializar?");
 
-            datosFormulario.telefono = msg;
+                return;
+            }
 
-            step = 302;
+            if (msg === "Mascotas") {
 
-            bot("¿Cuál es tu ciudad?");
+                datosFormulario.producto = msg;
 
-        break;
+                step = 3;
 
-        case 302:
+                bot("Podremos personalizar botellas y platos ¿Qué producto quiere comercializar?");
 
-            datosFormulario.ciudad = msg;
+                return;
+            }
 
-            step = 303;
+            if (msg === "Para mujeres") {
 
-            bot("¿Qué productos son de tu interés?");
+                datosFormulario.producto = msg;
 
-        break;
+                step = 3;
 
-        case 303:
+                bot("Personalizamos diademas peinillas y pulseras ¿Qué producto quiere comercializar?");
 
-            datosFormulario.productosInteres = msg;
+                return;
+            }
 
-            bot(
-                `Perfecto ${datosFormulario.nombre}, uno de nuestros asesores se pondrá en contacto contigo muy pronto.`
-            );
+            if (msg === "Hogar") {
 
-            enviarLead();
+                datosFormulario.producto = msg;
 
-        break;
+                step = 3;
 
-        /* ========================= */
-        /* PREGUNTAR AL BOT */
-        /* ========================= */
+                bot("Personalizamos botellas, copas, vasos, platos, anchetas ¿Qué producto quiere comercializar?");
 
-        case 500:
+                return;
+            }
 
-        if(msg === "Seguir preguntando"){
+            if (msg === "Juguetes") {
 
-        const respuestaDB = buscarRespuesta(msg);
+                datosFormulario.producto = msg;
 
-        bot("Muchas gracias por la in");
+                step = 3;
 
-        return;
-        }
+                bot("Por favor escriba el juguete que quiere comercializar");
 
-        if(msg === "Finalizar conversación"){
-
-        step = 0;
-
-        bot("Gracias por comunicarte con Fantiplas.");
-
-        return;
-        }
-
-        break;
-
-        case 900:
-
-        if(msg === "Seguir preguntando"){
-
-        bot("Puedes continuar con tu consulta.");
-
-        return;
-        }
-  
-        if(msg === "Finalizar conversación"){
-
-        bot("Gracias por comunicarte con Fantiplas.");
-
-        step = 0;
-
-        return;
-        }
-
+                return;
+            }
         break;
 
     }

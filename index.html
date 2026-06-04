@@ -482,13 +482,11 @@ function handleResponse(msg) {
 
                 datosFormulario.lineaNegocio = msg;
 
-                step = 300;
-
-                bot("Contamos con una línea de consumo masivo enfocada en productos de alta rotación para hogar, infantil, escolar, mujer y juguetes, ideales para distribución y ventas por volumen.");
-
-                setTimeout(() => {
-                    bot("Para ayudarte mejor, escribe tu nombre.");
-                }, 1500);
+                step = 102;
+                
+                bot("¿Cual es el volumen de unidades que requiere?",
+                  ["Más de 1.000", "Menos de 1.000"]
+                );
 
                 return;
             }
@@ -529,6 +527,21 @@ function handleResponse(msg) {
             step = 200;
 
             bot("¿Qué campaña promocional quiere realizar?");
+        
+        break;
+
+        case 102:
+        
+            datosFormulario.cantidad = msg;
+        
+            step = 300;
+
+            bot("Contamos con una línea de consumo masivo enfocada en productos de alta rotación para hogar, infantil, escolar, mujer y juguetes, ideales para distribución y ventas por volumen.");
+
+            setTimeout(() => {
+            bot("Para ayudarte mejor, escribe tu nombre.");
+                
+            }, 1500);
         
         break;
 

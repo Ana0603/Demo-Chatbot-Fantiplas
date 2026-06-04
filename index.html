@@ -355,6 +355,7 @@ let ultimoComercialRetail = 1;
 let datosFormulario = {
 
     lineaNegocio: "",
+    OtraSolicitud: "",
     categoria: "",
 
     /* ENVASES */
@@ -371,6 +372,8 @@ let datosFormulario = {
 
     /* RETAIL */
     productosInteres: "",
+
+    /* OTRA SOLICITUD */
 
     /* GENERALES */
     nombre: "",
@@ -394,6 +397,7 @@ function enviarLead() {
         body: JSON.stringify({
 
             lineaNegocio: datosFormulario.lineaNegocio || "",
+            OtraSolicitud: : datosFormulario.OtraSolicitud || "",
 
             /* ENVASES */
             categoria: datosFormulario.categoria || "",
@@ -438,31 +442,6 @@ function enviarLead() {
 
 function handleResponse(msg) {
 
-   // Detectar cantidades menores a 500
-    const numeros = msg.match(/\d+/g);
-
-    if (numeros) {
-
-        const cantidad = parseInt(
-            numeros.join("")
-                .replace(/\./g, "")
-                .replace(/,/g, "")
-        );
-
-        if (cantidad > 0 && cantidad < 550) {
-
-            bot(
-                "Lo sentimos, en Fantiplas no fabricamos productos por unidad. Nuestra fabricación inicia a partir de 500 unidades.",
-              ["Seguir preguntando", "Finalizar conversación"]
-            );
-          
-          step = 900;
-
-            return;
-        }
-
-    }
-
     switch(step) {
 
         case 0:
@@ -471,18 +450,17 @@ function handleResponse(msg) {
                 "Envases industriales",
                 "Productos de Merchandisign | Promocional",
                 "Retail, supermercados y miselaneas",
-                "Preguntar al bot"  
+                "Otra Solicitud"  
             ];
 
             if (msg === "Envases industriales") {
 
                 datosFormulario.lineaNegocio = msg;
 
-                step = 1;
-
-                bot(
-                    "En nuestra línea de envases trabajamos con las siguientes categorías",
-                    ["Alimentos", "Cosméticos", "Farmaceúticos", "Hogar - Aseo"]
+                step = 100;
+                
+                bot("¿Cual es el volumen de unidades que requiere?",
+                  ["Más de 1.000", "Menos de 1.000"]
                 );
 
                 return;
@@ -514,26 +492,30 @@ function handleResponse(msg) {
                 return;
             }
 
-            if (msg === "Preguntar al bot") {
-
+            if (msg === "Otra Solicitud") {
+              
+            datosFormulario.OtraSolicitud = msg;
+              
             step = 500;
 
-            bot("Perfecto, puede hacerme preguntas sobre productos, capacidades, materiales, personalización, cantidades mínimas y servicios de Fantiplas.");
+            bot("Por favor, escriba su solicitud");
 
             return;
-            }
+            };
 
-            const respuestaDB0 = buscarRespuesta(msg);
+        break;
+        
+        /* ========================= */
+        /* FILTRO CANTIDAD MINIMA REQUERIDA */
+        /* ========================= */
 
-            if(respuestaDB0){
-                bot(respuestaDB0);
-                return;
-            }
+        case 100:
+        
+            step = 1;
 
-            bot(
-                "Para poder ayudarte mejor, por favor selecciona una opción:",
-                opcionesInicio
-            );
+            bot("En nuestra línea de envases trabajamos con las siguientes categorías",
+                    ["Alimentos", "Cosméticos", "Farmaceúticos", "Hogar - Aseo"]
+                );
 
         break;
 
@@ -886,15 +868,13 @@ function handleResponse(msg) {
         /* PREGUNTAR AL BOT */
         /* ========================= */
 
-        case 550:
+        case 500:
 
         if(msg === "Seguir preguntando"){
 
-        step = 500;
-
         const respuestaDB = buscarRespuesta(msg);
 
-        bot("Entiendo. ¿Qué otra consulta tienes?");
+        bot("Muchas gracias por la in");
 
         return;
         }
@@ -1048,7 +1028,7 @@ function handleResponse(msg) {
             "Envases industriales",
             "Productos de Merchandisign | Promocional",
             "Retail, supermercados y miselaneas",
-            "Preguntar al bot"  
+            "Requiero otro producto"  
             ]);
 
         }, 2500);

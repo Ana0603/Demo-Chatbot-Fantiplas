@@ -670,7 +670,7 @@ function handleResponse(msg) {
 
             step = 5;
 
-            bot("¿En que empresa trabajas?");
+            bot("¿En que empresa trabaja?");
 
         break;
 
@@ -680,7 +680,7 @@ function handleResponse(msg) {
 
             step = 6;
 
-            bot("Si quieres que te llamemos o contactemos por whatsapp, escribe tu número");
+            bot("Si quiere que lo llamemos o contactemos por whatsapp, escriba su número");
 
         break;
 
@@ -690,7 +690,7 @@ function handleResponse(msg) {
 
             step = 7;
 
-            bot("¿Cuál es tu ciudad?");
+            bot("¿Cuál la ciudad en donde se realizaria el despacho?");
 
         break;
 
@@ -700,7 +700,7 @@ function handleResponse(msg) {
 
             step = 10;
 
-            bot("¿Cuál es tu correo electrónico?");
+            bot("¿Cuál es su correo electrónico?");
 
         break;
 
@@ -719,7 +719,7 @@ function handleResponse(msg) {
             datosFormulario.web = msg;
 
             bot(
-                `Perfecto ${datosFormulario.nombre}, uno de nuestros comerciales se pondrá en contacto contigo muy pronto.`
+                `Perfecto ${datosFormulario.nombre}, acabamos de asignarle un asesor comercial enfocado en su necesidad, se pondrá en contacto con usted en un plazo máxino de 3 horas.`
             );
 
             enviarLead();

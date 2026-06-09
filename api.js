@@ -33,6 +33,7 @@ let datosFormulario = {
 
     /* GENERALES */
     nombre: "",
+    empresa: "",
     telefono: "",
     ciudad: "",
     email: "",

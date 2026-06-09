@@ -285,30 +285,6 @@ function handleResponse(msg) {
         break;
 
         /* ========================= */
-        /* AYUDA */
-        /* ========================= */
-
-        case 9:
-
-            if(msg === "Hablar con un asesor"){
-
-                step = 4;
-
-                return bot("Entendido, voy a enviarle tu solicitud a uno de nuestros asesores.");
-
-                setTimeout(() => {
-                    bot("¿Cuál es tu nombre?");
-                }, 1500);
-            }
-
-            if(msg === "Preguntar en este chat"){
-
-                return bot("Voy a tratar de resolver tus dudas.");
-            }
-
-        break;
-
-        /* ========================= */
         /* FORMULARIO ENVASES */
         /* ========================= */
 
@@ -363,6 +339,8 @@ function handleResponse(msg) {
         case 8:
 
             datosFormulario.web = msg;
+
+            enviarLead();
 
             return bot(
                 `Perfecto ${datosFormulario.nombre}, acabamos de asignarle un asesor comercial enfocado en su necesidad, se pondrá en contacto con usted en un plazo máxino de 3 horas.`
@@ -425,8 +403,7 @@ function handleResponse(msg) {
                 return bot("Por favor escriba el juguete que quiere personalizar");
 
             }
-
-
+            
         break;
 
         /* ========================= */
@@ -496,6 +473,11 @@ function handleResponse(msg) {
             );
         
         break;
+    }
+    
+    return respuestaBot;
+
+}    
         /* BOT */
         function bot(text, options = []) {
         respuestaBot = {

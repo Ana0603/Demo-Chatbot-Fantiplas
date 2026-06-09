@@ -17,6 +17,7 @@ let datosFormulario = {
     producto: "",
     contenido: "",
     categoria: "",
+    modelo: "",
 
     /* MERCHANDISING */
     categoriaP: "",
@@ -345,8 +346,6 @@ function handleResponse(msg) {
             return bot(
                 `Perfecto ${datosFormulario.nombre}, acabamos de asignarle un asesor comercial enfocado en su necesidad, se pondrá en contacto con usted en un plazo máxino de 3 horas.`
             );
-
-            enviarLead();
 
         break;
 

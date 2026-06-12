@@ -4,14 +4,10 @@ let step = 0;
 
 let respuestaBot = null;
 
-let ultimoComercialRetail = 1;
-
 let datosFormulario = {
 
     lineaNegocio: "",
     cantidad: "",
-    OtraSolicitud: "",
-
 
     /* ENVASES */
     producto: "",
@@ -37,7 +33,6 @@ let datosFormulario = {
     telefono: "",
     ciudad: "",
     email: "",
-    comercial: "",
     web: ""
 
 };
@@ -182,6 +177,20 @@ function handleResponse(msg) {
         
         break;
         case 100:
+            
+            if (
+                msg !== "Más de 1.000" &&
+                msg !== "Menos de 1.000"
+            ) {
+        
+                return bot(
+                    "Por favor seleccione una opción",
+                    [
+                        "Más de 1.000",
+                        "Menos de 1.000"
+                    ]
+                );
+            }
         
             datosFormulario.cantidad = msg;
         
@@ -310,11 +319,19 @@ function handleResponse(msg) {
 
         case 6:
 
+            if (!esTelefonoValido(msg)) {        
+                return bot(
+                    "Por favor ingrese un número de teléfono válido."
+                );        
+            }
+        
             datosFormulario.telefono = msg;
-
+        
             step = 7;
-
-            return bot("¿Cuál la ciudad en donde se realizaria el despacho?");
+        
+            return bot(
+                "¿Cuál es la ciudad donde se realizará el despacho?"
+            );
 
         break;
 
@@ -330,11 +347,19 @@ function handleResponse(msg) {
 
         case 10:
 
-            datosFormulario.email = msg;
+            if (!esEmailValido(msg)) {
+                return bot(
+                    "Por favor ingrese un correo electrónico válido."
+                );
+            }
 
-            step = 8;
-
-            return bot("Queremos conocerlo mejor. Por favor, compartanos su página web o redes sociales comerciales");
+        datosFormulario.email = msg;
+    
+        step = 8;
+    
+        return bot(
+            "Queremos conocerlo mejor. Compártanos su página web o redes sociales."
+        );
 
         break;
 
@@ -478,6 +503,19 @@ function handleResponse(msg) {
     return respuestaBot;
 
 }    
+
+        /* VALIDACIONES */
+        
+        function esEmailValido(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+        
+        function esTelefonoValido(numero) {
+            return /^[0-9]{7,15}$/.test(
+                numero.replace(/\s/g, "")
+            );
+        }
+
         /* BOT */
         function bot(text, options = []) {
         respuestaBot = {

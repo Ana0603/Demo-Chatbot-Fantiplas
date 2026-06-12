@@ -44,7 +44,7 @@ let datosFormulario = {
 
 function enviarLead() {
 
-    fetch("https://hook.us2.make.com/hvl1sunf2xk4tq4mbkiwwvnndgk0s77q", {
+    fetch("https://hook.us2.make.com/2ycya2rcd3bgkv0q46va1vapvmgohpc4", {
 
         method: "POST",
 

@@ -59,6 +59,8 @@ export default async function handler(req, res) {
           console.log("MENSAJE RECIBIDO:", text);
 
           const respuesta = await handleResponse(from, text);
+          console.log("MENSAJE RECIBIDO:", text);
+          console.log("RESPUESTA BOT:", respuesta);
           const mensajeFinal = formatBotMessage(respuesta.text, respuesta.options);
 
           await sendWhatsAppMessage(from, mensajeFinal);

@@ -71,10 +71,10 @@ export async function handleResponse(from, msg) {
         datosFormulario.lineaNegocio = "Envases industriales";
         step = 100;
       } else if (msg === "2" || msg === "Productos de Merchandising | Promocional") {
-        datosFormulario.lineaNegocio = "Merchandising";
+        datosFormulario.lineaNegocio = "Productos de Merchandising | Promocional";
         step = 101;
       } else if (msg === "3" || msg === "Retail, supermercados y misceláneas") {
-        datosFormulario.lineaNegocio = "Retail";
+        datosFormulario.lineaNegocio = "Retail, supermercados y misceláneas";
         step = 102;
       } else if (msg === "4" || msg === "Otra solicitud") {
         datosFormulario.lineaNegocio = "Otra solicitud";

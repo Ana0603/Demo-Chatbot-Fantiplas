@@ -273,7 +273,7 @@ export async function handleResponse(from, msg) {
   step = 3;
 
   respuestaBot = bot(
-    "Por favor escriva los productos especificos de esa categoría que quiere personalizar",
+    "Por favor escriba los productos especificos de esa categoría que quiere personalizar",
     [],
     step,
     datosFormulario

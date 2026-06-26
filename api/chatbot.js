@@ -72,6 +72,22 @@ async function enviarLead(datosFormulario) {
   }
 }
 
+if (msg.toLowerCase() === "reiniciar") {
+    userStates.delete(from);
+
+    return bot(
+        "✅ Conversación reiniciada.\n\nHola, soy FantiBot, el asistente de Fantiplas.",
+        [
+            "1. Envases industriales",
+            "2. Productos de Merchandising | Promocional",
+            "3. Retail, supermercados y misceláneas",
+            "4. Otra solicitud"
+        ],
+        65,
+        getInitialData()
+    );
+}
+
 export async function handleResponse(from, msg) {
   let userState = userStates.get(from);
 

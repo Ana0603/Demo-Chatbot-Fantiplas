@@ -91,20 +91,20 @@ async function enviarLead(datosFormulario) {
 
   switch (step) {
     case 0:
-      step = 65;
-      respuestaBot = bot(
-        "Hola, soy FantiBot, el asistente de Fantiplas.\n\nLe presento nuestras líneas de negocio, por favor seleccione la que más se ajusta a su necesidad.",
-        [
-          "1. Envases industriales",
-          "2. Productos de Merchandising | Promocional",
-          "3. Retail, supermercados y misceláneas",
-          "4. Otra solicitud"
-        ],
-        step,
-        datosFormulario
-      );
-    
-      break;
+  step = 65;
+
+  respuestaBot = bot(
+    "Hola, soy FantiBot, el asistente de Fantiplas.\n\nLe presento nuestras líneas de negocio, por favor seleccione la que más se ajusta a su necesidad.",
+    [
+      "1. Envases industriales",
+      "2. Productos de Merchandising | Promocional",
+      "3. Retail, supermercados y misceláneas",
+      "4. Otra solicitud"
+    ],
+    step,
+    datosFormulario
+  );
+  break;
 
     case 65:
       if (msg === "1" || msg === "Envases industriales") {
@@ -159,12 +159,9 @@ async function enviarLead(datosFormulario) {
       break;
 
     case 100:
-      if (
-        msg !== "Más de 1.000" &&
-        msg !== "Menos de 1.000" &&
-        msg !== "5" &&
-        msg !== "6"
-      ) {
+      const validoCantidad = ["5", "6", "Más de 1.000", "Menos de 1.000"].includes(msg);
+
+if (!validoCantidad) {
         respuestaBot = bot(
           "Por favor seleccione una opción",
           ["5. Más de 1.000", "6. Menos de 1.000"],
@@ -184,12 +181,9 @@ async function enviarLead(datosFormulario) {
       break;
 
       case 101:
-      if (
-        msg !== "Más de 1.000" &&
-        msg !== "Menos de 1.000" &&
-        msg !== "5" &&
-        msg !== "6"
-      ) {
+      const validoCantidad = ["5", "6", "Más de 1.000", "Menos de 1.000"].includes(msg);
+
+      if (!validoCantidad) {
         respuestaBot = bot(
           "Por favor seleccione una opción",
           ["5. Más de 1.000", "6. Menos de 1.000"],
@@ -222,12 +216,9 @@ async function enviarLead(datosFormulario) {
       break;
 
       case 102:
-      if (
-        msg !== "Más de 1.000" &&
-        msg !== "Menos de 1.000" &&
-        msg !== "5" &&
-        msg !== "6"
-      ) {
+      const validoCantidad = ["5", "6", "Más de 1.000", "Menos de 1.000"].includes(msg);
+
+if (!validoCantidad) {
         respuestaBot = bot(
           "Por favor seleccione una opción",
           ["5. Más de 1.000", "6. Menos de 1.000"],
@@ -562,14 +553,19 @@ async function enviarLead(datosFormulario) {
   case 8:
   await enviarLead(datosFormulario);
 
-  userStates.delete(from);
-
-  return bot(
+  const finalResponse = bot(
     `Perfecto ${datosFormulario.nombre}, acabamos de asignarle un asesor comercial enfocado en su necesidad. Se pondrá en contacto con usted en un plazo máximo de 3 horas.`,
     [],
     0,
     getInitialData()
   );
+
+  userStates.set(from, {
+    step: 0,
+    datosFormulario: getInitialData()
+  });
+
+  return finalResponse;
 
     case 500:
       datosFormulario.solicitud = msg;
@@ -583,7 +579,8 @@ async function enviarLead(datosFormulario) {
       break;
 
     default:
-      step = 0;
+      step = 65;
+    
       respuestaBot = bot(
         "Hola, soy FantiBot, el asistente de Fantiplas.\n\nLe presento nuestras líneas de negocio, por favor seleccione la que más se ajusta a su necesidad.",
         [
@@ -592,7 +589,7 @@ async function enviarLead(datosFormulario) {
           "3. Retail, supermercados y misceláneas",
           "4. Otra solicitud"
         ],
-        65,
+        step,
         datosFormulario
       );
       break;

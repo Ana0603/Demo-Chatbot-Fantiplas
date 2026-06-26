@@ -32,6 +32,8 @@ export async function handleResponse(from, msg) {
       step: 0,
       datosFormulario: getInitialData()
     };
+
+    userStates.set(from, userState);
   }
 
 function esEmailValido(email) {
@@ -557,8 +559,10 @@ async function enviarLead(datosFormulario) {
       }
       break;
 
- case 8:
+  case 8:
   await enviarLead(datosFormulario);
+
+  userStates.delete(from);
 
   return bot(
     `Perfecto ${datosFormulario.nombre}, acabamos de asignarle un asesor comercial enfocado en su necesidad. Se pondrá en contacto con usted en un plazo máximo de 3 horas.`,

@@ -34,9 +34,6 @@ export async function handleResponse(from, msg) {
     };
   }
 
-  let { step, datosFormulario } = userState;
-  let respuestaBot = null;
-
 function esEmailValido(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }

@@ -91,10 +91,10 @@ export async function handleResponse(from, msg) {
       respuestaBot = bot(
         "Hola, soy FantiBot, el asistente de Fantiplas.\n\nLe presento nuestras líneas de negocio, por favor seleccione la que más se ajusta a su necesidad.",
         [
-          "Envases industriales",
-          "Productos de Merchandising | Promocional",
-          "Retail, supermercados y misceláneas",
-          "Otra solicitud"
+          "1. Envases industriales",
+          "2. Productos de Merchandising | Promocional",
+          "3. Retail, supermercados y misceláneas",
+          "4. Otra solicitud"
         ],
         step,
         datosFormulario
@@ -108,7 +108,7 @@ export async function handleResponse(from, msg) {
         step = 100;
         respuestaBot = bot(
           "¿Cuál es el volumen de unidades que requiere?",
-          ["Más de 1.000", "Menos de 1.000"],
+          [ "5. Más de 1.000", "6. Menos de 1.000"],
           step,
           datosFormulario
         );
@@ -117,7 +117,7 @@ export async function handleResponse(from, msg) {
         step = 101;
         respuestaBot = bot(
           "¿Cuál es el volumen de unidades que requiere?",
-          ["Más de 1.000", "Menos de 1.000"],
+          ["5. Más de 1.000", "6. Menos de 1.000"],
           step,
           datosFormulario
         );
@@ -126,7 +126,7 @@ export async function handleResponse(from, msg) {
         step = 102;
         respuestaBot = bot(
           "¿Cuál es el volumen de unidades que requiere?",
-          ["Más de 1.000", "Menos de 1.000"],
+          ["5. Más de 1.000", "6. Menos de 1.000"],
           step,
           datosFormulario
         );
@@ -143,10 +143,10 @@ export async function handleResponse(from, msg) {
         respuestaBot = bot(
           "Por favor seleccione una opción escribiendo el número o el nombre de la opción.",
           [
-            "Envases industriales",
-            "Productos de Merchandising | Promocional",
-            "Retail, supermercados y misceláneas",
-            "Otra solicitud"
+            "1. Envases industriales",
+            "2. Productos de Merchandising | Promocional",
+            "3. Retail, supermercados y misceláneas",
+            "4. Otra solicitud"
           ],
           step,
           datosFormulario
@@ -163,7 +163,7 @@ export async function handleResponse(from, msg) {
       ) {
         respuestaBot = bot(
           "Por favor seleccione una opción",
-          ["Más de 1.000", "Menos de 1.000"],
+          ["5. Más de 1.000", "6. Menos de 1.000"],
           step,
           datosFormulario
         );
@@ -172,7 +172,7 @@ export async function handleResponse(from, msg) {
         step = 1;
         respuestaBot = bot(
           "En nuestra línea de envases trabajamos con las siguientes categorías:",
-          ["Alimentos", "Cosméticos", "Farmacéuticos", "Hogar - Aseo"],
+          ["7. Alimentos", "8. Cosméticos", "9. Farmacéuticos", "10. Hogar - Aseo"],
           step,
           datosFormulario
         );
@@ -202,10 +202,10 @@ export async function handleResponse(from, msg) {
         respuestaBot = bot(
             "Por favor seleccione una categoría válida.",
             [
-                "Alimentos",
-                "Cosméticos",
-                "Farmacéuticos",
-                "Hogar - Aseo"
+                "7. Alimentos",
+                "8. Cosméticos",
+                "9. Farmacéuticos",
+                "10. Hogar - Aseo"
             ],
             step,
             datosFormulario
@@ -226,38 +226,47 @@ export async function handleResponse(from, msg) {
     break;
 
     case 2:
-       if (msg === "11") {
-      datosFormulario.contenido = "50 ml";
-      } else if (msg === "12") {
-        datosFormulario.contenido = "100 ml";
-      } else if (msg === "13") {
-        datosFormulario.contenido = "250 ml, 500 ml";
-      } else if (msg === "14") {
-        datosFormulario.contenido = "1 litro";
-      } else if (msg === "15") {
-        datosFormulario.contenido = "Otro";
-      } else {
-        datosFormulario.contenido = msg;
-      }
+       datosFormulario.producto = msg;
 
-      step = 3;
-      respuestaBot = bot(
+    step = 3;
+
+    respuestaBot = bot(
         "¿Cuál es el contenido del envase?",
-        ["50 ml", "100 ml", "250 ml, 500 ml", "1 litro", "Otro"],
+        [
+            "11. 50 ml",
+            "12. 100 ml",
+            "13. 250 ml - 500 ml",
+            "14. 1 litro",
+            "15. Otro"
+        ],
         step,
         datosFormulario
       );
       break;
 
-    case 3:
-      datosFormulario.modelo = msg;
+      case 3:
+        if (msg === "11") {
+          datosFormulario.contenido = "50 ml";
+      } else if (msg === "12") {
+          datosFormulario.contenido = "100 ml";
+      } else if (msg === "13") {
+          datosFormulario.contenido = "250 ml - 500 ml";
+      } else if (msg === "14") {
+          datosFormulario.contenido = "1 litro";
+      } else if (msg === "15") {
+          datosFormulario.contenido = "Otro";
+      } else {
+          datosFormulario.contenido = msg;
+      }
+  
       step = 4;
+  
       respuestaBot = bot(
-        "Perfecto, a continuación le solicitamos su información para que sea contactado por un representante comercial.\n\n¿Cuál es su nombre?",
-        [],
-        step,
-        datosFormulario
-      );
+          "Perfecto, a continuación le solicitamos su información.\n\n¿Cuál es su nombre?",
+          [],
+          step,
+          datosFormulario
+        );
       break;
 
     case 4:
@@ -326,10 +335,10 @@ export async function handleResponse(from, msg) {
       respuestaBot = bot(
         "Hola, soy FantiBot, el asistente de Fantiplas.\n\nLe presento nuestras líneas de negocio, por favor seleccione la que más se ajusta a su necesidad.",
         [
-          "Envases industriales",
-          "Productos de Merchandising | Promocional",
-          "Retail, supermercados y misceláneas",
-          "Otra solicitud"
+          "1. Envases industriales",
+          "2. Productos de Merchandising | Promocional",
+          "3. Retail, supermercados y misceláneas",
+          "4. Otra solicitud"
         ],
         65,
         datosFormulario

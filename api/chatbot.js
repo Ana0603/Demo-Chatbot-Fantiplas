@@ -90,7 +90,7 @@ export async function handleResponse(from, msg) {
       step = 65;
       respuestaBot = bot(
         "Hola, soy FantiBot, el asistente de Fantiplas.\n\nLe presento nuestras líneas de negocio, por favor seleccione la que más se ajusta a su necesidad.",
-        [
+        [esTelefonoValido
           "Envases industriales",
           "Productos de Merchandising | Promocional",
           "Retail, supermercados y misceláneas",
@@ -99,6 +99,7 @@ export async function handleResponse(from, msg) {
         step,
         datosFormulario
       );
+    
       break;
 
     case 65:
@@ -162,7 +163,7 @@ export async function handleResponse(from, msg) {
           datosFormulario
         );
       } else {
-        datosFormulario.cantidad = (msg === "1") ? "Más de 1.000" : (msg === "2" ? "Menos de 1.000" : msg);
+        datosFormulario.cantidad = (msg === "5") ? "Más de 1.000" : (msg === "6" ? "Menos de 1.000" : msg);
         step = 1;
         respuestaBot = bot(
           "En nuestra línea de envases trabajamos con las siguientes categorías:",
@@ -174,8 +175,22 @@ export async function handleResponse(from, msg) {
       break;
 
     case 1:
-      if (["Alimentos", "Cosméticos", "Farmacéuticos", "Farmaceúticos", "Hogar - Aseo"].includes(msg)) {
-        datosFormulario.producto = msg;
+      if (msg === "7" || msg === "Alimentos") {
+      datosFormulario.producto = "Alimentos";
+      } else if (msg === "8" || msg === "Cosméticos") {
+      datosFormulario.producto = "Cosméticos";
+      } else if (msg === "9" || msg === "Farmacéuticos" || msg === "Farmaceúticos") {
+      datosFormulario.producto = "Farmacéuticos";
+      } else if (msg === "10" || msg === "Hogar - Aseo") {
+      datosFormulario.producto = "Hogar - Aseo";
+      } else {
+        
+      respuestaBot = bot(
+        "Por favor seleccione una categoría válida.",
+        ["Alimentos", "Cosméticos", "Farmacéuticos", "Hogar - Aseo"],
+        step,
+        datosFormulario
+    );
         step = 2;
         respuestaBot = bot("¿Qué producto vas a envasar?", [], step, datosFormulario);
       } else {
@@ -189,7 +204,20 @@ export async function handleResponse(from, msg) {
       break;
 
     case 2:
-      datosFormulario.contenido = msg;
+       if (msg === "11") {
+      datosFormulario.contenido = "50 ml";
+      } else if (msg === "12") {
+        datosFormulario.contenido = "100 ml";
+      } else if (msg === "13") {
+        datosFormulario.contenido = "250 ml, 500 ml";
+      } else if (msg === "14") {
+        datosFormulario.contenido = "1 litro";
+      } else if (msg === "15") {
+        datosFormulario.contenido = "Otro";
+      } else {
+        datosFormulario.contenido = msg;
+      }
+
       step = 3;
       respuestaBot = bot(
         "¿Cuál es el contenido del envase?",

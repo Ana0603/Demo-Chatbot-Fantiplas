@@ -106,6 +106,85 @@ export async function handleResponse(from, msg) {
       break;
     }
 
+      case 1: {
+  if (msg === "7" || msg === "Alimentos") {
+    datosFormulario.producto = "Alimentos";
+  } else if (msg === "8" || msg === "Cosméticos") {
+    datosFormulario.producto = "Cosméticos";
+  } else if (msg === "9" || msg === "Farmacéuticos" || msg === "Farmaceúticos") {
+    datosFormulario.producto = "Farmacéuticos";
+  } else if (msg === "10" || msg === "Hogar - Aseo") {
+    datosFormulario.producto = "Hogar - Aseo";
+  } else {
+    respuestaBot = bot(
+      "Seleccione una categoría válida",
+      ["7. Alimentos", "8. Cosméticos", "9. Farmacéuticos", "10. Hogar - Aseo"],
+      step,
+      datosFormulario
+    );
+    break;
+  }
+
+  step = 2;
+
+  respuestaBot = bot(
+    "¿Qué producto vas a envasar?",
+    [],
+    step,
+    datosFormulario
+  );
+
+  break;
+}
+
+      case 2: {
+  datosFormulario.producto = msg;
+
+  step = 3;
+
+  respuestaBot = bot(
+    "¿Cuál es el contenido del envase?",
+    [
+      "11. 50 ml",
+      "12. 100 ml",
+      "13. 250 ml - 500 ml",
+      "14. 1 litro",
+      "15. Otro"
+    ],
+    step,
+    datosFormulario
+  );
+
+  break;
+}
+
+      case 3: {
+  if (msg === "11") {
+    datosFormulario.contenido = "50 ml";
+  } else if (msg === "12") {
+    datosFormulario.contenido = "100 ml";
+  } else if (msg === "13") {
+    datosFormulario.contenido = "250 ml - 500 ml";
+  } else if (msg === "14") {
+    datosFormulario.contenido = "1 litro";
+  } else if (msg === "15") {
+    datosFormulario.contenido = "Otro";
+  } else {
+    datosFormulario.contenido = msg;
+  }
+
+  step = 4;
+
+  respuestaBot = bot(
+    "Perfecto, a continuación le solicitamos su información.\n\n¿Cuál es su nombre?",
+    [],
+    step,
+    datosFormulario
+  );
+
+  break;
+}
+      
     // ===================== ENVASES =====================
     case 100: {
       const ok = ["5", "6", "Más de 1.000", "Menos de 1.000"].includes(msg);

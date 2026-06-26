@@ -320,14 +320,14 @@ export async function handleResponse(from, msg) {
     case 4: {
       datosFormulario.nombre = msg;
       step = 5;
-      respuestaBot = bot("¿Empresa?", [], step, datosFormulario);
+      respuestaBot = bot("¿Cual es el nombre de su empresa?", [], step, datosFormulario);
       break;
     }
 
     case 5: {
       datosFormulario.empresa = msg;
       step = 6;
-      respuestaBot = bot("Teléfono:", [], step, datosFormulario);
+      respuestaBot = bot("¿Desea que lo llamemos por medio de este número?", [], step, datosFormulario);
       break;
     }
 
@@ -339,14 +339,14 @@ export async function handleResponse(from, msg) {
 
       datosFormulario.telefono = msg;
       step = 7;
-      respuestaBot = bot("Ciudad:", [], step, datosFormulario);
+      respuestaBot = bot("¿En que ciudad se encuentra?:", [], step, datosFormulario);
       break;
     }
 
     case 7: {
       datosFormulario.ciudad = msg;
       step = 10;
-      respuestaBot = bot("Correo:", [], step, datosFormulario);
+      respuestaBot = bot("Por favor, digite su correo:", [], step, datosFormulario);
       break;
     }
 
@@ -359,7 +359,7 @@ export async function handleResponse(from, msg) {
       datosFormulario.email = msg;
       step = 8;
 
-      respuestaBot = bot("Web o redes:", [], step, datosFormulario);
+      respuestaBot = bot("Queremos conocerlo mejor, no ayudas compartiendo su Web o redes:", [], step, datosFormulario);
       break;
     }
 
@@ -377,7 +377,7 @@ export async function handleResponse(from, msg) {
       });
 
       return bot(
-        `Perfecto ${datosFormulario.nombre}, un asesor se contactará contigo.`,
+        `Perfecto ${datosFormulario.nombre}, un asesor se contactará contigo en un plazo máximo de 3 horas.`,
         [],
         0,
         getInitialData()

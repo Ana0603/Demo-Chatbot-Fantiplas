@@ -42,7 +42,7 @@ function bot(text, options = [], step, datosFormulario) {
 
 async function enviarLead(datosFormulario) {
   try {
-    await fetch("https://hook.us2.make.com/2ycya2rcd3bgkv0q46va1vapvmgohpc4", {
+    await fetch("https://hook.us2.make.com/8p85rcjm949d0xp0d0buu25jeyabihoj", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

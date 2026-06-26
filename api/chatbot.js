@@ -98,7 +98,7 @@ export async function handleResponse(from, msg) {
       }
 
       respuestaBot = bot(
-        "¿Cuál es el volumen de unidades?",
+        "¿Cuál es el volumen de unidades que necesita?",
         ["5. Más de 1.000", "6. Menos de 1.000"],
         step,
         datosFormulario

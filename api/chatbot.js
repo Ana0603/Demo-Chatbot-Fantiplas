@@ -354,7 +354,7 @@ export async function handleResponse(from, msg) {
       datosFormulario.email = msg;
       step = 8;
 
-      respuestaBot = bot("Queremos conocerlo mejor, no ayudas compartiendo su Web o redes:", [], step, datosFormulario);
+      respuestaBot = bot("Queremos conocerlo mejor, no ayuda compartiendo su Web o redes sociales:", [], step, datosFormulario);
       break;
     }
 

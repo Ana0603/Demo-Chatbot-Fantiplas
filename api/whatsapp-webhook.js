@@ -55,6 +55,8 @@ export default async function handler(req, res) {
         if (message && message.type === "text") {
           const from = message.from;
           const text = message.text.body.trim();
+          
+          console.log("MENSAJE RECIBIDO:", text);
 
           const respuesta = await handleResponse(from, text);
           const mensajeFinal = formatBotMessage(respuesta.text, respuesta.options);

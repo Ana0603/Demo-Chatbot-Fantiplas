@@ -2,7 +2,7 @@ import { handleResponse } from "./chatbot.js";
 
 function formatBotMessage(text, options = []) {
   if (!options || options.length === 0) return text;
-  return `${text}\n\n${options.map((opt, i) => `${i + 1}. ${opt}`).join("\n")}`;
+  return `${text}\n\n${options.join("\n")}`;
 }
 
 async function sendWhatsAppMessage(to, text) {

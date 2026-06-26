@@ -90,7 +90,7 @@ export async function handleResponse(from, msg) {
       step = 65;
       respuestaBot = bot(
         "Hola, soy FantiBot, el asistente de Fantiplas.\n\nLe presento nuestras líneas de negocio, por favor seleccione la que más se ajusta a su necesidad.",
-        [esTelefonoValido
+        [
           "Envases industriales",
           "Productos de Merchandising | Promocional",
           "Retail, supermercados y misceláneas",

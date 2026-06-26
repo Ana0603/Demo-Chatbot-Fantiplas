@@ -158,98 +158,83 @@ async function enviarLead(datosFormulario) {
       }
       break;
 
-    case 100:
-      const validoCantidad = ["5", "6", "Más de 1.000", "Menos de 1.000"].includes(msg);
+    case 100: {
+  const validoCantidad = ["5", "6", "Más de 1.000", "Menos de 1.000"].includes(msg);
 
-if (!validoCantidad) {
-        respuestaBot = bot(
-          "Por favor seleccione una opción",
-          ["5. Más de 1.000", "6. Menos de 1.000"],
-          step,
-          datosFormulario
-        );
-      } else {
-        datosFormulario.cantidad = (msg === "5") ? "Más de 1.000" : (msg === "6" ? "Menos de 1.000" : msg);
-        step = 1;
-        respuestaBot = bot(
-          "En nuestra línea de envases trabajamos con las siguientes categorías:",
-          ["7. Alimentos", "8. Cosméticos", "9. Farmacéuticos", "10. Hogar - Aseo"],
-          step,
-          datosFormulario
-        );
-      }
-      break;
+  if (!validoCantidad) {
+    respuestaBot = bot(
+      "Por favor seleccione una opción",
+      ["5. Más de 1.000", "6. Menos de 1.000"],
+      step,
+      datosFormulario
+    );
+  } else {
+    datosFormulario.cantidad =
+      msg === "5" ? "Más de 1.000" : msg === "6" ? "Menos de 1.000" : msg;
 
-      case 101:
-      const validoCantidad = ["5", "6", "Más de 1.000", "Menos de 1.000"].includes(msg);
+    step = 1;
 
-      if (!validoCantidad) {
-        respuestaBot = bot(
-          "Por favor seleccione una opción",
-          ["5. Más de 1.000", "6. Menos de 1.000"],
-          step,
-          datosFormulario
-        );
-      } else {
-        datosFormulario.cantidad =
-          msg === "5"
-            ? "Más de 1.000"
-            : msg === "6"
-            ? "Menos de 1.000"
-            : msg;
-    
-        step = 200;
-    
-        respuestaBot = bot(
-          "¿Qué tipo de producto quiere personalizar?",
-          [
-            "7. Escolar",
-            "8. Mascotas",
-            "9. Para mujeres",
-            "10. Hogar - Aseo",
-            "11. Juguetes"
-          ],
-          step,
-          datosFormulario
-        );
-      }
-      break;
+    respuestaBot = bot(
+      "En nuestra línea de envases trabajamos con las siguientes categorías:",
+      ["7. Alimentos", "8. Cosméticos", "9. Farmacéuticos", "10. Hogar - Aseo"],
+      step,
+      datosFormulario
+    );
+  }
+  break;
+}
+      
+     case 101: {
+  const validoCantidad = ["5", "6", "Más de 1.000", "Menos de 1.000"].includes(msg);
 
-      case 102:
-      const validoCantidad = ["5", "6", "Más de 1.000", "Menos de 1.000"].includes(msg);
+  if (!validoCantidad) {
+    respuestaBot = bot(
+      "Por favor seleccione una opción",
+      ["5. Más de 1.000", "6. Menos de 1.000"],
+      step,
+      datosFormulario
+    );
+  } else {
+    datosFormulario.cantidad =
+      msg === "5" ? "Más de 1.000" : msg === "6" ? "Menos de 1.000" : msg;
 
-if (!validoCantidad) {
-        respuestaBot = bot(
-          "Por favor seleccione una opción",
-          ["5. Más de 1.000", "6. Menos de 1.000"],
-          step,
-          datosFormulario
-        );
-      } else {
-        datosFormulario.cantidad =
-          msg === "5"
-            ? "Más de 1.000"
-            : msg === "6"
-            ? "Menos de 1.000"
-            : msg;
-    
-        step = 300;
-    
-        respuestaBot = bot(
-          "¿Qué tipo de producto quiere comercializar?",
-          [
-            "7. Escolar",
-            "8. Mascotas",
-            "9. Para mujeres",
-            "10. Hogar - Aseo",
-            "11. Juguetes"
-          ],
-          step,
-          datosFormulario
-        );
-      }
-      break;
+    step = 200;
 
+    respuestaBot = bot(
+      "¿Qué tipo de producto quiere personalizar?",
+      ["7. Escolar", "8. Mascotas", "9. Para mujeres", "10. Hogar - Aseo", "11. Juguetes"],
+      step,
+      datosFormulario
+    );
+  }
+  break;
+}
+      
+      case 102: {
+  const validoCantidad = ["5", "6", "Más de 1.000", "Menos de 1.000"].includes(msg);
+
+  if (!validoCantidad) {
+    respuestaBot = bot(
+      "Por favor seleccione una opción",
+      ["5. Más de 1.000", "6. Menos de 1.000"],
+      step,
+      datosFormulario
+    );
+  } else {
+    datosFormulario.cantidad =
+      msg === "5" ? "Más de 1.000" : msg === "6" ? "Menos de 1.000" : msg;
+
+    step = 300;
+
+    respuestaBot = bot(
+      "¿Qué tipo de producto quiere comercializar?",
+      ["7. Escolar", "8. Mascotas", "9. Para mujeres", "10. Hogar - Aseo", "11. Juguetes"],
+      step,
+      datosFormulario
+    );
+  }
+  break;
+}
       case 200:
 
       if (msg === "7" || msg === "Escolar") {

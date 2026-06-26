@@ -155,7 +155,12 @@ export async function handleResponse(from, msg) {
       break;
 
     case 100:
-      if (msg !== "Más de 1.000" && msg !== "Menos de 1.000" && msg !== "1" && msg !== "2") {
+      if (
+        msg !== "Más de 1.000" &&
+        msg !== "Menos de 1.000" &&
+        msg !== "5" &&
+        msg !== "6"
+      ) {
         respuestaBot = bot(
           "Por favor seleccione una opción",
           ["Más de 1.000", "Menos de 1.000"],
@@ -174,34 +179,51 @@ export async function handleResponse(from, msg) {
       }
       break;
 
-    case 1:
-      if (msg === "7" || msg === "Alimentos") {
-      datosFormulario.producto = "Alimentos";
-      } else if (msg === "8" || msg === "Cosméticos") {
-      datosFormulario.producto = "Cosméticos";
-      } else if (msg === "9" || msg === "Farmacéuticos" || msg === "Farmaceúticos") {
-      datosFormulario.producto = "Farmacéuticos";
-      } else if (msg === "10" || msg === "Hogar - Aseo") {
-      datosFormulario.producto = "Hogar - Aseo";
-      } else {
-        
-      respuestaBot = bot(
-        "Por favor seleccione una categoría válida.",
-        ["Alimentos", "Cosméticos", "Farmacéuticos", "Hogar - Aseo"],
+       case 1:
+    
+    if (msg === "7" || msg === "Alimentos") {
+    
+        datosFormulario.producto = "Alimentos";
+    
+    } else if (msg === "8" || msg === "Cosméticos") {
+    
+        datosFormulario.producto = "Cosméticos";
+    
+    } else if (msg === "9" || msg === "Farmacéuticos" || msg === "Farmaceúticos") {
+    
+        datosFormulario.producto = "Farmacéuticos";
+    
+    } else if (msg === "10" || msg === "Hogar - Aseo") {
+    
+        datosFormulario.producto = "Hogar - Aseo";
+    
+    } else {
+    
+        respuestaBot = bot(
+            "Por favor seleccione una categoría válida.",
+            [
+                "Alimentos",
+                "Cosméticos",
+                "Farmacéuticos",
+                "Hogar - Aseo"
+            ],
+            step,
+            datosFormulario
+        );
+    
+        break;
+    }
+    
+    step = 2;
+    
+    respuestaBot = bot(
+        "¿Qué producto vas a envasar?",
+        [],
         step,
         datosFormulario
     );
-        step = 2;
-        respuestaBot = bot("¿Qué producto vas a envasar?", [], step, datosFormulario);
-      } else {
-        respuestaBot = bot(
-          "Por favor seleccione una categoría válida.",
-          ["Alimentos", "Cosméticos", "Farmacéuticos", "Hogar - Aseo"],
-          step,
-          datosFormulario
-        );
-      }
-      break;
+    
+    break;
 
     case 2:
        if (msg === "11") {

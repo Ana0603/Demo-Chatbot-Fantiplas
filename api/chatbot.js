@@ -248,6 +248,74 @@ export async function handleResponse(from, msg) {
       break;
     }
 
+      case 200: {
+
+  if (msg === "7" || msg === "Escolar") {
+    datosFormulario.categoriaP = "Escolar";
+  } else if (msg === "8" || msg === "Mascotas") {
+    datosFormulario.categoriaP = "Mascotas";
+  } else if (msg === "9" || msg === "Para mujeres") {
+    datosFormulario.categoriaP = "Para mujeres";
+  } else if (msg === "10" || msg === "Hogar - Aseo") {
+    datosFormulario.categoriaP = "Hogar - Aseo";
+  } else if (msg === "11" || msg === "Juguetes") {
+    datosFormulario.categoriaP = "Juguetes";
+  } else {
+    respuestaBot = bot(
+      "Seleccione una categoría válida",
+      ["7. Escolar", "8. Mascotas", "9. Para mujeres", "10. Hogar - Aseo", "11. Juguetes"],
+      step,
+      datosFormulario
+    );
+    break;
+  }
+
+  step = 3;
+
+  respuestaBot = bot(
+    "¿Qué producto específico quiere personalizar?",
+    [],
+    step,
+    datosFormulario
+  );
+
+  break;
+}
+
+      case 300: {
+
+  if (msg === "7" || msg === "Escolar") {
+    datosFormulario.categoriaR = "Escolar";
+  } else if (msg === "8" || msg === "Mascotas") {
+    datosFormulario.categoriaR = "Mascotas";
+  } else if (msg === "9" || msg === "Para mujeres") {
+    datosFormulario.categoriaR = "Para mujeres";
+  } else if (msg === "10" || msg === "Hogar - Aseo") {
+    datosFormulario.categoriaR = "Hogar - Aseo";
+  } else if (msg === "11" || msg === "Juguetes") {
+    datosFormulario.categoriaR = "Juguetes";
+  } else {
+    respuestaBot = bot(
+      "Seleccione una categoría válida",
+      ["7. Escolar", "8. Mascotas", "9. Para mujeres", "10. Hogar - Aseo", "11. Juguetes"],
+      step,
+      datosFormulario
+    );
+    break;
+  }
+
+  step = 3;
+
+  respuestaBot = bot(
+    "¿Qué producto desea comercializar?",
+    [],
+    step,
+    datosFormulario
+  );
+
+  break;
+}
+      
     // ===================== DATOS FINALES =====================
     case 4: {
       datosFormulario.nombre = msg;

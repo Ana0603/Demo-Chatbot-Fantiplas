@@ -180,6 +180,82 @@ export async function handleResponse(from, msg) {
       }
       break;
 
+      case 101:
+      if (
+        msg !== "Más de 1.000" &&
+        msg !== "Menos de 1.000" &&
+        msg !== "5" &&
+        msg !== "6"
+      ) {
+        respuestaBot = bot(
+          "Por favor seleccione una opción",
+          ["5. Más de 1.000", "6. Menos de 1.000"],
+          step,
+          datosFormulario
+        );
+      } else {
+        datosFormulario.cantidad =
+          msg === "5"
+            ? "Más de 1.000"
+            : msg === "6"
+            ? "Menos de 1.000"
+            : msg;
+    
+        step = 200;
+    
+        respuestaBot = bot(
+          "¿Qué tipo de producto quiere personalizar?",
+          [
+            "7. Escolar",
+            "8. Mascotas",
+            "9. Para mujeres",
+            "10. Hogar - Aseo",
+            "11. Juguetes"
+          ],
+          step,
+          datosFormulario
+        );
+      }
+      break;
+
+      case 102:
+      if (
+        msg !== "Más de 1.000" &&
+        msg !== "Menos de 1.000" &&
+        msg !== "5" &&
+        msg !== "6"
+      ) {
+        respuestaBot = bot(
+          "Por favor seleccione una opción",
+          ["5. Más de 1.000", "6. Menos de 1.000"],
+          step,
+          datosFormulario
+        );
+      } else {
+        datosFormulario.cantidad =
+          msg === "5"
+            ? "Más de 1.000"
+            : msg === "6"
+            ? "Menos de 1.000"
+            : msg;
+    
+        step = 300;
+    
+        respuestaBot = bot(
+          "¿Qué tipo de producto quiere comercializar?",
+          [
+            "7. Escolar",
+            "8. Mascotas",
+            "9. Para mujeres",
+            "10. Hogar - Aseo",
+            "11. Juguetes"
+          ],
+          step,
+          datosFormulario
+        );
+      }
+      break;
+
        case 1:
     
     if (msg === "7" || msg === "Alimentos") {

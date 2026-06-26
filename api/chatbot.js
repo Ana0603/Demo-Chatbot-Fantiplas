@@ -342,6 +342,92 @@ export async function handleResponse(from, msg) {
     
       break;
 
+      case 300:
+
+      if (msg === "7" || msg === "Escolar") {
+    
+        datosFormulario.categoriaR = "Escolar";
+    
+        step = 3;
+    
+        respuestaBot = bot(
+          "Somos fabricantes de reglas, estuches, loncheras y más.\n\n¿Qué producto quiere comercializar?",
+          [],
+          step,
+          datosFormulario
+        );
+    
+      } else if (msg === "8" || msg === "Mascotas") {
+    
+        datosFormulario.categoriaR = "Mascotas";
+    
+        step = 3;
+    
+        respuestaBot = bot(
+          "Somos fabricantes de botellas y platos para mascotas.\n\n¿Qué producto quiere comercializar?",
+          [],
+          step,
+          datosFormulario
+        );
+    
+      } else if (msg === "9" || msg === "Para mujeres") {
+    
+        datosFormulario.categoriaR = "Para mujeres";
+    
+        step = 3;
+    
+        respuestaBot = bot(
+          "Fabricamos diademas, peinillas y pulseras.\n\n¿Qué producto quiere comercializar?",
+          [],
+          step,
+          datosFormulario
+        );
+    
+      } else if (msg === "10" || msg === "Hogar - Aseo") {
+    
+        datosFormulario.categoriaR = "Hogar - Aseo";
+    
+        step = 3;
+    
+        respuestaBot = bot(
+          "Somos fabricantes de botellas, copas, vasos, platos y anchetas.\n\n¿Qué producto quiere comercializar?",
+          [],
+          step,
+          datosFormulario
+        );
+    
+      } else if (msg === "11" || msg === "Juguetes") {
+    
+        datosFormulario.categoriaR = "Juguetes";
+    
+        step = 3;
+    
+        respuestaBot = bot(
+          "¿Qué juguete quiere comercializar?",
+          [],
+          step,
+          datosFormulario
+        );
+    
+      } else {
+    
+        respuestaBot = bot(
+          "Por favor seleccione una categoría válida.",
+          [
+            "7. Escolar",
+            "8. Mascotas",
+            "9. Para mujeres",
+            "10. Hogar - Aseo",
+            "11. Juguetes"
+          ],
+          step,
+          datosFormulario
+        );
+    
+      }
+    
+      break;
+
        case 1:
     
     if (msg === "7" || msg === "Alimentos") {

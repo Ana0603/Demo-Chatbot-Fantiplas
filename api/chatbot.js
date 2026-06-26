@@ -72,7 +72,6 @@ async function enviarLead(datosFormulario) {
   }
 }
 
-export async function handleResponse(from, msg) {
 return respuestaBot;
 
   if (!userState) {

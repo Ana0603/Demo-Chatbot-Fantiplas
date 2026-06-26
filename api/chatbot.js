@@ -23,6 +23,20 @@ function getInitialData() {
   };
 }
 
+export async function handleResponse(from, msg) {
+
+  let userState = userStates.get(from);
+
+  if (!userState) {
+    userState = {
+      step: 0,
+      datosFormulario: getInitialData()
+    };
+  }
+
+  let { step, datosFormulario } = userState;
+  let respuestaBot = null;
+
 function esEmailValido(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
@@ -71,15 +85,6 @@ async function enviarLead(datosFormulario) {
     console.error("Error enviando lead a Make:", error);
   }
 }
-
-return respuestaBot;
-
-  if (!userState) {
-    userState = {
-      step: 0,
-      datosFormulario: getInitialData()
-    };
-  }
 
   let { step, datosFormulario } = userState;
   console.log("USER STATE:", userState);
@@ -555,17 +560,17 @@ return respuestaBot;
       }
       break;
 
-    case 8:
-      datosFormulario.web = msg;
-      await enviarLead(datosFormulario);
-      respuestaBot = bot(
-        `Perfecto ${datosFormulario.nombre}, acabamos de asignarle un asesor comercial enfocado en su necesidad. Se pondrá en contacto con usted en un plazo máximo de 3 horas.`,
-        [],
-        0,
-        getInitialData()
-      );
-      userStates.delete(from);
-      return respuestaBot;
+ case 8:
+  await enviarLead(datosFormulario);
+
+  userStates.delete(from);
+
+  return bot(
+    `Perfecto ${datosFormulario.nombre}, acabamos de asignarle un asesor comercial enfocado en su necesidad. Se pondrá en contacto con usted en un plazo máximo de 3 horas.`,
+    [],
+    0,
+    getInitialData()
+  );
 
     case 500:
       datosFormulario.solicitud = msg;
@@ -595,9 +600,9 @@ return respuestaBot;
   }
 
   userStates.set(from, {
-    step: respuestaBot.step,
-    datosFormulario: respuestaBot.datosFormulario
-  });
+  step,
+  datosFormulario
+});
 
   return respuestaBot;
 }

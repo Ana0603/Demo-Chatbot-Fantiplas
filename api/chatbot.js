@@ -83,6 +83,7 @@ export async function handleResponse(from, msg) {
   }
 
   let { step, datosFormulario } = userState;
+  console.log("USER STATE:", userState);
   let respuestaBot = null;
 
   switch (step) {

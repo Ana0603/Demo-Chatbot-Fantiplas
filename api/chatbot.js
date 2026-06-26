@@ -332,11 +332,6 @@ export async function handleResponse(from, msg) {
     }
 
     case 6: {
-      if (!esTelefonoValido(msg)) {
-        respuestaBot = bot("Teléfono inválido", [], step, datosFormulario);
-        break;
-      }
-
       datosFormulario.telefono = msg;
       step = 7;
       respuestaBot = bot("¿En que ciudad se encuentra?:", [], step, datosFormulario);

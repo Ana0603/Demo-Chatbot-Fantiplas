@@ -560,8 +560,6 @@ async function enviarLead(datosFormulario) {
  case 8:
   await enviarLead(datosFormulario);
 
-  userStates.delete(from);
-
   return bot(
     `Perfecto ${datosFormulario.nombre}, acabamos de asignarle un asesor comercial enfocado en su necesidad. Se pondrá en contacto con usted en un plazo máximo de 3 horas.`,
     [],
@@ -601,5 +599,4 @@ async function enviarLead(datosFormulario) {
   datosFormulario
 });
 
-  return respuestaBot;
-}
+return respuestaBot;

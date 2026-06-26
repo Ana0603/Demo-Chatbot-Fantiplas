@@ -52,7 +52,7 @@ export async function handleResponse(from, msg) {
     case 0: {
       step = 65;
       respuestaBot = bot(
-        "Hola, soy FantiBot.\nSeleccione una línea de negocio:",
+        "Hola, soy FantiBot.\nEstoy aquí para ayudarle a encontrar el asesor indicado. \nPor favor, seleccione la cateoría que mas se ajusta a sus necesidades:",
         [
           "1. Envases industriales",
           "2. Productos de Merchandising | Promocional",
@@ -128,7 +128,7 @@ export async function handleResponse(from, msg) {
   step = 2;
 
   respuestaBot = bot(
-    "¿Qué producto vas a envasar?",
+    "¿Cual es el contenido que va a envasar?",
     [],
     step,
     datosFormulario
@@ -143,7 +143,7 @@ export async function handleResponse(from, msg) {
   step = 3;
 
   respuestaBot = bot(
-    "¿Cuál es el contenido del envase?",
+    "¿Cuál es la cantidad que requiere para el envase?",
     [
       "11. 50 ml",
       "12. 100 ml",
@@ -176,7 +176,7 @@ export async function handleResponse(from, msg) {
   step = 4;
 
   respuestaBot = bot(
-    "Perfecto, a continuación le solicitamos su información.\n\n¿Cuál es su nombre?",
+    "Perfecto, a continuación le solicitamos su información para que el asesor se comunique con usted.\n\n¿Cuál es su nombre y apellido?",
     [],
     step,
     datosFormulario
@@ -198,7 +198,7 @@ export async function handleResponse(from, msg) {
       step = 1;
 
       respuestaBot = bot(
-        "Seleccione categoría:",
+        "En nuestra línea de envases trabajamos con las siguientes categorías. Seleccione la que se ajusta a su necesidad:",
         ["7. Alimentos", "8. Cosméticos", "9. Farmacéuticos", "10. Hogar - Aseo"],
         step,
         datosFormulario
@@ -273,7 +273,7 @@ export async function handleResponse(from, msg) {
   step = 3;
 
   respuestaBot = bot(
-    "¿Qué producto específico quiere personalizar?",
+    "Por favor escriva los productos especificos de esa categoría que quiere personalizar",
     [],
     step,
     datosFormulario

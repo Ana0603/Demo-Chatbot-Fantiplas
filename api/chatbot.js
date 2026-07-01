@@ -49,21 +49,214 @@ export async function handleResponse(from, msg) {
   switch (step) {
 
     // ===================== INICIO =====================
+
     case 0: {
-      step = 65;
+      step = 50;
       respuestaBot = bot(
-        "Hola, soy FantiBot.\nEstoy aquí para ayudarle a encontrar el asesor indicado. \nPor favor, seleccione la cateoría que mas se ajusta a sus necesidades:",
+        `Gracias por contactarnos, soy FantiBot.  
+        
+        ¿En qué puedo ayudarle hoy?`,
         [
-          "1. Envases industriales",
-          "2. Productos de Merchandising | Promocional",
-          "3. Retail, supermercados y misceláneas",
-          "4. Otra solicitud"
+        "1. Consultar catálogos",
+        "2. Asignar un asesor"
         ],
         step,
         datosFormulario
       );
       break;
     }
+    
+    
+    case 50: {
+       if (msg === "1" || msg === "Consultar catálogos") {
+    
+        step = 51;
+    
+        respuestaBot = bot(
+        `En Fantiplas contamos con tres lineas de negocios. Por favor, seleccione la línea de productos que desea consultar:`,
+        [
+        "1. Envases industriales",
+        "2. Merchandising | Promocional",
+        "3. Retail, supermercados y misceláneas",
+        ],
+        step,
+        datosFormulario
+        );
+          break;
+    
+      }
+    
+      if (msg === "2" || msg === "Asignar un asesor") {
+    
+          step = 65;
+    
+          respuestaBot = bot(
+          `Perfecto, Voy a asignarle un asesor especializado. Seleccione la categoría que mejor se ajusta al producto que busca:`,
+          [
+          "1. Envases industriales",
+          "2. Productos de Merchandising | Promocional",
+          "3. Retail, supermercados y misceláneas",
+          "4. Otra solicitud"
+          ],
+          step,
+          datosFormulario
+          );    
+          break;
+    
+      }
+    
+      respuestaBot = bot(
+      "Seleccione una opción válida.",
+      [
+      "1. Consultar catálogos",
+      "2. Asignar un asesor"
+      ],
+      step,
+      datosFormulario
+      );
+      
+      break;
+      
+      }
+
+    // ===================== CATALOGOS =====================
+
+      case 51: {
+        
+      let enlaceCatalogo = "";
+
+      if(msg=="1"){
+      
+      enlaceCatalogo = "https://drive.google.com/file/d/12D_XJXK7d06juB8sZB4c6SRw2aRDp3_U/view?usp=sharing";
+      
+      }
+      
+      else if(msg=="2"){
+      
+      enlaceCatalogo = "https://drive.google.com/file/d/1Jp4j2J8OSO8IBEuOTkSqHKHsEvCOb5T8/view?usp=drive_link";
+      
+      }
+      
+      else if(msg=="3"){
+      
+      enlaceCatalogo = "https://drive.google.com/file/d/113PpdO_cisYxGQ2CE58Z_JHevfxgmFBM/view?usp=sharing";
+      
+      }
+      
+      else{
+      
+          respuestaBot = bot(
+      "Seleccione una opción válida.",
+      [
+      "1. Envases industriales",
+      "2. Merchandising",
+      "3. Retail"
+      ],
+      step,
+      datosFormulario
+      );
+      
+      break;
+      
+      }
+      
+      step = 52;
+      
+      respuestaBot = bot(
+      
+      `📚 Aquí tiene el catálogo solicitado.
+
+      ${enlaceCatalogo}
+
+      Revíselo con tranquilidad. Si encuentra el producto que necesita, con gusto prepararemos una cotización personalizada.
+      
+      ¿Desea realizar una cotización?`,
+      
+      [
+      "1. Sí",
+      "2. Ver otro catálogo",
+      "3. Finalizar conversación"
+      ],
+      
+      step,
+      
+      datosFormulario
+      
+      );
+      
+      break;
+      
+      }
+
+      case 52: {
+
+      if(msg=="1"){
+      
+          step=65;
+      
+          respuestaBot=bot(
+      
+      "Perfecto. Seleccione la categoría:",
+      
+      [
+      "1. Envases industriales",
+      "2. Productos de Merchandising | Promocional",
+      "3. Retail, supermercados y misceláneas"
+      ],
+      
+      step,
+      
+      datosFormulario
+      
+      );
+      
+      break;
+      
+      }
+      
+      if(msg=="2"){
+      
+          step=51;
+      
+          respuestaBot=bot(
+      
+      "Seleccione otro catálogo:",
+      
+      [
+      "1. Envases industriales",
+      "2. Merchandising",
+      "3. Retail"
+      
+      ],
+      
+      step,
+      
+      datosFormulario
+      
+      );
+      
+      break;
+      
+      }
+      
+      userStates.set(from,{
+      step:0,
+      datosFormulario:getInitialData()
+      });
+      
+      return bot(
+      
+      "Gracias por comunicarse con FANTIPLAS. ¡Que tenga un excelente día!",
+      
+      [],
+      
+      0,
+      
+      getInitialData()
+      
+      );
+      
+      }
 
     // ===================== LINEA NEGOCIO =====================
     case 65: {

@@ -35,11 +35,11 @@ function bot(text, options = [], step, datosFormulario) {
   return { text, options, step, datosFormulario };
 }
 
-console.log("Usuario:", from);
-console.log("Estado antes:", userStates.get(from));
-
 export async function handleResponse(from, msg) {
 
+  console.log("Usuario:", from);
+console.log("Estado antes:", userStates.get(from));
+  
   let userState = userStates.get(from);
 
   if (!userState) {
@@ -242,10 +242,12 @@ export async function handleResponse(from, msg) {
       
       }
 
-        console.log("Guardando estado:", {
-  step: respuestaBot.step,
-  datosFormulario: respuestaBot.datosFormulario
-});
+        if (respuestaBot) {
+  console.log("Guardando estado:", {
+    step: respuestaBot.step,
+    datosFormulario: respuestaBot.datosFormulario
+  });
+}
       
       userStates.set(from,{
       step:0,
@@ -265,8 +267,6 @@ export async function handleResponse(from, msg) {
       );
       
       }
-
-      console.log("Usuarios en memoria:", userStates.size);
 
     // ===================== LINEA NEGOCIO =====================
     case 65: {
@@ -591,5 +591,8 @@ export async function handleResponse(from, msg) {
   }
 
   userStates.set(from, { step, datosFormulario });
+
+  console.log("Estado guardado:", userStates.get(from));
+  
   return respuestaBot;
 }

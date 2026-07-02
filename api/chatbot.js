@@ -116,7 +116,7 @@ function bot(text, options = [], step, datosFormulario) {
     
       if (msg === "2" || msg === "Asignar un asesor") {
         state.flow = "asesor";
-        step = 65;
+        state.step = 65;
         respuestaBot = bot(
           `Perfecto, Voy a asignarle un asesor especializado. Seleccione la categoría que mejor se ajusta al producto que busca:`,
           [
@@ -125,7 +125,7 @@ function bot(text, options = [], step, datosFormulario) {
           "3. Retail, supermercados y misceláneas",
           "4. Otra solicitud"
           ],
-          step,
+          state.step,
           datosFormulario
           );    
           break; 

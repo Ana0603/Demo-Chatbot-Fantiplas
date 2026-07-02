@@ -296,7 +296,7 @@ function bot(text, options = [], step, datosFormulario) {
             state.flow = "asesor_otra";
             step = 500;   
             respuestaBot = bot(
-              "Cuéntenos su solicitud:",
+              "Escriba su solicitud y se la eniare al asesor correspondiente:",
               [],
               step,
               datosFormulario
@@ -551,7 +551,7 @@ function handleFlujoAsesor(state, from, msg) {
     
       step = 202;    
       respuestaBot = bot(
-        "¿Qué producto(s) desea personalizar?",
+        "Por favor, escriba los productos que mas le interecen comercializar de esta categoría",
         [],
         step,
         datosFormulario

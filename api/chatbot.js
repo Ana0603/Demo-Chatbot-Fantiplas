@@ -788,7 +788,7 @@ function handleFlujoAsesor(state, from, msg) {
           userState.step = 0;
           userState.datosFormulario = getInitialData();
     
-          userStates.set(from, state);  
+          userStates.set(from, userState);  
           return bot(
             `Perfecto ${nombre}, un asesor se contactará contigo en un plazo máximo de 3 horas. Gracias por usar nuestro servicio.`,
             [],

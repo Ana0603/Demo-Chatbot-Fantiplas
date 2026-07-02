@@ -35,6 +35,9 @@ function bot(text, options = [], step, datosFormulario) {
   return { text, options, step, datosFormulario };
 }
 
+console.log("Usuario:", from);
+console.log("Estado antes:", userStates.get(from));
+
 export async function handleResponse(from, msg) {
 
   let userState = userStates.get(from);
@@ -238,6 +241,11 @@ export async function handleResponse(from, msg) {
       break;
       
       }
+
+        console.log("Guardando estado:", {
+  step: respuestaBot.step,
+  datosFormulario: respuestaBot.datosFormulario
+});
       
       userStates.set(from,{
       step:0,
@@ -257,6 +265,8 @@ export async function handleResponse(from, msg) {
       );
       
       }
+
+      console.log("Usuarios en memoria:", userStates.size);
 
     // ===================== LINEA NEGOCIO =====================
     case 65: {

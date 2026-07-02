@@ -520,7 +520,7 @@ export async function handleResponse(from, msg) {
     case 5: {
       datosFormulario.empresa = msg;
       step = 6;
-      respuestaBot = bot("¿Desea que lo llamemos por medio de este número?", [], step, datosFormulario);
+      respuestaBot = bot("Si desea que el asesor lo llame digite su número de celular, de lo contrario escriba: NO", [], step, datosFormulario);
       break;
     }
 
@@ -547,7 +547,7 @@ export async function handleResponse(from, msg) {
       datosFormulario.email = msg;
       step = 8;
 
-      respuestaBot = bot("Queremos conocerlo mejor, no ayuda compartiendo su Web o redes sociales:", [], step, datosFormulario);
+      respuestaBot = bot("Queremos conocerlo mejor, nos ayuda compartiendo su Web o redes sociales:", [], step, datosFormulario);
       break;
     }
 

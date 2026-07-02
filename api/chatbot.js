@@ -193,80 +193,54 @@ console.log("Estado antes:", userStates.get(from));
 
       case 52: {
 
-      if(msg=="1"){
-      
-          step=65;
-      
-          respuestaBot=bot(
-      
-      "Perfecto. Seleccione la categoría:",
-      
-      [
-      "1. Envases industriales",
-      "2. Productos de Merchandising | Promocional",
-      "3. Retail, supermercados y misceláneas"
-      ],
-      
-      step,
-      
-      datosFormulario
-      
-      );
-      
-      break;
-      
-      }
-      
-      if(msg=="2"){
-      
-          step=51;
-      
-          respuestaBot=bot(
-      
-      "Seleccione otro catálogo:",
-      
-      [
-      "1. Envases industriales",
-      "2. Merchandising",
-      "3. Retail"
-      
-      ],
-      
-      step,
-      
-      datosFormulario
-      
-      );
-      
-      break;
-      
-      }
+  if (msg == "1") {
 
-        if (respuestaBot) {
-  console.log("Guardando estado:", {
-    step: respuestaBot.step,
-    datosFormulario: respuestaBot.datosFormulario
+    step = 65;
+
+    respuestaBot = bot(
+      "Perfecto. Seleccione la categoría:",
+      [
+        "1. Envases industriales",
+        "2. Productos de Merchandising | Promocional",
+        "3. Retail, supermercados y misceláneas"
+      ],
+      step,
+      datosFormulario
+    );
+
+    break;
+  }
+
+  if (msg == "2") {
+
+    step = 51;
+
+    respuestaBot = bot(
+      "Seleccione otro catálogo:",
+      [
+        "1. Envases industriales",
+        "2. Merchandising",
+        "3. Retail"
+      ],
+      step,
+      datosFormulario
+    );
+
+    break;
+  }
+
+  userStates.set(from, {
+    step: 0,
+    datosFormulario: getInitialData()
   });
+
+  return bot(
+    "Gracias por comunicarse con FANTIPLAS. ¡Que tenga un excelente día!",
+    [],
+    0,
+    getInitialData()
+  );
 }
-      
-      userStates.set(from,{
-      step:0,
-      datosFormulario:getInitialData()
-      });
-      
-      return bot(
-      
-      "Gracias por comunicarse con FANTIPLAS. ¡Que tenga un excelente día!",
-      
-      [],
-      
-      0,
-      
-      getInitialData()
-      
-      );
-      
-      }
 
     // ===================== LINEA NEGOCIO =====================
     case 65: {

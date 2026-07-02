@@ -99,7 +99,7 @@ function bot(text, options = [], step, datosFormulario) {
     case 50: {
        if (msg === "1" || msg === "Consultar catálogos") {        
         state.flow = "catalogos";         
-        step = 51;    
+        state.step = 51;    
         respuestaBot = bot(
         `En Fantiplas contamos con tres lineas de negocios. Por favor, seleccione la línea de productos que desea consultar:`,
         [

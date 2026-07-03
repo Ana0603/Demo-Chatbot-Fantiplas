@@ -190,7 +190,7 @@ function bot(text, options = [], step, datosFormulario) {
             break;
           }
     
-          state.step = 52;
+          step = 52;
     
           respuestaBot = bot(
           `📚 Aquí tiene el catálogo solicitado.   

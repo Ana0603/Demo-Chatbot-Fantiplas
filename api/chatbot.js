@@ -190,7 +190,7 @@ function bot(text, options = [], step, datosFormulario) {
             break;
           }
     
-          step = 52;
+          state.step = 52;
     
           respuestaBot = bot(
           `📚 Aquí tiene el catálogo solicitado.   
@@ -679,7 +679,7 @@ function handleFlujoAsesor(state, from, msg) {
               step = 0;    
               respuestaBot = bot(
                 "Reiniciando conversación...",
-                [],4
+                [],
                 
                 step,
                 datosFormulario

@@ -399,39 +399,86 @@ function handleFlujoAsesor(state, from, msg) {
     // Categorías
         
      case 101: {
-      if (msg === "7") {    
-        datosFormulario.categoria = "Alimentos";    
-      } else if (msg === "8") {    
-        datosFormulario.categoria = "Cosméticos";    
-      } else if (msg === "9") {    
-        datosFormulario.categoria = "Farmacéuticos";    
-      } else if (msg === "10") {   
-        datosFormulario.categoria = "Hogar - Aseo";    
-      } else {
-    
+  const categorias = {
+    "7": "Alimentos",
+    "8": "Cosméticos",
+    "9": "Farmacéuticos",
+    "10": "Hogar - Aseo"
+  };
+
+  // Inicializar el arreglo si aún no existe
+  if (!Array.isArray(datosFormulario.categoria)) {
+    datosFormulario.categoria = [];
+  }
+
+  // Finalizar selección
+    if (msg === "0" || msg.toLowerCase() === "continuar") {
+      if (datosFormulario.categoria.length === 0) {
         respuestaBot = bot(
-          "Seleccione una categoría válida.",
+          "Seleccione al menos una categoría.",
           [
             "7. Alimentos",
             "8. Cosméticos",
             "9. Farmacéuticos",
-            "10. Hogar - Aseo"
+            "10. Hogar - Aseo",
+            "0. Continuar"
           ],
           step,
           datosFormulario
-        );    
+        );
         break;
       }
-    
-      step = 102;   
+  
+      step = 102;
+  
       respuestaBot = bot(
         "¿Cuál es el contenido que va a envasar?",
         [],
         step,
         datosFormulario
-      );   
+      );
+  
       break;
     }
+  
+    // Validar opción
+    if (!categorias[msg]) {
+      respuestaBot = bot(
+        "Seleccione una opción válida.",
+        [
+          "7. Alimentos",
+          "8. Cosméticos",
+          "9. Farmacéuticos",
+          "10. Hogar - Aseo",
+          "0. Continuar"
+        ],
+        step,
+        datosFormulario
+      );
+      break;
+    }
+  
+    // Evitar duplicados
+       
+    if (!datosFormulario.categoria.includes(categorias[msg])) {
+      datosFormulario.categoria.push(categorias[msg]);
+    }
+  
+    respuestaBot = bot(
+      `Ha seleccionado:\n• ${datosFormulario.categoria.join("\n• ")}\n\nPuede seleccionar otra categoría o escribir *0* para continuar.`,
+      [
+        "7. Alimentos",
+        "8. Cosméticos",
+        "9. Farmacéuticos",
+        "10. Hogar - Aseo",
+        "0. Continuar"
+      ],
+      step,
+      datosFormulario
+    );
+  
+    break;
+  }
         
     // Capacidad
         

@@ -170,9 +170,9 @@ function bot(text, options = [], step, datosFormulario) {
       switch (step) {    
         case 51: {    
           const links = {
-            "1": "https://drive.google.com/file/d/12D_XJXK7d06juB8sZB4c6SRw2aRDp3_U/view?usp=sharing",
-            "2": "https://drive.google.com/file/d/1Jp4j2J8OSO8IBEuOTkSqHKHsEvCOb5T8/view?usp=drive_link",
-            "3": "https://drive.google.com/file/d/113PpdO_cisYxGQ2CE58Z_JHevfxgmFBM/view?usp=sharing"
+            "1": "https://drive.google.com/file/d/16uc184Ey2ulJV1Y0vC_IaFopTw3TEoY0/view?usp=sharing",
+            "2": "https://drive.google.com/file/d/13FqKndQvMYinBS-x17B_bUIvi_nomh69/view?usp=sharing",
+            "3": "https://drive.google.com/file/d/1GMo_q0VBOnytLEfWjO4ejRLqxSX1UdJ6/view?usp=sharing"
           };
     
           const link = links[msg];   
@@ -193,9 +193,9 @@ function bot(text, options = [], step, datosFormulario) {
           step = 52;
     
           respuestaBot = bot(
-          `📚 Aquí tiene el catálogo solicitado.    
-          ${link}    
-          Revíselo con tranquilidad. Si encuentra el producto que necesita, con gusto prepararemos una cotización personalizada.    
+          `📚 Aquí tiene el catálogo solicitado.\n\n    
+          ${link}\n\n    
+          Revíselo con tranquilidad. Si encuentra el producto que necesita, con gusto prepararemos una cotización personalizada.\n\n    
           ¿Desea realizar una cotización?`,
             [
               "1. Sí",

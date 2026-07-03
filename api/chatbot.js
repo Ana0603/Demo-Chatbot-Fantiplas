@@ -296,7 +296,7 @@ function bot(text, options = [], step, datosFormulario) {
             state.flow = "asesor_otra";
             step = 500;   
             respuestaBot = bot(
-              "Escriba su solicitud y se la eniare al asesor correspondiente:",
+              "Escriba su solicitud y se la enviare al asesor correspondiente:",
               [],
               step,
               datosFormulario
@@ -333,7 +333,7 @@ function bot(text, options = [], step, datosFormulario) {
         default:
     
           respuestaBot = bot(
-            "RLo sentimos no se pudo responder a tu mensaje... Vuelve a intenrarlo en dos minutos, por favor.",
+            "Lo sentimos no se pudo responder a tu mensaje... Vuelve a intenrarlo en dos minutos, por favor.",
             [],
             0,
             getInitialData()
@@ -382,7 +382,7 @@ function handleFlujoAsesor(state, from, msg) {
     
       step = 101;  
       respuestaBot = bot(
-        "En nuestra línea de envases trabajamos con las siguientes categorías. Seleccione la que se ajusta a su necesidad:",
+        "Seleccione una o varias categorías válidas.\n\nSi desea elegir más de una, sepárelas con comas.\nEjemplo: 7,8",
         [
           "7. Alimentos",
           "8. Cosméticos",
@@ -397,88 +397,58 @@ function handleFlujoAsesor(state, from, msg) {
     }
         
     // Categorías
-        
-     case 101: {
-  const categorias = {
-    "7": "Alimentos",
-    "8": "Cosméticos",
-    "9": "Farmacéuticos",
-    "10": "Hogar - Aseo"
-  };
 
-  // Inicializar el arreglo si aún no existe
-  if (!Array.isArray(datosFormulario.categoria)) {
-    datosFormulario.categoria = [];
-  }
+      case 101: {
 
-  // Finalizar selección
-    if (msg === "0" || msg.toLowerCase() === "continuar") {
-      if (datosFormulario.categoria.length === 0) {
-        respuestaBot = bot(
-          "Seleccione al menos una categoría.",
-          [
-            "7. Alimentos",
-            "8. Cosméticos",
-            "9. Farmacéuticos",
-            "10. Hogar - Aseo",
-            "0. Continuar"
-          ],
-          step,
-          datosFormulario
-        );
-        break;
+      const categorias = {
+        "7": "Alimentos",
+        "8": "Cosméticos",
+        "9": "Farmacéuticos",
+        "10": "Hogar - Aseo"
+      };
+    
+      const opciones = msg
+        .split(",")
+        .map(opcion => opcion.trim());
+    
+      const categoriasSeleccionadas = [];
+    
+      for (const opcion of opciones) {
+        if (!categorias[opcion]) {
+          respuestaBot = bot(
+            "Seleccione una o varias categorías válidas.\n\nSi desea elegir más de una, sepárelas con comas.\nEjemplo: 7,8",
+            [
+              "7. Alimentos",
+              "8. Cosméticos",
+              "9. Farmacéuticos",
+              "10. Hogar - Aseo"
+            ],
+            step,
+            datosFormulario
+          );
+          break;
+        }
+    
+        if (!categoriasSeleccionadas.includes(categorias[opcion])) {
+          categoriasSeleccionadas.push(categorias[opcion]);
+        }
       }
-  
+    
+      if (respuestaBot) break;
+    
+      datosFormulario.categoria = categoriasSeleccionadas;
+    
       step = 102;
-  
+    
       respuestaBot = bot(
         "¿Cuál es el contenido que va a envasar?",
         [],
         step,
         datosFormulario
       );
-  
+    
       break;
     }
-  
-    // Validar opción
-    if (!categorias[msg]) {
-      respuestaBot = bot(
-        "Seleccione una opción válida.",
-        [
-          "7. Alimentos",
-          "8. Cosméticos",
-          "9. Farmacéuticos",
-          "10. Hogar - Aseo",
-          "0. Continuar"
-        ],
-        step,
-        datosFormulario
-      );
-      break;
-    }
-  
-    // Evitar duplicados
-       
-    if (!datosFormulario.categoria.includes(categorias[msg])) {
-      datosFormulario.categoria.push(categorias[msg]);
-    }
-  
-    respuestaBot = bot(
-      `Ha seleccionado:\n• ${datosFormulario.categoria.join("\n• ")}\n\nPuede seleccionar otra categoría o escribir *0* para continuar.`,
-      [
-        "7. Alimentos",
-        "8. Cosméticos",
-        "9. Farmacéuticos",
-        "10. Hogar - Aseo",
-        "0. Continuar"
-      ],
-      step,
-      datosFormulario
-    );
-  
-    break;
-  }
         
     // Capacidad
         

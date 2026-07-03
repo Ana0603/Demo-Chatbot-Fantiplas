@@ -101,7 +101,7 @@ function bot(text, options = [], step, datosFormulario) {
         state.flow = "catalogos";         
         state.step = 51;    
         respuestaBot = bot(
-        `En Fantiplas contamos con tres lineas de negocios. Por favor, seleccione la línea de productos que desea consultar:`,
+        `En Fantiplas contamos con tres lineas de negocio. Por favor, seleccione la línea de productos que desea consultar:`,
         [
         "1. Envases industriales",
         "2. Merchandising | Promocional",
@@ -193,9 +193,9 @@ function bot(text, options = [], step, datosFormulario) {
           step = 52;
     
           respuestaBot = bot(
-          `📚 Aquí tiene el catálogo solicitado.\n\n    
+          `📚 Aquí tiene el catálogo solicitado.   
           ${link}\n\n    
-          Revíselo con tranquilidad. Si encuentra el producto que necesita, con gusto prepararemos una cotización personalizada.\n\n    
+          Revíselo con tranquilidad. Si encuentra el producto que necesita, con gusto prepararemos una cotización personalizada. 
           ¿Desea realizar una cotización?`,
             [
               "1. Sí",
@@ -213,7 +213,7 @@ function bot(text, options = [], step, datosFormulario) {
             state.flow = "asesor";
             step = 65;
             respuestaBot = bot(
-              "Perfecto. Seleccione la categoría:",
+              "Perfecto, Voy a asignarle un asesor especializado. Seleccione la categoría que mejor se ajusta al producto que busca:",
               [
                 "1. Envases industriales",
                 "2. Productos de Merchandising | Promocional",
@@ -333,7 +333,7 @@ function bot(text, options = [], step, datosFormulario) {
         default:
     
           respuestaBot = bot(
-            "Reiniciando conversación...",
+            "RLo sentimos no se pudo responder a tu mensaje... Vuelve a intenrarlo en dos minutos, por favor.",
             [],
             0,
             getInitialData()
@@ -679,7 +679,8 @@ function handleFlujoAsesor(state, from, msg) {
               step = 0;    
               respuestaBot = bot(
                 "Reiniciando conversación...",
-                [],
+                [],4
+                
                 step,
                 datosFormulario
               );  

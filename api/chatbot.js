@@ -41,6 +41,9 @@ function bot(text, options = [], step, datosFormulario) {
 }
 
   export async function handleResponse(from, msg) { 
+       const prueba = await getEstado(from);
+       console.log("Respuesta de Make:", prueba);
+      
   let userState = userStates.get(from);
   if (!userState?.datosFormulario) {
     userState = {

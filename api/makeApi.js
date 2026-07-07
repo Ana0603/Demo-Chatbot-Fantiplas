@@ -1,6 +1,6 @@
 const MAKE_WEBHOOK = "https://hook.us2.make.com/i3eso5pu0c6htbqrb9t9kiggq33tj6v9";
 
-async function llamarMake(datos) {
+async function llamarMake(datos, esperarJson = false) {
   const response = await fetch(MAKE_WEBHOOK, {
     method: "POST",
     headers: {
@@ -13,14 +13,18 @@ async function llamarMake(datos) {
     throw new Error(`Error ${response.status}`);
   }
 
-  return await response.json();
+  if (esperarJson) {
+    return await response.json();
+  }
+
+  return true;
 }
 
 export async function getEstado(telefono) {
   return llamarMake({
     accion: "get",
     telefono
-  });
+  }, true);
 }
 
 export async function saveEstado(telefono, estado) {

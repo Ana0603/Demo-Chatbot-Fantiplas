@@ -51,6 +51,7 @@ function bot(text, options = [], step, datosFormulario) {
       step: 0,
       datosFormulario: getInitialData()
     };
+    await saveEstado(from, userState);
   }
 
     if (userState.step >= 4 && userState.step <= 10) {

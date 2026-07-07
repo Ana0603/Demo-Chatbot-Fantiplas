@@ -858,12 +858,12 @@ async function handleFlujoAsesor(state, from, msg) {
           );
       }
     
-      userState.step = step;
-      userState.datosFormulario = datosFormulario;
+    userState.step = step;
+    userState.datosFormulario = datosFormulario;
     
-      userStates.set(from, userState);
-
-        await saveEstado(from, state);
+    userStates.set(from, userState);
     
-      return respuestaBot;
+    await saveEstado(from, userState);
+    
+    return respuestaBot;
     }

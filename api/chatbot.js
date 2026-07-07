@@ -1,3 +1,9 @@
+import {
+    getEstado,
+    saveEstado,
+    deleteEstado
+} from "./makeApi.js";
+
 const userStates = new Map();
 
 function getInitialData() {

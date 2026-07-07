@@ -27,7 +27,7 @@ export async function saveEstado(telefono, estado) {
   return llamarMake({
     accion: "save",
     telefono,
-    estado
+    estado: JSON.stringify(estado)
   });
 }
 

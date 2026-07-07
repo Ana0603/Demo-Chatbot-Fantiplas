@@ -184,6 +184,10 @@ console.log("Step:", userState.step);
       userStates.set(from, state);
 
      await saveEstado(from, state);
+
+     console.log("ANTES DE GUARDAR");
+
+     throw new Error("LLEGO HASTA AQUI");
     
       return respuestaBot;
     }

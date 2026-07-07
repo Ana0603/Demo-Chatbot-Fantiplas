@@ -42,7 +42,8 @@ function bot(text, options = [], step, datosFormulario) {
 
   export async function handleResponse(from, msg) { 
        const prueba = await getEstado(from);
-console.log("Respuesta de Make:", prueba);
+      
+console.log("Estado recibido:", prueba.estado);
 
 let userState;
 
@@ -73,6 +74,8 @@ if (prueba.ok && prueba.estado) {
 
    const { flow } = userState;  
     let response;  
+      console.log("Flow:", flow);
+console.log("Step:", userState.step);
     switch (flow) {
       case "inicio":
         response = await handleInicio(userState, from, msg);

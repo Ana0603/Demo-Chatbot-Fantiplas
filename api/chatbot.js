@@ -182,6 +182,8 @@ console.log("Step:", userState.step);
     
       state.datosFormulario = datosFormulario;
       userStates.set(from, state);
+
+     await saveEstado(from, state);
     
       return respuestaBot;
     }

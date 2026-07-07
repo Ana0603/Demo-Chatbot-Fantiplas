@@ -15,7 +15,20 @@ async function llamarMake(datos, esperarJson = false) {
   }
 
   if (esperarJson) {
-    return await response.json();
+    const texto = await response.text();
+
+console.log("RESPUESTA DE MAKE:");
+console.log(texto);
+
+try {
+  return JSON.parse(texto);
+} catch (e) {
+  console.log("No era JSON");
+  return {
+    ok: false,
+    raw: texto
+  };
+}
   }
 
   return true;

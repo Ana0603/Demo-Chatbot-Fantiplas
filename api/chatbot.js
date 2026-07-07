@@ -42,17 +42,29 @@ function bot(text, options = [], step, datosFormulario) {
 
   export async function handleResponse(from, msg) { 
        const prueba = await getEstado(from);
-       console.log("Respuesta de Make:", prueba);
-      
-  let userState = userStates.get(from);
-  if (!userState?.datosFormulario) {
-    userState = {
-      flow: "inicio",
-      step: 0,
-      datosFormulario: getInitialData()
-    };
-    await saveEstado(from, userState);
-  }
+console.log("Respuesta de Make:", prueba);
+
+let userState;
+
+if (prueba.ok && prueba.estado) {
+  // Recuperar el estado guardado en Google Sheets
+  userState = prueba.estado;
+
+  // Opcional: mantenerlo también en memoria
+  userStates.set(from, userState);
+
+} else {
+  // Usuario nuevo
+  userState = {
+    flow: "inicio",
+    step: 0,
+    datosFormulario: getInitialData()
+  };
+
+  userStates.set(from, userState);
+
+  await saveEstado(from, userState);
+}
 
     if (userState.step >= 4 && userState.step <= 10) {
     return await handleDatosFinales(userState, from, msg);
@@ -84,7 +96,7 @@ function bot(text, options = [], step, datosFormulario) {
   }
 
 
-  function handleInicio(state, from, msg) {
+ async function handleInicio(state, from, msg) {
     let { step, datosFormulario } = state;
     let respuestaBot;
     switch (step) {
@@ -173,7 +185,7 @@ function bot(text, options = [], step, datosFormulario) {
 
     // ===================== CATALOGOS =====================
       
-    function handleCatalogos(state, from, msg) {   
+  async function handleCatalogos(state, from, msg) {   
       let { step, datosFormulario } = state;
       let respuestaBot;
     
@@ -283,7 +295,7 @@ function bot(text, options = [], step, datosFormulario) {
       
     // ===================== ASESOR =====================
       
-    function handleAsesor(state, from, msg) {    
+   async function handleAsesor(state, from, msg) {    
       let { step, datosFormulario } = state;
       let respuestaBot;    
       switch (step) {
@@ -358,7 +370,7 @@ function bot(text, options = [], step, datosFormulario) {
       return respuestaBot;
     }
 
-function handleFlujoAsesor(state, from, msg) {
+async function handleFlujoAsesor(state, from, msg) {
 
     let { step, datosFormulario } = state;
     let respuestaBot;

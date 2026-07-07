@@ -75,22 +75,22 @@ if (prueba.ok && prueba.estado) {
     let response;  
     switch (flow) {
       case "inicio":
-        response = handleInicio(userState, from, msg);
+        response = await handleInicio(userState, from, msg);
         break;  
       case "catalogos":
-        response = handleCatalogos(userState, from, msg);
+        response = await handleCatalogos(userState, from, msg);
         break;  
       case "asesor":
-        response = handleAsesor(userState, from, msg);
+        response = await handleAsesor(userState, from, msg);
         break;  
       case "asesor_envases":
       case "asesor_merch":
       case "asesor_retail":
       case "asesor_otra":
-        response = handleFlujoAsesor(userState, from, msg);
+        response = await handleFlujoAsesor(userState, from, msg);
         break; 
       default:
-        response = handleInicio(userState, from, msg);
+        response = await handleInicio(userState, from, msg);
     }  
     return response;
   }
@@ -289,7 +289,8 @@ if (prueba.ok && prueba.estado) {
     
       state.step = step;
       state.datosFormulario = datosFormulario;    
-      userStates.set(from, state);    
+      userStates.set(from, state); 
+      await saveEstado(from, state);
       return respuestaBot;    
     }
       
@@ -366,7 +367,8 @@ if (prueba.ok && prueba.estado) {
       }    
       state.step = step;
       state.datosFormulario = datosFormulario;    
-      userStates.set(from, state);   
+      userStates.set(from, state);  
+      await saveEstado(from, state); 
       return respuestaBot;
     }
 
@@ -728,7 +730,8 @@ async function handleFlujoAsesor(state, from, msg) {
         
           state.step = step;
           state.datosFormulario = datosFormulario;    
-          userStates.set(from, state);    
+          userStates.set(from, state);
+          await saveEstado(from, state);
           return respuestaBot;    
         }
              
@@ -829,8 +832,12 @@ async function handleFlujoAsesor(state, from, msg) {
           userState.datosFormulario = getInitialData();
     
           userStates.set(from, userState);  
+
+          await saveEstado(from, userState);
+              
           return bot(
-            `Perfecto ${nombre}, un asesor se contactará contigo en un plazo máximo de 3 horas. Gracias por usar nuestro servicio.`,
+            `Perfecto ${nombre}, un asesor se contactará contigo en un plazo máximo de 3 horas. 
+            Gracias por usar nuestro servicio.`,
             [],
             0,
             getInitialData()
@@ -841,6 +848,8 @@ async function handleFlujoAsesor(state, from, msg) {
       userState.datosFormulario = datosFormulario;
     
       userStates.set(from, userState);
+
+        await saveEstado(from, state);
     
       return respuestaBot;
     }

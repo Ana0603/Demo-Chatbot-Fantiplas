@@ -92,6 +92,10 @@ console.log("Step:", userState.step);
       case "asesor_otra":
         response = await handleFlujoAsesor(userState, from, msg);
         break; 
+    case "datos_finales":
+    response = await handleDatosFinales(userState, from, msg);
+    break;
+
       default:
         response = await handleInicio(userState, from, msg);
     }  
@@ -710,6 +714,8 @@ async function handleFlujoAsesor(state, from, msg) {
     case 500: {
     
       datosFormulario.otraSolicitud = msg;
+
+      state.flow = "datos_finales";
     
       step = 4;
     

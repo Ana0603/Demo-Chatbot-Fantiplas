@@ -293,6 +293,7 @@ console.log("Step:", userState.step);
       state.step = step;
       state.datosFormulario = datosFormulario;    
       userStates.set(from, state); 
+      console.log("Guardando estado:", state);
       await saveEstado(from, state);
       return respuestaBot;    
     }

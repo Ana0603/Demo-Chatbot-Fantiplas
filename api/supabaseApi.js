@@ -1,3 +1,5 @@
+import { supabase } from "./supabase.js";
+
 export async function getEstado(telefono) {
   const { data, error } = await supabase
     .from("estados_chatbot")
